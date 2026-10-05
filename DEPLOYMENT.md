@@ -46,3 +46,7 @@ Never run wrangler login. Credentials live in sandbox environment/Cloudflare sec
 ## Rollback / release
 
 Tag or record source commit and deployment URL; rerun tests before release. Roll back to a known successful Pages deployment via dashboard or rebuild a known commit; do not reset/delete current source history. No database migrations needed. Monitor health, render errors, 404s, asset delivery, and certificate status. Browser/HTTP tests do not certify legal readiness, performance SLA or full accessibility conformance.
+
+## Verified final research-toolkit rollout
+
+Source commit 02202ca6617ea139ef2db6bd810676e58188efac, deployed to https://e0e8c8b2.webapp-4.pages.dev; stable https://webapp-4.pages.dev. Production HTTP10 pages/18 targets and Chromium responsive/calculator workflow checks passed. Exact sanitized evidence: [release.json](evidence/release.json). Source commit was pushed and matched GitHub remote main; following documentation-only evidence commit does not change deployed application code.

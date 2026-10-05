@@ -34,13 +34,13 @@ Updated: HOLBERY-MASTER, README, ARCHITECTURE, BRAND-RULES, DECISIONS, ROADMAP. 
 
 ## Tests / evidence
 
-36 unit tests pass; TypeScript/build pass; HTTP10 pages and18 internal targets pass locally; browser widths320/390/768/1440, mobile menu, headings/no overflow/no JS errors, calculator valid result and required-field error pass. Phase document checks validate implemented scope; pending-phase readiness intentionally not claimed. Integration audit checks links, archive bytes, non-PII registry, blank revenue, public/private bundle boundary and current secret-pattern/env-value scan (not full forensic/history/PII certification).
+36 unit tests pass; TypeScript/build pass; HTTP10 pages and18 internal targets pass locally and on production; browser widths320/390/768/1440, mobile menu, headings/no overflow/no JS errors, calculator valid result and required-field error pass. Phase document checks validate implemented scope; pending-phase readiness intentionally not claimed. Integration audit checks links, archive bytes, non-PII registry, blank revenue, public/private bundle boundary and current secret-pattern/env-value scan (not full forensic/history/PII certification).
 
-161 lockfile packages license metadata inventoried, runtime Hono MIT notice preserved; npm audit zero reported vulnerabilities at check time. Legal clearance is separate. Latest deployment and push verification are added to evidence/release.json after final source release; final report in chat gives verified revision. No claim based solely on deploy CLI return.
+161 lockfile packages license metadata inventoried, runtime Hono MIT notice preserved; npm audit zero reported vulnerabilities at check time. Legal clearance is separate. Source release commit 02202ca6617ea139ef2db6bd810676e58188efac pushed to existing GitHub main and verified against remote SHA. Latest production HTTP and browser checks, including working calculator/downloads, passed. [Release evidence](evidence/release.json) records exact source/deployment references. No claim based solely on deploy CLI return.
 
 ## Deployment
 
-BYOK account authenticated; new webapp-4 Pages project on main created, unrelated existing projects untouched. Stable production host https://webapp-4.pages.dev passed public HTTP/browser checks for headquarters. Latest toolkit rollout is being finalized during wrap-up and is not called VERIFIED until its production checks pass. Metadata/wrangler project name webapp-4.
+BYOK account authenticated; new webapp-4 Pages project on main created, unrelated existing projects untouched. Stable production host https://webapp-4.pages.dev passed public HTTP/browser checks for headquarters. Latest toolkit rollout VERIFIED: https://e0e8c8b2.webapp-4.pages.dev, stable host https://webapp-4.pages.dev. Production checks passed for all10 pages,18 internal targets, responsive navigation, valid calculator submit and input errors; zero browser JS errors. Metadata/wrangler project name webapp-4.
 
 Initial propagation checks saw asset522/TLS mismatch; stable-host recheck subsequently passed. Strategic primary domain remains holberry.biz, but authoritative technical checks returned RDAP404 and DNS NXDOMAIN and token has no exact-domain zone. No registration purchase, DNS mutation or redirect performed. Canonical SEO uses verified Pages host until primary domain control/TLS is confirmed.
 

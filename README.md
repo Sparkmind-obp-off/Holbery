@@ -11,7 +11,7 @@ Practical systems, products, and ventures.
 
 - Production BYOK website: **https://webapp-4.pages.dev**.
 - Functional research MVP: **https://webapp-4.pages.dev/systems/barber**.
-- Existing GitHub repository: **https://github.com/Sparkmind-obp-off/Holbery**, branch main. Release/push verification is recorded in EXECUTION-REPORT and evidence/release.json when completed.
+- Existing GitHub repository: **https://github.com/Sparkmind-obp-off/Holbery**, branch main. Source02202ca pushed and remote SHA matched; release/push verification recorded in EXECUTION-REPORT and evidence/release.json.
 - Strategic primary domain: **holberry.biz**. No accessible CF zone, RDAP404 and DNS NXDOMAIN on 2026-10-05. Ownership/control NOT VERIFIED; custom-domain setup BLOCKED pending owner action. No DNS changes or registration purchase performed.
 - Legal/trademark clearance NOT COMPLETE. Near-spelling screening lead recorded; authoritative review requires qualified counsel.
 - Barber system lifecycle EXPERIMENT, actual operators0, interviews0, paid commitments0. Unit/browser tests are engineering evidence only.

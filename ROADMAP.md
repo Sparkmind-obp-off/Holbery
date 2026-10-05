@@ -132,7 +132,7 @@ Evidence: [phase-07.json](evidence/phase-07.json). Test: `node scripts/check-pha
 
 2026-10-05: Phase0–7 deliverable scope COMPLETE (8/11); Phase8–10 PENDING, NOT STARTED karena instruksi wrap-up terbaru H-014. Master operational/commercial Definition of Done belum tercapai. Source/evidence integration dan release ditutup pada run ini.
 
-- Hosting BYOK: VERIFIED stable Pages host, latest toolkit rollout verified separately at release.
+- Hosting BYOK: VERIFIED stable Pages host and latest toolkit rollout; source02202ca, production HTTP/browser/calculator tests passed; evidence/release.json.
 - Primary custom domain holberry.biz: BLOCKED/REQUIRES USER ACTION; no zone, RDAP404/DNS NXDOMAIN, no DNS change.
 - Legal/trademark/IP title: PENDING/REQUIRES USER ACTION; no clearance claim.
 - Email/social/private support: UNVERIFIED/BLOCKED until owner confirms.

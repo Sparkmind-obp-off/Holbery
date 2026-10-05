@@ -88,3 +88,7 @@ Status keputusan berbeda dari status implementasi. Perubahan identitas harus mem
 ## H-014 — Wrap-up pause requested by user
 
 2026-10-05 / ACCEPTED. Latest instruction requests wrapping up accomplishments/remaining work and no new subtasks. Close existing Phase7 work, verify/commit/push/redeploy and deliver current report. Phase8–10 remain PENDING, explicitly not completed or represented as externally blocked. Resume at Phase8 when execution is resumed; no Phase0 redo. H-008 continuous protocol is paused for this run by newer user instruction.
+
+## H-015 — Verified source release, existing GitHub and BYOK
+
+2026-10-05 / VERIFIED. Source commit 02202ca6617ea139ef2db6bd810676e58188efac pushed non-destructively to Sparkmind-obp-off/Holbery main; remote SHA matched. Same built app deployed Cloudflare BYOK project webapp-4: https://e0e8c8b2.webapp-4.pages.dev, stable https://webapp-4.pages.dev. Production HTTP/browser/calculator tests passed. release.json records proof; final documentation-only evidence commit is pushed separately, with no source/runtime change. Phase8–10 remain pending per H-014.

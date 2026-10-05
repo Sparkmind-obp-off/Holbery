@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-05",
+  "sourceReleaseCommit": "02202ca6617ea139ef2db6bd810676e58188efac",
+  "githubRemoteCommitAtSourcePush": "02202ca6617ea139ef2db6bd810676e58188efac",
+  "githubSourcePush": "VERIFIED",
+  "deploymentProject": "webapp-4",
+  "deploymentUrl": "https://e0e8c8b2.webapp-4.pages.dev",
+  "stableUrl": "https://webapp-4.pages.dev",
+  "hosting": "Cloudflare BYOK Pages",
+  "productionBranch": "main",
+  "productionHttp": "PASS 10 pages / 18 internal targets",
+  "productionBrowser": "PASS responsive + calculator + JS checks",
+  "primaryDomain": "holberry.biz",
+  "primaryDomainStatus": "BLOCKED/REQUIRES USER ACTION",
+  "realOperatorCount": 0,
+  "paidCommitments": 0,
+  "scope": "Latest source deploy tested; following documentation-only commits do not change deployed app."
+}
