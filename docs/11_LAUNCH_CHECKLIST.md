@@ -1,12 +1,22 @@
 # 11 — LAUNCH CHECKLIST
 
 ## Parent brand readiness
-- [ ] HOLBERY strategic name approved
+- [x] HOLBERY strategic name approved
 - [ ] legal/trademark clearance plan documented
-- [ ] domain decision documented
+- [x] parent domain selected: `holbery.biz.id`
+- [x] parent domain secured (user-confirmed)
 - [ ] official social handles decided
 - [ ] master wordmark direction approved
 - [ ] parent messaging approved
+
+## Domain / web readiness
+- [x] canonical parent domain recorded
+- [ ] DNS records configured
+- [ ] HTTPS verified
+- [ ] parent landing page deployed
+- [ ] canonical redirect rules defined
+- [ ] privacy / terms / contact pages published where required
+- [ ] domain email strategy implemented
 
 ## Portfolio readiness
 - [ ] child brand registry exists
@@ -37,4 +47,4 @@
 - [ ] rollback plan
 
 ## Launch principle
-Launch the smallest useful parent system first. The portfolio can become sophisticated later.
+Establish the smallest credible parent presence first. Do not build a large corporate surface before the portfolio has something real to show.
