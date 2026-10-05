@@ -8,7 +8,7 @@ Practical systems, products, and ventures.
 ## Status nyata
 
 - HOLBERY adalah master parent brand, bukan produk tunggal.
-- **PHASE 0 — PROJECT INITIALIZATION: COMPLETE**, khusus fondasi dokumentasi; 88/88 pemeriksaan lulus. Bukti: [ROADMAP.md](ROADMAP.md). Phase 1–10 tetap PENDING.
+- **PHASE 0 — PROJECT INITIALIZATION: COMPLETE**, khusus fondasi dokumentasi; 88/88 pemeriksaan lulus. Bukti: [ROADMAP.md](ROADMAP.md). Phase 1–10 sedang dieksekusi berkelanjutan; lihat tracker terkini.
 - Domain strategis utama: `holberry.biz`; kepemilikan, DNS, HTTPS, dan email **belum diverifikasi**.
 - Legal/trademark clearance: **belum selesai**.
 - Website, sistem komersial, pelanggan nyata, dan revenue belum diimplementasikan atau dibuktikan dalam repository ini.

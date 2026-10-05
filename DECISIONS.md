@@ -60,3 +60,7 @@ Status keputusan berbeda dari status implementasi. Perubahan identitas harus mem
 - Keputusan: jalankan Phase 0 lalu stop/report. Phase 1–10 tetap pending meskipun arah dasarnya tercatat.
 - Alasan/sumber: execution protocol; clarity → structure → execution → proof → revenue → scale.
 - Dampak: tidak mengklaim website live, legal/trademark clearance, asset ownership, customer validation, atau revenue. Pemilik administratif dan entitas hukum harus diverifikasi; tidak menebak dari nama GitHub.
+
+## H-008 — Continuous execution / BYOK / GitHub
+
+2026-10-05 / ACCEPTED. Instruksi FULL MASTER EXECUTION mencabut stop per fase dari H-007. Phase 0 tidak diulang. Setiap fase diuji, diberi evidence, dan dilanjutkan otomatis. Blocker komponen dicatat tanpa menghentikan pekerjaan independen. Pengguna meminta push existing GitHub dan deployment Cloudflare BYOK; kedua credential setup berhasil, fetch origin main berhasil. Tidak membuat organisasi baru, tidak force-push, tidak mempublikasikan IP internal.

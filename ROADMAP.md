@@ -9,7 +9,7 @@ Roadmap historis di archive tidak menjadi tracker aktif.
 | Fase | Objective dan output minimum | Acceptance gate | Status |
 |---|---|---|---|
 | PHASE 0 — PROJECT INITIALIZATION | Audit; identitas; enam dokumen; decision log; prinsip; aturan awal; batas privat | Satu definisi kanonis tanpa sumber aktif yang bertentangan | COMPLETE — dokumentasi Phase 0 terverifikasi |
-| PHASE 1 — MASTER BRAND FOUNDATION | Vision, mission, purpose, positioning, promise, personality, audience, territory, IS/IS NOT | Proyek baru dapat dinilai terhadap definisi tanpa ambiguitas | PENDING |
+| PHASE 1 — MASTER BRAND FOUNDATION | Vision, mission, purpose, positioning, promise, personality, audience, territory, IS/IS NOT | Proyek baru dapat dinilai terhadap definisi tanpa ambiguitas | COMPLETE |
 | PHASE 2 — MASTER BRAND ARCHITECTURE | Definisi/pemetaan SYSTEMS, PRODUCTS, VENTURES, COMMERCE; contoh dan aturan lintas pilar | Setiap proyek punya kategori primer yang jelas | PENDING |
 | PHASE 3 — NAMING & BRAND GOVERNANCE | Aturan child/product/system/venture/internal/experiment/campaign/domain/social; metadata wajib | Proyek baru tidak mendilusi induk; approval dan ownership jelas | PENDING |
 | PHASE 4 — DIGITAL FOUNDATION | holberry.biz; landing page; GitHub structure; email; social; doc hub; analytics; hosting; DNS | Digital headquarters publik terbukti live, HTTPS dan kendali aset terverifikasi | PENDING |
@@ -28,7 +28,7 @@ Roadmap historis di archive tidak menjadi tracker aktif.
 - Loop Phase 6: DISCOVER → VALIDATE → DESIGN → BUILD → LAUNCH → OPERATE → MEASURE → IMPROVE → SCALE.
 - Customer → value → price → acquisition → delivery → retention harus terbukti untuk offer komersial.
 - Legal clearance bukan hasil pemilihan nama/domain. Klaim dan kontrak legal memerlukan bukti serta review yang sesuai.
-- Setiap fase audit ulang, preserve valid work, implement seperlunya, test, document, evidence, update tracker, lalu stop/report.
+- Setiap fase audit ulang, preserve valid work, implement seperlunya, test, document, evidence, update tracker, lalu lanjut otomatis; stop hanya pada blocker nyata.
 
 ## Laporan PHASE 0
 
@@ -84,4 +84,10 @@ Run pertama 87/88: domain belum disebut eksplisit di ARCHITECTURE. Ditambahkan r
 
 ### NEXT PHASE
 
-PHASE 1 — MASTER BRAND FOUNDATION. Mulai setelah laporan penutupan Phase 0, bukan otomatis menandai fase berikutnya selesai. Tetap berhenti pada batas fase.
+PHASE 1 — MASTER BRAND FOUNDATION. Mulai setelah laporan penutupan Phase 0, bukan otomatis menandai fase berikutnya selesai. Instruksi ini historis Phase 0; dicabut oleh H-008 pada eksekusi lanjutan.
+
+## Phase 1 — COMPLETE (2026-10-05)
+
+STATUS COMPLETE: brand foundation lengkap. CHANGES vision/mission/positioning/promise/audience/territory/differentiation/fit test ditetapkan; protokol berkelanjutan H-008 berlaku. FILES BRAND-FOUNDATION.md, HOLBERY-MASTER.md, README.md, DECISIONS.md, ROADMAP.md dan scripts. TESTS heading wajib, scope, link, token-pattern lulus. RISKS diferensiasi adalah hipotesis, bukan bukti pasar. NEXT Phase 2.
+
+Evidence: [phase-01.json](evidence/phase-01.json). Test: `node scripts/check-phase.mjs 1`. Dokumen diverifikasi, bukan klaim sukses legal/pelanggan. Lanjut otomatis sesuai H-008.
