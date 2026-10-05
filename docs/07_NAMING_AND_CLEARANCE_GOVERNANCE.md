@@ -1,10 +1,13 @@
 # 07 — NAMING AND CLEARANCE GOVERNANCE
 
 ## 1. HOLBERY status
-**Strategic status:** MASTER PARENT BRAND LOCK  
+**Strategic status:** MASTER PARENT BRAND LOCK
 **Legal status:** NOT LEGALLY CLEARED
+**Primary domain status:** `holbery.biz.id` — user-confirmed secured
 
 The strategic lock means the portfolio is designed around HOLBERY unless a material clearance failure occurs.
+
+Domain possession supports the strategic identity but does not establish trademark ownership.
 
 ## 2. Naming process
 For every future brand:
@@ -19,7 +22,7 @@ Check:
 - active companies
 - active products / brands
 - trademark databases
-- domain availability
+- domain availability/ownership
 - social handles
 - linguistic meaning
 - adversarial risks
@@ -44,7 +47,14 @@ Use:
 
 Never say `legally clear` from web search alone.
 
-## 6. Parent brand change rule
+## 6. Parent domain rule
+`holbery.biz.id` is the current canonical parent domain.
+
+Use subdomains or separate child domains only where they improve portfolio clarity or technical isolation.
+
+The domain should point to the parent-level experience rather than a single child brand unless intentionally delegated.
+
+## 7. Parent brand change rule
 Changing HOLBERY should require a documented reason such as:
 - material trademark conflict
 - irreparable domain/identity problem
