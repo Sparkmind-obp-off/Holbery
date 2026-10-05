@@ -2,58 +2,72 @@
 
 ## Executive status
 
-**HOLBERY** is the strategically locked master parent brand.
+**HOLBERY = MASTER PARENT BRAND / BRAND HOUSE**
 
-**Legal status:** Not legally cleared. Trademark, domain, social, and formal legal review remain separate gates.
+Strategic status: **LOCKED**  
+Legal status: **NOT LEGALLY CLEARED**
+
+HOLBERY is not intended to be a single-category operating brand. It is the parent layer that owns, governs, enables, and grows a portfolio.
 
 ## The parent
 
-HOLBERY is the house, owner, operator, and portfolio architect.
+HOLBERY is:
 
-Primary expressions:
+**House + Owner + Portfolio Governor + Shared Capability Operator**
 
-- HOLBERY
-- HOLBERY House
-- HOLBERY Brands
-- HOLBERY Commerce
-- HOLBERY Group
+It is responsible for:
+- portfolio strategy
+- brand governance
+- parent-level IP strategy
+- shared systems
+- shared commerce
+- distribution capabilities
+- group-level reporting
+- long-term resource allocation
 
-## The architecture
+## Parent-led hybrid architecture
 
 ```
 HOLBERY
-├── Child Brand A
-├── Child Brand B
-├── Child Brand C
-└── Future Brands
-
-Shared infrastructure
-├── Commerce
-├── Operations
-├── Data
-├── Distribution
-└── Systems
+├── Portfolio Governance
+├── Shared Capabilities
+│   ├── Commerce
+│   ├── Technology
+│   ├── Data
+│   ├── Operations
+│   └── Distribution
+├── Child Brands
+│   ├── Brand A
+│   ├── Brand B
+│   └── Brand C
+└── Future Ventures
 ```
 
-The parent is category-neutral. Child brands may have independent customer-facing identities.
+Child brands do not need to visually become HOLBERY.
 
-## Portfolio rules
+## Three brand relationship modes
 
-A child brand must have:
+### Independent
+Child brand is primary in customer-facing markets.
 
-- a clear problem/customer
-- a distinct reason to exist
-- a viable initial offer
-- a future expansion path
-- a defined parent relationship
-- naming clearance
-- an operating owner
+### Endorsed
+Child brand remains primary, with light parent proof:
 
-Do not create unnecessary brands or duplicate propositions.
+**A HOLBERY company**
+
+### Parent-native
+The offer itself is intentionally a HOLBERY capability.
+
+Use for:
+- group services
+- parent-level partnerships
+- shared commerce
+- portfolio intelligence
+- corporate communications
 
 ## Commerce model
 
-HOLBERY maintains one operational truth across multiple channels:
+HOLBERY maintains one operational truth where useful:
 
 ```
 Canonical Product Source
@@ -65,46 +79,41 @@ Orders / Payments / Customers / Inventory / Fulfillment
 Own Store / Marketplaces / Social / Affiliate / Reseller / B2B
 ```
 
-## Brand identity
+## Portfolio rule
+
+Every new child brand must have:
+- a clear customer
+- a clear job/problem
+- a distinct proposition
+- a reason to be a separate brand
+- a business model
+- an operating owner
+- preliminary clearance
+- a reason why HOLBERY is the right parent
+
+## Identity
 
 HOLBERY should feel:
 
 **premium, elegant, calm, friendly, mature, precise, practical, trustworthy, understated.**
 
-Premium comes from clarity and proportion, not visual excess.
+Premium is expressed through clarity, proportion, consistency, and restraint.
 
 ## Naming governance
 
-Future names follow:
-
 **Generate → Pre-screen → Deep-screen → Finalist → Clearance → Launch**
 
-No future name is "legally clear" based on web search alone.
-
-## Technical direction
-
-Shared infrastructure should be modular and reusable. Child brands should be isolated where necessary while sharing canonical product, transaction, reporting, and governance primitives.
-
-## Roadmap
-
-1. Foundation repository
-2. Parent brand presence
-3. Shared platform foundation
-4. Commerce engine
-5. First child-brand launch
-6. Distribution expansion
-7. Portfolio intelligence
-8. Group maturity
+No web search alone can establish legal clearance.
 
 ## Explicit boundaries
 
-**Bozq One System / Bosku Cukur:** private/internal; not a public HOLBERY child brand.
+**Bozq One System / Bosku Cukur:** private/internal; not a public HOLBERY child.
 
-**Tolvey / Tolva:** separate brand territory unless deliberately assigned later.
+**Tolvey / Tolva:** separate until explicitly reassigned.
 
-**Kestora:** potential vertical child-brand candidate; must enter through the child-brand onboarding gate.
+**Kestora:** potential child brand; must pass onboarding.
 
-## Source documents
+## Master-source documents
 
 - [01 — Master Brand Charter](01_MASTER_BRAND_CHARTER.md)
 - [02 — Brand Architecture](02_BRAND_ARCHITECTURE.md)
@@ -118,3 +127,7 @@ Shared infrastructure should be modular and reusable. Child brands should be iso
 - [10 — Roadmap](10_ROADMAP.md)
 - [11 — Launch Checklist](11_LAUNCH_CHECKLIST.md)
 - [12 — Decision Log](12_DECISION_LOG.md)
+- [13 — Master Parent Control Plane](13_MASTER_PARENT_CONTROL_PLANE.md)
+- [14 — Brand Relationship System](14_BRAND_RELATIONSHIP_SYSTEM.md)
+- [15 — Parent IP and Legal Ownership Model](15_PARENT_IP_AND_LEGAL_OWNERSHIP_MODEL.md)
+- [16 — Master Parent Launch Sequence](16_MASTER_PARENT_LAUNCH_SEQUENCE.md)
