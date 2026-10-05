@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-05",
+  "domain": "holberry.biz",
+  "scope": "Read-only public technical checks; not registrant or trademark proof",
+  "rdap": {
+    "http": 404,
+    "registeredObjectReturned": false,
+    "statuses": [],
+    "scope": "No registrant PII retained"
+  },
+  "dns": {
+    "http": 200,
+    "status": 3,
+    "answers": []
+  }
+}
