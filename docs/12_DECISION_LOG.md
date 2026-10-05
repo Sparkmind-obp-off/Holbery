@@ -5,35 +5,50 @@
 
 **Status:** LOCKED STRATEGICALLY
 
-**Reason:** Best balance found across premium, elegant, friendly, mature, parent-company fit, category neutrality, and portfolio scalability in the final naming process.
+**Reason:** Best overall balance found across premium, elegant, friendly, mature, parent-company fit, category neutrality, and portfolio scalability.
 
-**Important limitation:** This is a strategic brand decision, not legal trademark clearance.
+**Important limitation:** Strategic lock is not legal trademark clearance.
 
-## D-002 — ELCO retained as reserve
-**Decision:** ELCO remains a HOLD / reserve reference only.
+## D-002 — Parent architecture selected
+**Decision:** Use a Parent-led Hybrid House.
 
-It is not the active parent brand.
+HOLBERY functions as:
+- master parent identity
+- portfolio governor
+- owner/controller of parent-level strategic assets where legally appropriate
+- shared capability operator
+- group identity for corporate contexts
 
-## D-003 — TOLMOND retained as backup finalist
-**Decision:** TOLMOND remains historical backup context, not the active parent.
+Child brands may remain independent or carry a light endorsement.
 
-## D-004 — Bozq separation
-**Decision:** Bozq One System remains private/internal to Bosku Cukur.
+## D-003 — ELCO retained as reserve
+ELCO remains HOLD / reserve only. It is not the active parent.
 
-It is not to be merged into HOLBERY's public brand architecture without a deliberate future decision.
+## D-004 — TOLMOND retained as historical backup
+TOLMOND remains historical finalist context, not the active parent.
 
-## D-005 — Tolvey / Tolva separation
-**Decision:** Tolvey / Tolva remains separate unless explicitly assigned to HOLBERY later.
+## D-005 — Bozq separation
+Bozq One System remains private/internal to Bosku Cukur and is not part of the public HOLBERY portfolio.
 
-## D-006 — Repository
-**Decision:** `Sparkmind-obp-off/Holbery` is the canonical repository for HOLBERY implementation.
+## D-006 — Tolvey / Tolva separation
+Tolvey / Tolva remains separate unless explicitly reassigned.
 
-## D-007 — Parent architecture
-**Decision:** Use a parent-led hybrid house model: one parent, multiple independent child brands, shared commerce and operating infrastructure.
+## D-007 — Kestora onboarding rule
+Kestora may become a HOLBERY child brand only after completing the child-brand onboarding and clearance gates.
 
-## Next decision gates
-1. Legal / trademark clearance.
-2. Domain and social ownership.
-3. Parent visual identity finalization.
-4. First child brand approval.
-5. First commercial implementation.
+## D-008 — Repository
+**Decision:** `Sparkmind-obp-off/Holbery` is the canonical repository for HOLBERY documentation and implementation.
+
+## D-009 — Parent success condition
+HOLBERY should not be judged by how many logos carry the word HOLBERY. It becomes a functioning parent when governance, shared capabilities, ownership, and portfolio decisions are operating in practice.
+
+## Next implementation gates
+1. Formal brand/IP clearance.
+2. Secure parent domain and key social identities.
+3. Finalize parent wordmark and identity kit.
+4. Establish legal-entity / IP ownership mapping.
+5. Create the parent portfolio registry.
+6. onboard the first real child brand.
+7. Build the minimum shared capability.
+8. Launch parent presence and portfolio narrative.
+9. Establish recurring portfolio review.
