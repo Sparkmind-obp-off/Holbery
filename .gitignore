@@ -1,0 +1,45 @@
+# Dependencies and generated output
+node_modules/
+dist/
+build/
+.wrangler/
+.cache/
+coverage/
+
+# Secrets and local environment
+.env
+.env.*
+!.env.example
+.dev.vars
+.dev.vars.*
+*.pem
+*.key
+credentials*.json
+secrets*.json
+
+# Private/internal operational material (never use this repo as private storage)
+private/
+internal/
+customer-data/
+customer-exports/
+*.sqlite
+*.sqlite3
+*.db
+
+# Process, editor, OS, and logs
+.pm2/
+pids/
+logs/
+*.pid
+*.pid.lock
+*.log
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Backups and archives containing unknown/private data
+*.backup
+*.bak
+*.tar.gz
+*.zip

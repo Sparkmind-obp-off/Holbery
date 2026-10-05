@@ -1,103 +1,90 @@
 # HOLBERY
 
-## Master Parent Brand System
+**Master Parent Brand System — v1.0**
 
-**Status:** Strategic Master Parent Brand Lock
-**Legal status:** Not legally cleared; formal trademark/domain/social clearance remains a separate gate.
-**Primary role:** Master Parent / House / Brand Owner / Portfolio Governor / Shared-Operations Operator
-**Parent domain:** `holbery.biz.id` — user-confirmed secured domain
+Build. Operate. Grow.
+Practical systems, products, and ventures.
 
-HOLBERY is the parent house for a multi-brand portfolio. It owns the portfolio architecture, governs child brands, and can centralize shared commerce, technology, data, operations, and distribution without forcing every child brand to look like HOLBERY.
+## Status nyata
 
-## The parent model
+- HOLBERY adalah master parent brand, bukan produk tunggal.
+- **PHASE 0 — PROJECT INITIALIZATION: COMPLETE**, khusus fondasi dokumentasi; 88/88 pemeriksaan lulus. Bukti: [ROADMAP.md](ROADMAP.md). Phase 1–10 tetap PENDING.
+- Domain strategis utama: `holberry.biz`; kepemilikan, DNS, HTTPS, dan email **belum diverifikasi**.
+- Legal/trademark clearance: **belum selesai**.
+- Website, sistem komersial, pelanggan nyata, dan revenue belum diimplementasikan atau dibuktikan dalam repository ini.
 
-HOLBERY uses a **Parent-led Hybrid House**:
+## Mulai di sini
 
-```
-                    HOLBERY
-          Master Parent / Brand House
-                       │
-       ┌───────────────┼────────────────┐
-       │               │                │
-   Governance      Shared Services   Portfolio
-       │               │                │
-  Brand rules     Commerce/Data     Child Brands
-  IP strategy     Technology        Products
-  Capital         Operations        Channels
-```
+[Sumber definisi tunggal: HOLBERY-MASTER.md](HOLBERY-MASTER.md).
 
-## Core expressions
-
-- HOLBERY
-- HOLBERY House
-- HOLBERY Brands
-- HOLBERY Commerce
-- HOLBERY Group
-
-Use **HOLBERY Group** for corporate/group contexts, **HOLBERY House** for the portfolio/brand-house story, and **HOLBERY Commerce** for the shared commerce capability.
-
-## Parent domain
-
-**Primary domain:** `holbery.biz.id`
-
-Use this as the canonical parent web identity unless a later domain strategy deliberately supersedes it.
-
-Do not represent any unrelated child brand as a HOLBERY domain merely for convenience.
-
-## Strategic principles
-
-1. HOLBERY is the parent; child brands remain independently meaningful.
-2. One operational truth can serve many brands and channels.
-3. Parent visibility is deliberate, not automatic.
-4. Shared infrastructure is centralized only when it creates leverage.
-5. Every child brand needs a distinct role, customer, offer, and economic reason to exist.
-6. Parent-level governance protects the portfolio without flattening brand identities.
-7. Legal/trademark clearance is never implied by a strategic lock.
-
-## Explicit boundaries
-
-- **Bozq One System / Bosku Cukur:** private/internal; not a public HOLBERY child brand.
-- **Tolvey / Tolva:** separate concept/brand territory unless explicitly reassigned.
-- **Kestora:** potential child-brand candidate; must pass the onboarding gate before entering the portfolio.
-
-## Documents
-
-| File | Purpose |
+| Dokumen aktif | Fungsi |
 |---|---|
-| `docs/00_MASTER_BRAND_BIBLE.md` | Master index and architecture summary |
-| `docs/01_MASTER_BRAND_CHARTER.md` | Parent purpose, promise, personality, ambition |
-| `docs/02_BRAND_ARCHITECTURE.md` | Parent/child relationship and visibility model |
-| `docs/03_PORTFOLIO_ARCHITECTURE.md` | Child-brand rules and portfolio economics |
-| `docs/04_BRAND_IDENTITY_SYSTEM.md` | HOLBERY verbal/visual identity |
-| `docs/05_CHILD_BRAND_ONBOARDING.md` | Gate for new child brands |
-| `docs/06_COMMERCE_OPERATING_MODEL.md` | Shared commerce and distribution model |
-| `docs/07_NAMING_AND_CLEARANCE_GOVERNANCE.md` | Naming and clearance rules |
-| `docs/08_DIGITAL_AND_TECHNICAL_ARCHITECTURE.md` | Reusable technical architecture |
-| `docs/09_GITHUB_REPO_GOVERNANCE.md` | Repository operating rules |
-| `docs/10_ROADMAP.md` | Parent-to-group implementation roadmap |
-| `docs/11_LAUNCH_CHECKLIST.md` | Readiness gates |
-| `docs/12_DECISION_LOG.md` | Permanent decisions |
-| `docs/13_MASTER_PARENT_CONTROL_PLANE.md` | What makes HOLBERY a real parent |
-| `docs/14_BRAND_RELATIONSHIP_SYSTEM.md` | Independent / endorsed / parent-native modes |
-| `docs/15_PARENT_IP_AND_LEGAL_OWNERSHIP_MODEL.md` | Legal-entity vs parent-brand ownership model |
-| `docs/16_MASTER_PARENT_LAUNCH_SEQUENCE.md` | Practical sequence to establish the parent |
-| `docs/17_OFFICIAL_PARENT_IDENTITY_AND_DOMAIN.md` | Official parent web identity and rollout |
+| [HOLBERY-MASTER.md](HOLBERY-MASTER.md) | Identitas, cakupan, otoritas, batas proyek, Definition of Done |
+| [ARCHITECTURE.md](ARCHITECTURE.md) | SYSTEMS / PRODUCTS / VENTURES / COMMERCE dan prinsip implementasi |
+| [DECISIONS.md](DECISIONS.md) | Keputusan aktif, termasuk penggantian domain/arsitektur historis |
+| [BRAND-RULES.md](BRAND-RULES.md) | Guardrails induk, child brands, metadata, privasi, keamanan |
+| [ROADMAP.md](ROADMAP.md) | Urutan Phase 0–10, gates, status, laporan bukti |
+| README.md | Panduan masuk dan keadaan repository |
 
-## Parent success test
+## Tujuan dan struktur
 
-HOLBERY is functioning as a real master parent when:
-- at least one child brand operates under its portfolio governance;
-- the parent controls or governs shared strategic assets;
-- shared capabilities are actually reused;
-- child brands retain distinct market identities;
-- portfolio decisions are made at parent level;
-- the system can add, pause, merge, sell, or retire child brands without breaking the parent.
+HOLBERY membangun dan mengoperasikan bisnis, sistem, produk digital/fisik, commerce, ventures, dan eksperimen masa depan dengan urutan **clarity → structure → execution → proof → revenue → scale**.
 
-## Current portfolio posture
+```text
+HOLBERY
+├── SYSTEMS
+├── PRODUCTS
+├── VENTURES
+└── COMMERCE
+```
 
-**Parent:** HOLBERY — strategically locked.
-**Primary domain:** holbery.biz.id — user-confirmed secured.
-**Reserve:** ELCO — reserve/reference only.
-**Backup context:** TOLMOND — historical finalist backup.
+Setiap proyek punya satu kategori primer dan hubungan pendukung bila diperlukan. Nama child/product tidak wajib memakai HOLBERY. Tidak membangun semua vertikal atau shared infrastructure sekaligus.
 
-See `docs/12_DECISION_LOG.md` and `docs/13_MASTER_PARENT_CONTROL_PLANE.md`.
+## Yang telah diterapkan
+
+- Audit repository existing, keputusan domain/arsitektur terdahulu, dan batas proyek.
+- Enam dokumen aktif yang diminta untuk fondasi Phase 0.
+- Dokumentasi lama dipertahankan di [arsip historis](archive/legacy-parent-house/README.md), bukan sumber aktif.
+- Git existing dan branch main dipertahankan; .gitignore ditambahkan untuk secrets/artefak lokal.
+- Bozq One System tetap privat/internal Bosku Cukur; tidak mengimpor kode, aset, atau data privat.
+
+## Yang belum diterapkan
+
+- Phase 1: vision/mission/purpose, brand promise, audience dan positioning lengkap.
+- Phase 2–3: pengujian klasifikasi proyek dan governance lengkap.
+- Phase 4: website MVP, domain live, GitHub organization strategy, email, social, documentation hub, analytics, DNS dan hosting.
+- Phase 5–6: asset/legal/IP register terverifikasi dan sistem operasi/registries.
+- Phase 7–10: pilot Barber Business System, penawaran berbayar, ekspansi, dan skala ekosistem.
+
+Arah pertama: Barber Business System di SYSTEMS, terpisah dari Bozq. Belum ada produk atau venture berstatus validated/live.
+
+## Repository, URL, dan entry points
+
+- Workspace: `/home/user/webapp/`.
+- Remote terkonfigurasi: `https://github.com/Sparkmind-obp-off/Holbery`; permission dan autentikasi belum diuji pada Phase 0.
+- Domain tujuan: `https://holberry.biz` — **bukan klaim URL produksi aktif**.
+- URL produksi/preview: belum tersedia.
+- Route aplikasi/API dan parameter: belum ada.
+- Entry dokumentasi: README → HOLBERY-MASTER → dokumen terkait → ROADMAP.
+
+## Data dan penyimpanan
+
+Saat ini hanya file Markdown versioned di git. Belum ada database, customer records, layanan cloud storage, atau runtime persistence. Metadata proyek minimal dicatat di HOLBERY-MASTER; schema registry operasional belum diimplementasikan. Ketika aplikasi memerlukan persistence di Cloudflare, pilih D1/R2 sesuai kebutuhan dan jangan gunakan memory/file runtime.
+
+## Panduan penggunaan
+
+1. Baca HOLBERY-MASTER sebelum menambah proyek atau mengambil keputusan.
+2. Cek BRAND-RULES dan tentukan kategori primer lewat ARCHITECTURE.
+3. Catat keputusan material di DECISIONS dan selaraskan sumber terdampak.
+4. Ikuti ROADMAP secara berurutan; klaim selesai hanya dengan bukti.
+5. Jangan gunakan isi archive sebagai instruksi aktif atau bukti kesiapan bisnis.
+
+## Deployment dan pengujian
+
+Repository existing adalah dokumentasi, tanpa package.json, aplikasi, atau konfigurasi Cloudflare. Tidak ada npm build/test, PM2 startup, browser test, deployment, DNS change, atau push GitHub pada Phase 0. Uji yang relevan: keberadaan dokumen, tautan relatif, konsistensi identitas, integritas arsip, pemeriksaan patch, dan hygiene git. Rincian hasil ada di ROADMAP.
+
+Pemilihan jalur hosting dan konfigurasi dilakukan pada Phase 4 sebelum deployment. Gunakan existing repository; jangan membuat repo/organisasi baru tanpa keputusan. Trademark dan legal review berjalan sebagai workstream terpisah, bukan dianggap selesai oleh pemilihan domain.
+
+## Langkah berikutnya
+
+**PHASE 1 — MASTER BRAND FOUNDATION**, setelah laporan penutupan Phase 0. Tidak ada fase yang dilewati atau dinyatakan selesai otomatis oleh dokumentasi fondasi ini.
