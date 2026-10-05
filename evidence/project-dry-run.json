@@ -1,0 +1,19 @@
+{
+  "dryRun": true,
+  "record": {
+    "id": "DRY-RUN-ONLY",
+    "project_name": "Dry run example only",
+    "category": "SYSTEMS",
+    "owner": "UNASSIGNED",
+    "repository": "NOT REQUIRED YET",
+    "domain": "NOT REQUIRED YET",
+    "customer_type": "Operator",
+    "revenue_model": "Hypothesis",
+    "parent": "HOLBERY",
+    "status": "IDEA",
+    "lifecycle": "IDEA",
+    "visibility": "public",
+    "legal_owner": "UNVERIFIED",
+    "evidence": []
+  }
+}

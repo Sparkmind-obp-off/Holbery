@@ -1,0 +1,11 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
+import { draftProject, validateRegistry } from '../scripts/registry.mjs';
+const fields={id:'TEST-001',project_name:'Dry run',category:'SYSTEMS',owner:'UNASSIGNED',repository:'NOT REQUIRED YET',domain:'NOT REQUIRED YET',customer_type:'Operator',revenue_model:'Hypothesis'};
+test('existing registry valid',()=>assert.equal(validateRegistry(JSON.parse(readFileSync('registries/projects.json','utf8'))),true));
+test('new project starts as idea',()=>assert.equal(draftProject(fields).lifecycle,'IDEA'));
+test('duplicate IDs rejected',()=>assert.throws(()=>validateRegistry([draftProject(fields),draftProject(fields)]),/duplicate/));
+test('missing metadata rejected',()=>assert.throws(()=>draftProject({...fields,domain:undefined,category:'BAD'})));
+test('private project cannot enter public registry',()=>assert.throws(()=>validateRegistry([{...draftProject(fields),visibility:'private'}]),/Private/));
+test('no graduation without validation',()=>assert.throws(()=>validateRegistry([{...draftProject(fields),lifecycle:'VALIDATED'}]),/Graduation/));

@@ -14,7 +14,7 @@ Roadmap historis di archive tidak menjadi tracker aktif.
 | PHASE 3 — NAMING & BRAND GOVERNANCE | Aturan child/product/system/venture/internal/experiment/campaign/domain/social; metadata wajib | Proyek baru tidak mendilusi induk; approval dan ownership jelas | COMPLETE |
 | PHASE 4 — DIGITAL FOUNDATION | holberry.biz; landing page; GitHub structure; email; social; doc hub; analytics; hosting; DNS | Public-site implementation production-ready; custom domain/email/social tracked separately | COMPLETE |
 | PHASE 5 — LEGAL, IP & ASSET FOUNDATION | Register domain, trademark/classes, entity, IP/code/repo/product/brand, licensing, dependencies | Legal/IP checklist jelas, tiap asset status/bukti/gap tanpa fabricated clearance | COMPLETE |
-| PHASE 6 — OPERATING SYSTEM | Loop operasional; opportunity/project/product registries; feedback, metrics, experiments, decisions, revenue, runbooks | Satu workflow proyek bisa dijalankan ulang dengan owner dan bukti | PENDING |
+| PHASE 6 — OPERATING SYSTEM | Loop operasional; opportunity/project/product registries; feedback, metrics, experiments, decisions, revenue, runbooks | Satu workflow proyek bisa dijalankan ulang dengan owner dan bukti | COMPLETE |
 | PHASE 7 — FIRST REAL VENTURE / PROOF | Barber Business System terpisah; pilot masalah operator nyata | Concrete product definition + executable validation path; operator proof tracked separately | PENDING |
 | PHASE 8 — PRODUCTIZATION | Satu offer reusable: customer, problem, outcome, delivery, price, acquisition, support, success metric | Satu concrete commercial offer ready for validation, tanpa claim sales | PENDING |
 | PHASE 9 — VERTICAL EXPANSION | Demand → problem → repeatability → unit economics → operational fit → product fit | Objective vertical evaluation framework; no automatic expansion | PENDING |
@@ -115,3 +115,9 @@ Evidence: [phase-04.json](evidence/phase-04.json). Test: `node scripts/check-pha
 STATUS COMPLETE tracking; legal clearance BLOCKED/REQUIRES USER ACTION. CHANGES legal/IP/asset/status registers, class candidates and official-source follow-up. FILES LEGAL-IP-REGISTER.md, ASSET-REGISTER.md, CLEARANCE-TRACKER.md, domain/license scripts, dependency inventory and third-party notice. TESTS phase docs pass; 161 package license metadata entries, npm audit zero vulnerabilities; RDAP404/DNS3 evidence retained. EVIDENCE WIPO/PDKI guidance fetched; exact official-domain web search inconclusive; Holberry near-name lead recorded. RISKS no authoritative mark clearance, no legal owner or domain control proved. NEXT Phase 6.
 
 Evidence: [phase-05.json](evidence/phase-05.json). Test: `node scripts/check-phase.mjs 5`. Dokumen diverifikasi, bukan klaim sukses legal/pelanggan. Lanjut otomatis sesuai H-008.
+
+## Phase 6 — COMPLETE (2026-10-05)
+
+STATUS COMPLETE framework implemented; actual operations remain unvalidated. CHANGES nine-step operating loop, eleven embedded reusable templates, structural project/opportunity/product/experiment/feedback/metrics/revenue registries and metadata CLI. FILES six operating docs, registries/, scripts/registry.mjs/new-project.mjs, tests/registry.test.mjs. TESTS 6 registry tests plus dry-run onboarding; no real record or fabricated revenue created. EVIDENCE project-dry-run.json labelled dryRun; blank customer metrics/revenue trackers. RISKS operator/owner/consent required for actual execution. NEXT Phase 7.
+
+Evidence: [phase-06.json](evidence/phase-06.json). Test: `node scripts/check-phase.mjs 6`. Dokumen diverifikasi, bukan klaim sukses legal/pelanggan. Lanjut otomatis sesuai H-008.

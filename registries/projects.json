@@ -1,0 +1,19 @@
+[
+  {
+    "id": "HOLBERY",
+    "project_name": "HOLBERY",
+    "category": "MASTER_PARENT",
+    "owner": "PROJECT_OWNER_UNVERIFIED",
+    "status": "STRATEGIC_MASTER",
+    "parent": null,
+    "repository": "https://github.com/Sparkmind-obp-off/Holbery",
+    "domain": "holberry.biz",
+    "customer_type": "Operators and customers of validated offers",
+    "revenue_model": "Offer-specific; no verified revenue",
+    "lifecycle": "NOT_APPLICABLE",
+    "visibility": "public",
+    "legal_owner": "UNVERIFIED",
+    "evidence": ["HOLBERY-MASTER.md"],
+    "next_review": "2026-11-05"
+  }
+]

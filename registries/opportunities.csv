@@ -1,0 +1,2 @@
+id,category,customer_type,problem,hypothesis,status,owner,evidence
+OPP-BARBER-001,SYSTEMS,Small independent barber operator,Daily closing lacks clear reconciliation,Small close workflow may improve completeness,IDEA,UNASSIGNED,No operator discovery yet
