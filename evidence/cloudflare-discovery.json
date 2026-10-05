@@ -1,0 +1,8 @@
+{
+  "date": "2026-10-05",
+  "accountCount": 1,
+  "pagesProjectCount": 10,
+  "candidateProjectAvailable": true,
+  "primaryDomainZones": [],
+  "scope": "Read-only; no DNS modifications. Zone access proves account access, not legal registrant ownership."
+}

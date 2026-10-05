@@ -12,13 +12,13 @@ Roadmap historis di archive tidak menjadi tracker aktif.
 | PHASE 1 — MASTER BRAND FOUNDATION | Vision, mission, purpose, positioning, promise, personality, audience, territory, IS/IS NOT | Proyek baru dapat dinilai terhadap definisi tanpa ambiguitas | COMPLETE |
 | PHASE 2 — MASTER BRAND ARCHITECTURE | Definisi/pemetaan SYSTEMS, PRODUCTS, VENTURES, COMMERCE; contoh dan aturan lintas pilar | Setiap proyek punya kategori primer yang jelas | COMPLETE |
 | PHASE 3 — NAMING & BRAND GOVERNANCE | Aturan child/product/system/venture/internal/experiment/campaign/domain/social; metadata wajib | Proyek baru tidak mendilusi induk; approval dan ownership jelas | COMPLETE |
-| PHASE 4 — DIGITAL FOUNDATION | holberry.biz; landing page; GitHub structure; email; social; doc hub; analytics; hosting; DNS | Digital headquarters publik terbukti live, HTTPS dan kendali aset terverifikasi | PENDING |
-| PHASE 5 — LEGAL, IP & ASSET FOUNDATION | Register domain, trademark/classes, entity, IP/code/repo/product/brand, licensing, dependencies | Aset kritis punya owner teridentifikasi dan status legal beserta bukti/gap | PENDING |
+| PHASE 4 — DIGITAL FOUNDATION | holberry.biz; landing page; GitHub structure; email; social; doc hub; analytics; hosting; DNS | Public-site implementation production-ready; custom domain/email/social tracked separately | COMPLETE |
+| PHASE 5 — LEGAL, IP & ASSET FOUNDATION | Register domain, trademark/classes, entity, IP/code/repo/product/brand, licensing, dependencies | Legal/IP checklist jelas, tiap asset status/bukti/gap tanpa fabricated clearance | PENDING |
 | PHASE 6 — OPERATING SYSTEM | Loop operasional; opportunity/project/product registries; feedback, metrics, experiments, decisions, revenue, runbooks | Satu workflow proyek bisa dijalankan ulang dengan owner dan bukti | PENDING |
-| PHASE 7 — FIRST REAL VENTURE / PROOF | Barber Business System terpisah; pilot masalah operator nyata | Masalah nyata terselesaikan dan diuji oleh operator nyata | PENDING |
-| PHASE 8 — PRODUCTIZATION | Satu offer reusable: customer, problem, outcome, delivery, price, acquisition, support, success metric | Produk dapat dijual tanpa custom development untuk setiap pelanggan | PENDING |
-| PHASE 9 — VERTICAL EXPANSION | Demand → problem → repeatability → unit economics → operational fit → product fit | Vertikal baru terbukti memakai arsitektur reusable | PENDING |
-| PHASE 10 — ECOSYSTEM & SCALE | Governance berbasis bukti; evaluate licensing/partners/distribution/recurring/acquisition/investment/international | Kompleksitas baru didukung aktivitas, ekonomi, dan kapasitas nyata | PENDING |
+| PHASE 7 — FIRST REAL VENTURE / PROOF | Barber Business System terpisah; pilot masalah operator nyata | Concrete product definition + executable validation path; operator proof tracked separately | PENDING |
+| PHASE 8 — PRODUCTIZATION | Satu offer reusable: customer, problem, outcome, delivery, price, acquisition, support, success metric | Satu concrete commercial offer ready for validation, tanpa claim sales | PENDING |
+| PHASE 9 — VERTICAL EXPANSION | Demand → problem → repeatability → unit economics → operational fit → product fit | Objective vertical evaluation framework; no automatic expansion | PENDING |
+| PHASE 10 — ECOSYSTEM & SCALE | Governance berbasis bukti; evaluate licensing/partners/distribution/recurring/acquisition/investment/international | Mature ecosystem model + graduation/scale gates; no claim actual scale | PENDING |
 
 ## Discipline gates
 
@@ -103,3 +103,9 @@ Evidence: [phase-02.json](evidence/phase-02.json). Test: `node scripts/check-pha
 STATUS COMPLETE: governance/naming rinci dan framework direct-vs-child diterapkan. FILES BRAND-GOVERNANCE.md, NAMING-SYSTEM.md, BRAND-RULES.md dan indeks kanonis. TESTS naming unit gates lulus pada suite 13 tests; document checks lulus. RISKS preferred handle belum secured, child legal rights perlu review. NEXT Phase 4.
 
 Evidence: [phase-03.json](evidence/phase-03.json). Test: `node scripts/check-phase.mjs 3`. Dokumen diverifikasi, bukan klaim sukses legal/pelanggan. Lanjut otomatis sesuai H-008.
+
+## Phase 4 — COMPLETE (2026-10-05)
+
+STATUS COMPLETE implementation + VERIFIED Pages hosting. CHANGES 10 public pages, privacy/contact/docs, SEO/assets, headers and exact 404; no private app imports. FILES src/index.ts, public/, configs/lockfile, DEPLOYMENT.md, HTTP/browser scripts and evidence. TESTS typecheck/build, 10-page/14-link HTTP suite, responsive browser widths 320/390/768/1440, npm audit passed. EVIDENCE stable https://webapp-4.pages.dev. RISKS strategic holberry.biz zone absent, email/social not active, user action required; no DNS changes. NEXT Phase 5.
+
+Evidence: [phase-04.json](evidence/phase-04.json). Test: `node scripts/check-phase.mjs 4`. Dokumen diverifikasi, bukan klaim sukses legal/pelanggan. Lanjut otomatis sesuai H-008.

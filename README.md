@@ -11,7 +11,7 @@ Practical systems, products, and ventures.
 - **PHASE 0 — PROJECT INITIALIZATION: COMPLETE**, khusus fondasi dokumentasi; 88/88 pemeriksaan lulus. Bukti: [ROADMAP.md](ROADMAP.md). Phase 1–10 sedang dieksekusi berkelanjutan; lihat tracker terkini.
 - Domain strategis utama: `holberry.biz`; kepemilikan, DNS, HTTPS, dan email **belum diverifikasi**.
 - Legal/trademark clearance: **belum selesai**.
-- Website, sistem komersial, pelanggan nyata, dan revenue belum diimplementasikan atau dibuktikan dalam repository ini.
+- Website sudah deployed/verified: https://webapp-4.pages.dev. Custom domain, pelanggan nyata, dan revenue belum dibuktikan.
 
 ## Mulai di sini
 
@@ -67,8 +67,8 @@ Arah pertama: Barber Business System di SYSTEMS, terpisah dari Bozq. Belum ada p
 - Workspace: `/home/user/webapp/`.
 - Remote terkonfigurasi: `https://github.com/Sparkmind-obp-off/Holbery`; permission dan autentikasi belum diuji pada Phase 0.
 - Domain tujuan: `https://holberry.biz` — **bukan klaim URL produksi aktif**.
-- URL produksi/preview: belum tersedia.
-- Route aplikasi/API dan parameter: belum ada.
+- URL produksi BYOK: https://webapp-4.pages.dev; preview port 3000 tersedia.
+- Routes: /, /about, /systems, /products, /ventures, /commerce, /contact, /docs, /privacy, /systems/barber; /api/health tanpa parameter.
 - Entry dokumentasi: README → HOLBERY-MASTER → dokumen terkait → ROADMAP.
 
 ## Data dan penyimpanan

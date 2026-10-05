@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-05",
+  "base": "http://localhost:3000",
+  "routes": [
+    {
+      "path": "/",
+      "status": 200,
+      "securityHeaders": true
+    },
+    {
+      "path": "/about",
+      "status": 200,
+      "securityHeaders": true
+    },
+    {
+      "path": "/systems",
+      "status": 200,
+      "securityHeaders": true
+    },
+    {
+      "path": "/products",
+      "status": 200,
+      "securityHeaders": true
+    },
+    {
+      "path": "/ventures",
+      "status": 200,
+      "securityHeaders": true
+    },
+    {
+      "path": "/commerce",
+      "status": 200,
+      "securityHeaders": true
+    },
+    {
+      "path": "/contact",
+      "status": 200,
+      "securityHeaders": true
+    },
+    {
+      "path": "/docs",
+      "status": 200,
+      "securityHeaders": true
+    },
+    {
+      "path": "/privacy",
+      "status": 200,
+      "securityHeaders": true
+    },
+    {
+      "path": "/systems/barber",
+      "status": 200,
+      "securityHeaders": true
+    }
+  ],
+  "internalLinksChecked": 14,
+  "notFound": 404,
+  "health": "ok"
+}

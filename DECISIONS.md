@@ -72,3 +72,11 @@ Status keputusan berbeda dari status implementasi. Perubahan identitas harus mem
 ## H-010 — Naming tanpa child brand spekulatif
 
 2026-10-05 / IMPLEMENTED. Parent-native/descriptive/child-review ditentukan audience, independence, rights, dan equity. Child review bukan approval otomatis. Tidak mengubah nama internal. Legal ownership endorsement butuh bukti. Unit tests mencakup decision gate.
+
+## H-011 — Delivery acceptance versus operational proof
+
+2026-10-05 / ACCEPTED. FULL MASTER EXECUTION merevisi acceptance Phase 4 menjadi production-ready implementation, Phase 5 checklist, Phase 7 definition/validation path, Phase 8 offer ready for validation, Phase 9 evaluation engine, dan Phase 10 model/gates. COMPLETE pada deliverable tidak sama dengan seluruh external proof atau Definition of Done induk operasional. External components tetap BLOCKED/REQUIRES USER ACTION jika belum terbukti.
+
+## H-012 — Cloudflare BYOK production and domain boundary
+
+2026-10-05 / VERIFIED. Akun BYOK authenticated; new Pages project webapp-4 dibuat setelah collisions webapp/webapp-2 dan existing webapp-3 tidak disentuh. Stable host https://webapp-4.pages.dev lulus HTTP/browser test; transient asset/TLS propagation awal dicatat. Token tidak melihat zone holberry.biz; tidak ada DNS mutation. SEO canonical memakai host live, strategic domain tetap holberry.biz. Original SVG dibuat tanpa gambar stock/dependency CDN.

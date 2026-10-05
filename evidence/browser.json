@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-05",
+  "base": "https://webapp-4.pages.dev",
+  "checks": [
+    {
+      "viewport": 1440,
+      "horizontalOverflow": false,
+      "mainHeading": true
+    },
+    {
+      "viewport": 768,
+      "horizontalOverflow": false,
+      "mainHeading": true
+    },
+    {
+      "viewport": 390,
+      "horizontalOverflow": false,
+      "mainHeading": true
+    },
+    {
+      "viewport": 320,
+      "horizontalOverflow": false,
+      "mainHeading": true
+    }
+  ],
+  "javascriptErrors": []
+}

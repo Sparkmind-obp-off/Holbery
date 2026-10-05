@@ -1,62 +1,44 @@
-# HOLBERY — Architecture
+# HOLBERY — Technical Architecture
 
-Versi: 1.0 | 2026-10-05 | Fondasi Phase 0
-Sumber identitas: [HOLBERY-MASTER.md](HOLBERY-MASTER.md).
-Domain strategis induk: `holberry.biz`; kepemilikan dan konfigurasi belum diverifikasi, implementasi digital pada Phase 4.
+v1.1 | 2026-10-05. Strategic domain holberry.biz; live technical host https://webapp-4.pages.dev.
+Parent definition: [HOLBERY-MASTER.md](HOLBERY-MASTER.md). Portfolio hierarchy: [MASTER-ARCHITECTURE.md](MASTER-ARCHITECTURE.md). Deployment evidence: [DEPLOYMENT.md](DEPLOYMENT.md).
 
-## Empat pilar, satu induk
+## Canonical hierarchy
 
-```text
-HOLBERY
-├── SYSTEMS
-├── PRODUCTS
-├── VENTURES
-└── COMMERCE
-```
+HOLBERY → SYSTEMS / PRODUCTS / VENTURES / COMMERCE. Technical implementation does not introduce another parent brand or fifth pillar. Category and lifecycle remain separate dimensions.
 
-| Pilar | Cakupan | Batas |
-|---|---|---|
-| SYSTEMS | Infrastruktur bisnis, software, sistem operasional, automasi, tools | Bukan semua produk harus menjadi SaaS |
-| PRODUCTS | Produk digital/fisik, kits, templates, resources, solusi terkemas | Tidak membutuhkan bisnis vertikal baru untuk tiap produk |
-| VENTURES | Bisnis/vertikal yang diinkubasi, dioperasikan, atau dimiliki HOLBERY | Kandidat tidak sama dengan bisnis aktif atau dimiliki secara hukum |
-| COMMERCE | Distribusi, marketplace, affiliate, partner, infrastruktur perdagangan | Kanal distribusi tidak otomatis menjadi master brand baru |
+## Current implementation
 
-Setiap proyek mempunyai satu kategori primer berdasarkan fungsi utamanya. Ketergantungan lintas pilar dicatat sebagai hubungan, bukan duplikat proyek. Contoh: Barber Business System berada di SYSTEMS; kit turunannya dapat berada di PRODUCTS dengan referensi proyek asal; sebuah operator barber baru di VENTURES hanya jika di-onboard terpisah. Penjualan melalui COMMERCE tidak mengubah kategori primer.
-
-Governance dan kapabilitas bersama mendukung empat pilar; bukan pilar kelima. Independent, endorsed, dan parent-native adalah mode hubungan merek, bukan hierarki induk tandingan. Katalog proyek dan pengujian klasifikasi dituntaskan pada Phase 2–3.
-
-## Struktur repository aktual
+Hono on Cloudflare Pages/Workers; TypeScript; Vite Pages build. Dynamic informational pages rendered server-side. CSS, original SVG assets, browser-only code and downloadable templates in public/. No third-party CDN dependency required for frontend. No runtime fs/Node APIs or database. Browser calculators use pure functions; inputs are not sent, persisted or logged by application code.
 
 ```text
 /
-├── HOLBERY-MASTER.md          # Identitas dan otoritas tunggal
-├── README.md                 # Pintu masuk dan panduan
-├── ARCHITECTURE.md           # Pilar dan prinsip
-├── DECISIONS.md              # Keputusan aktif
-├── BRAND-RULES.md            # Guardrails dasar
-├── ROADMAP.md                # Tracker fase dan bukti
-├── .gitignore               # Batas secrets dan artefak lokal
-└── archive/
-    └── legacy-parent-house/ # NON-KANONIS; isi historis dipertahankan
-        ├── README.md
-        └── docs/            # 18 dokumen terdahulu
+├── *.md                  # Canonical system and phase deliverables
+├── src/index.ts          # Public routes, metadata, security headers
+├── public/static/        # CSS, JS, original SVGs
+├── public/downloads/     # Sanitized reusable templates only
+├── registries/           # Versioned structural records; NO customer PII
+├── scripts/              # Build/test/verification helpers (Node/Python at build time only)
+├── tests/                # Unit/governance/data-boundary tests
+├── evidence/             # Sanitized phase/deployment/check results
+├── archive/legacy-parent-house/ # NON-KANONIS; byte-exact preserved history
+├── package.json / package-lock.json
+├── vite.config.ts / tsconfig.json / wrangler.jsonc
+└── ecosystem.config.cjs  # Local preview via PM2
 ```
 
-Tidak membuat `apps`, `packages`, layanan auth, registry database, commerce engine, atau dashboard sebelum dibutuhkan. Repository saat ini hanya dokumentasi; tidak ada package.json, aplikasi berjalan, atau konfigurasi deployment. Jangan menambahkan scaffold aplikasi hanya untuk memenuhi asumsi template.
+Build output dist/ and local .wrangler state are ignored. Internal governance records are not imported into public app bundle. /docs is curated public guidance, not a raw file server for the repository. No identity/access multi-tenant platform, giant SaaS, payment service, or customer database is built speculatively.
 
-## Prinsip arsitektur
+## Architecture principles
 
-1. Lightweight first; penyelesaian masalah operator lebih penting dari banyaknya komponen.
-2. Reuse setelah pola berulang terbukti; jangan bangun shared platform spekulatif.
-3. Pisahkan induk, identitas child, produk, dan entitas hukum.
-4. Satu sumber keputusan dan status; arsip tidak berlaku sebagai instruksi aktif.
-5. Gunakan kontrak/interface kecil ketika reuse benar-benar diperlukan.
-6. Isolasi aset, izin, dan data privat. Tidak ada data pelanggan atau secrets di git.
-7. Pilih persistence hanya saat data nyata dibutuhkan; untuk aplikasi Cloudflare gunakan D1 atau R2 sesuai kebutuhan, bukan memory/file runtime.
-8. Website MVP Phase 4 cukup satu landing page induk. Pilihan hosting ditetapkan sebelum deployment; Phase 0 tidak memilih atau menjalankan deployment.
-9. Tidak ada migrasi, redirect domain, penggantian aplikasi, atau klaim ownership tanpa bukti dan keputusan.
-10. Penambahan perusahaan anak, licensing, investasi, dan multi-tenant infrastructure mengikuti aktivitas bisnis nyata, bukan diagram.
+Clarity first; modularity when patterns repeat; smallest delivery model first; real user evidence before scale; one source of truth; private stays private. Do not copy Bozq data/code/IP. All operational asset/identity decisions are recorded. Use D1 for relational/key-value persistence or R2 for files if future Cloudflare application data genuinely requires them; never runtime filesystem/memory persistence. Secrets only in Cloudflare secrets or ignored local configuration.
 
-## Batas implementasi
+## Security and publication
 
-Perubahan Phase 0 adalah dokumentasi dan pengarsipan, bukan pemenuhan Phase 2 atau Phase 4. Pengarsipan mengubah path dokumen lama; referensi dari luar repository ke path lama perlu diperbarui bila digunakan. Tautan antar dokumen historis tetap dipertahankan dalam subtree yang sama.
+Hono secureHeaders protects worker responses; public/_headers protects static assets. CSP allows self-only scripts/styles and blocks framing/object embedding; referrer/permissions/nosniff headers set. No inline script/unsafe HTML from request input. GET health is informational and exposes no credentials. Unknown methods/routes receive 404 through explicit catch-all.
+
+Dependencies locked; production audit and all-dependency audit performed at release. Public code has no user-issued license yet; dependency license inventory lives in LEGAL-IP-REGISTER. Registrar, email and legal ownership controls remain external workstreams.
+
+## Growth boundary
+
+Add auth/storage/forms/payments only when a validated requirement and legal/data-purpose review exist. Shared core should expose small interfaces and preserve brand/data isolation. Entity spin-offs, licensing, cron/queue or persistent runtime services are not implied by this architecture. Platform limitations must be rechecked before introducing such capabilities.
