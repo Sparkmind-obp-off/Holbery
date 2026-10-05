@@ -19,7 +19,7 @@ Practical systems, products, and ventures.
 
 ## Canonical documentation
 
-Start with [HOLBERY-MASTER.md](HOLBERY-MASTER.md). Status tracker: [ROADMAP.md](ROADMAP.md). Decisions: [DECISIONS.md](DECISIONS.md). Current report: [EXECUTION-REPORT.md](EXECUTION-REPORT.md).
+Start with [HOLBERY-MASTER.md](HOLBERY-MASTER.md). The canonical parent library is [HOLBERY-LIBRARY.md](HOLBERY-LIBRARY.md). Status tracker: [ROADMAP.md](ROADMAP.md). Decisions: [DECISIONS.md](DECISIONS.md). Current report: [EXECUTION-REPORT.md](EXECUTION-REPORT.md).
 
 | Phase | Deliverables |
 |---|---|
@@ -31,7 +31,7 @@ Start with [HOLBERY-MASTER.md](HOLBERY-MASTER.md). Status tracker: [ROADMAP.md](
 | 6 | [Operating system](OPERATING-SYSTEM.md), [opportunity/discovery](OPPORTUNITY-TEMPLATE.md), [project/product definition](PROJECT-TEMPLATE.md), [experiment/validation](VALIDATION-TEMPLATE.md), [launch/operations](LAUNCH-TEMPLATE.md), [KPI](KPI-FRAMEWORK.md) |
 | 7 | [Barber system](BARBER-BUSINESS-SYSTEM.md), [MVP spec](MVP-SPEC.md), [customer problem](CUSTOMER-PROBLEM.md), [pricing hypothesis](PRICING-HYPOTHESIS.md), [validation plan](VALIDATION-PLAN.md); functional calculator/CSV/checklist |
 
-Hierarchy: HOLBERY → SYSTEMS / PRODUCTS / VENTURES / COMMERCE. One primary category per project; category and lifecycle are separate. Products do not all need a child brand or venture entity.
+Hierarchy: HOLBERY → LIBRARY → SYSTEMS / PRODUCTS / VENTURES / COMMERCE / KNOWLEDGE / CAPABILITIES / ASSETS. The Library is the canonical parent layer; category and lifecycle are separate. Products and capabilities do not automatically need a child brand or venture entity. Child brands are a later graduation decision based on evidence and strategic separation.
 
 [Historical archive](archive/legacy-parent-house/README.md) is NON-CANONICAL. Its 19 original files remain byte-identical to baseline9babed0. Historical domain/hierarchy/status statements do not apply to current roadmap. Archive paths changed; external old links may need updates.
 
@@ -89,6 +89,10 @@ node scripts/new-project.mjs --dry-run --id EXAMPLE-ONLY --project-name "Example
 ## Deployment
 
 User-selected **Cloudflare BYOK**, project webapp-4, production branch main; saved metadata and wrangler.jsonc agree. No unrelated existing project overwritten. After authorized token setup: `npx wrangler whoami`, build/tests, then `npx wrangler pages deploy dist --project-name webapp-4 --branch main`. Never wrangler login. No runtime secrets/bindings required. Full exact custom-domain/email/social/analytics/rollback steps in DEPLOYMENT.
+
+## Master Library
+
+[HOLBERY-LIBRARY.md](HOLBERY-LIBRARY.md) is now canonical. It defines the Library as HOLBERY's reusable knowledge/capability/asset/portfolio layer and establishes the promotion path from IDEA → RESEARCH → EXPERIMENT → PROTOTYPE → VALIDATED → PRODUCTIZED → COMMERCIAL → SCALE → optional CHILD BRAND / independent venture. No forced child-brand proliferation is intended.
 
 ## Remaining / next steps
 
