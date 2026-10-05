@@ -2,11 +2,28 @@
 
 ## Master Parent Brand System
 
-**Status:** Strategic Master Parent Brand Lock  
-**Legal status:** Not legally cleared; formal trademark/domain/social clearance remains a separate gate.  
-**Primary role:** Parent / House / Brand Owner / Commerce Operator
+**Status:** Strategic Master Parent Brand Lock
+**Legal status:** Not legally cleared; formal trademark/domain/social clearance remains a separate gate.
+**Primary role:** Master Parent / House / Brand Owner / Portfolio Governor / Shared-Operations Operator
 
-HOLBERY is designed as a calm, premium, approachable parent identity that can own independent child brands across software, commerce, physical products, services, and future businesses.
+HOLBERY is the parent house for a multi-brand portfolio. It owns the portfolio architecture, governs child brands, and can centralize shared commerce, technology, data, operations, and distribution without forcing every child brand to look like HOLBERY.
+
+## The parent model
+
+HOLBERY uses a **Parent-led Hybrid House**:
+
+```
+                    HOLBERY
+          Master Parent / Brand House
+                       │
+       ┌───────────────┼────────────────┐
+       │               │                │
+   Governance      Shared Services   Portfolio
+       │               │                │
+  Brand rules     Commerce/Data     Child Brands
+  IP strategy     Technology        Products
+  Capital         Operations        Channels
+```
 
 ## Core expressions
 
@@ -16,46 +33,60 @@ HOLBERY is designed as a calm, premium, approachable parent identity that can ow
 - HOLBERY Commerce
 - HOLBERY Group
 
-## Repository purpose
-
-This repository is the source of truth for the HOLBERY parent-brand architecture, portfolio rules, operating model, brand identity, naming governance, technical direction, and implementation roadmap.
+Use **HOLBERY Group** for corporate/group contexts, **HOLBERY House** for the portfolio/brand-house story, and **HOLBERY Commerce** for the shared commerce capability.
 
 ## Strategic principles
 
-1. Parent-led, child-brand capable.
-2. One commerce truth across many channels.
-3. Child brands may have independent identities.
-4. Premium is expressed through clarity and consistency, not luxury clichés.
-5. No child brand is launched without a clear role, audience, offer, and ownership model.
-6. Legal/trademark clearance is never implied by a branding decision.
+1. HOLBERY is the parent; child brands remain independently meaningful.
+2. One operational truth can serve many brands and channels.
+3. Parent visibility is deliberate, not automatic.
+4. Shared infrastructure is centralized only when it creates leverage.
+5. Every child brand needs a distinct role, customer, offer, and economic reason to exist.
+6. Parent-level governance protects the portfolio without flattening brand identities.
+7. Legal/trademark clearance is never implied by a strategic lock.
 
 ## Explicit boundaries
 
-- **Bozq One System / Bosku Cukur:** private/internal system; not part of HOLBERY public brand architecture.
-- **Tolvey / Tolva:** separate concept/brand territory unless deliberately assigned later.
-- Any future child brand must be approved through the portfolio onboarding process in `docs/05_CHILD_BRAND_ONBOARDING.md`.
+- **Bozq One System / Bosku Cukur:** private/internal; not a public HOLBERY child brand.
+- **Tolvey / Tolva:** separate concept/brand territory unless explicitly reassigned.
+- **Kestora:** potential child-brand candidate; must pass the onboarding gate before entering the portfolio.
 
 ## Documents
 
 | File | Purpose |
 |---|---|
-| `docs/01_MASTER_BRAND_CHARTER.md` | Why HOLBERY exists and what the parent stands for |
-| `docs/02_BRAND_ARCHITECTURE.md` | Parent/child architecture and hierarchy |
-| `docs/03_PORTFOLIO_ARCHITECTURE.md` | Rules for child brands, products, and future businesses |
-| `docs/04_BRAND_IDENTITY_SYSTEM.md` | Verbal and visual identity direction |
-| `docs/05_CHILD_BRAND_ONBOARDING.md` | Gate for adding new child brands |
+| `docs/00_MASTER_BRAND_BIBLE.md` | Master index and architecture summary |
+| `docs/01_MASTER_BRAND_CHARTER.md` | Parent purpose, promise, personality, ambition |
+| `docs/02_BRAND_ARCHITECTURE.md` | Parent/child relationship and visibility model |
+| `docs/03_PORTFOLIO_ARCHITECTURE.md` | Child-brand rules and portfolio economics |
+| `docs/04_BRAND_IDENTITY_SYSTEM.md` | HOLBERY verbal/visual identity |
+| `docs/05_CHILD_BRAND_ONBOARDING.md` | Gate for new child brands |
 | `docs/06_COMMERCE_OPERATING_MODEL.md` | Shared commerce and distribution model |
-| `docs/07_NAMING_AND_CLEARANCE_GOVERNANCE.md` | Naming, clearance, and lock rules |
-| `docs/08_DIGITAL_AND_TECHNICAL_ARCHITECTURE.md` | Shared technical architecture |
-| `docs/09_GITHUB_REPO_GOVERNANCE.md` | Repository and engineering rules |
-| `docs/10_ROADMAP.md` | Phased implementation roadmap |
-| `docs/11_LAUNCH_CHECKLIST.md` | Operational readiness checklist |
-| `docs/12_DECISION_LOG.md` | Decisions and status history |
+| `docs/07_NAMING_AND_CLEARANCE_GOVERNANCE.md` | Naming and clearance rules |
+| `docs/08_DIGITAL_AND_TECHNICAL_ARCHITECTURE.md` | Reusable technical architecture |
+| `docs/09_GITHUB_REPO_GOVERNANCE.md` | Repository operating rules |
+| `docs/10_ROADMAP.md` | Parent-to-group implementation roadmap |
+| `docs/11_LAUNCH_CHECKLIST.md` | Readiness gates |
+| `docs/12_DECISION_LOG.md` | Permanent decisions |
+| `docs/13_MASTER_PARENT_CONTROL_PLANE.md` | What makes HOLBERY a real parent |
+| `docs/14_BRAND_RELATIONSHIP_SYSTEM.md` | Independent / endorsed / parent-native modes |
+| `docs/15_PARENT_IP_AND_LEGAL_OWNERSHIP_MODEL.md` | Legal-entity vs parent-brand ownership model |
+| `docs/16_MASTER_PARENT_LAUNCH_SEQUENCE.md` | Practical sequence to establish the parent |
+
+## Parent success test
+
+HOLBERY is functioning as a real master parent when:
+- at least one child brand operates under its portfolio governance;
+- the parent controls or governs shared strategic assets;
+- shared capabilities are actually reused;
+- child brands retain distinct market identities;
+- portfolio decisions are made at parent level;
+- the system can add, pause, merge, sell, or retire child brands without breaking the parent.
 
 ## Current portfolio posture
 
-**Parent:** HOLBERY — strategically locked.  
-**Reserve:** ELCO — retained only as reserve/reference, not active parent.  
-**Finalist backups:** TOLMOND — backup finalist; SONMERE — deprioritized due to weaker ownability.  
+**Parent:** HOLBERY — strategically locked.
+**Reserve:** ELCO — reserve/reference only.
+**Backup context:** TOLMOND — historical finalist backup.
 
-See `docs/12_DECISION_LOG.md` for the current decision state.
+See `docs/12_DECISION_LOG.md` and `docs/13_MASTER_PARENT_CONTROL_PLANE.md`.
