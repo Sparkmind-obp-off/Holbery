@@ -1,14 +1,22 @@
 # HOLBERY — Master Architecture
 
+> Canonical Library layer: [HOLBERY-LIBRARY.md](HOLBERY-LIBRARY.md). The Library is the parent registry and reusable capability layer; the four operating pillars remain the primary business categories.
+
 Phase 2 | COMPLETE: klasifikasi dan governance struktur.
 Induk: [HOLBERY-MASTER.md](HOLBERY-MASTER.md). Lifecycle: [PROJECT-LIFECYCLE.md](PROJECT-LIFECYCLE.md).
 
 ```text
 HOLBERY
-├── SYSTEMS
-├── PRODUCTS
-├── VENTURES
-└── COMMERCE
+├── LIBRARY
+│   ├── SYSTEMS
+│   ├── PRODUCTS
+│   ├── VENTURES
+│   ├── COMMERCE
+│   ├── KNOWLEDGE
+│   ├── CAPABILITIES
+│   └── ASSETS
+└── BRAND PORTFOLIO
+    └── CHILD BRANDS (only when justified)
 ```
 
 ## Pilar dan entry criteria
