@@ -80,3 +80,11 @@ Status keputusan berbeda dari status implementasi. Perubahan identitas harus mem
 ## H-012 — Cloudflare BYOK production and domain boundary
 
 2026-10-05 / VERIFIED. Akun BYOK authenticated; new Pages project webapp-4 dibuat setelah collisions webapp/webapp-2 dan existing webapp-3 tidak disentuh. Stable host https://webapp-4.pages.dev lulus HTTP/browser test; transient asset/TLS propagation awal dicatat. Token tidak melihat zone holberry.biz; tidak ada DNS mutation. SEO canonical memakai host live, strategic domain tetap holberry.biz. Original SVG dibuat tanpa gambar stock/dependency CDN.
+
+## H-013 — Barber research MVP, not real operator proof
+
+2026-10-05 / IMPLEMENTED + ENGINEERING VERIFIED. Browser-only daily-close calculator, blank CSVs and printable instructions built independently. No persistent customer data, network transmission of calculator inputs, payment collection or private Bozq IP. Synthetic tests do not count as real operators. SYS-BARBER-001 remains EXPERIMENT with owner UNASSIGNED and actual sample0.
+
+## H-014 — Wrap-up pause requested by user
+
+2026-10-05 / ACCEPTED. Latest instruction requests wrapping up accomplishments/remaining work and no new subtasks. Close existing Phase7 work, verify/commit/push/redeploy and deliver current report. Phase8–10 remain PENDING, explicitly not completed or represented as externally blocked. Resume at Phase8 when execution is resumed; no Phase0 redo. H-008 continuous protocol is paused for this run by newer user instruction.

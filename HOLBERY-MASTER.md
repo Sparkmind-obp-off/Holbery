@@ -1,6 +1,6 @@
 # HOLBERY — Master Parent Brand System
 
-Versi: 1.1 | Ditetapkan: 2026-10-05 | Eksekusi berkelanjutan Phase 1–10
+Versi: 1.2 | Ditetapkan: 2026-10-05 | Phase 0–7 deliverables COMPLETE; Phase 8–10 PENDING karena instruksi wrap-up terakhir
 
 ## Identitas kanonis
 
@@ -9,10 +9,10 @@ Versi: 1.1 | Ditetapkan: 2026-10-05 | Eksekusi berkelanjutan Phase 1–10
 | PROJECT NAME | HOLBERY |
 | CATEGORY | MASTER PARENT BRAND |
 | OWNER | Pemilik proyek HOLBERY; nama penanggung jawab dan entitas hukum belum diverifikasi |
-| STATUS | STRATEGIC MASTER BRAND; fondasi dokumentasi Phase 0 |
+| STATUS | DEFINED MASTER PARENT; website BYOK live; operating framework dan research MVP implemented; operational/commercial proof pending |
 | PARENT | Tidak ada; HOLBERY adalah lapisan induk |
 | REPOSITORY | Sparkmind-obp-off/Holbery; setup GitHub dan fetch remote berhasil pada eksekusi lanjutan |
-| DOMAIN | holberry.biz; domain utama yang ditetapkan, kepemilikan/DNS/HTTPS belum diverifikasi |
+| DOMAIN | holberry.biz; domain strategis, control BLOCKED/UNVERIFIED (RDAP404/DNS NXDOMAIN); live host https://webapp-4.pages.dev |
 | CUSTOMER TYPE | Operator bisnis dan pelanggan produk/venture; pelanggan pertama belum divalidasi |
 | REVENUE MODEL | Ditentukan per penawaran; belum ada pendapatan terverifikasi |
 
@@ -50,7 +50,7 @@ Jika ditemukan konflik aktif, jangan menebak: catat keputusan, selaraskan dokume
 ## Batas privasi dan proyek
 
 - Bozq One System tetap privat/internal milik konteks Bosku Cukur. Bukan produk publik HOLBERY dan tidak dipindahkan ke repository ini.
-- Barber Business System adalah arah produk terpisah di SYSTEMS; belum dibangun, diuji, atau dijual.
+- Barber Business System adalah proyek terpisah di SYSTEMS; research MVP/browser calculator/CSV/checklist dibangun dan engineering-tested. Lifecycle EXPERIMENT; operator validation, legal commercial readiness dan sales belum terbukti.
 - Hanya pelajaran operasional yang diizinkan dan disanitasi yang boleh dijadikan referensi. Jangan salin kode, data pelanggan, aset, kredensial, atau IP privat tanpa izin eksplisit dan pemeriksaan hak.
 - Tolvey/Tolva tetap terpisah; Kestora belum di-onboard. ELCO/TOLMOND hanya konteks historis, bukan alternatif induk aktif.
 - Entitas hukum, pemilik IP, domain, dan trademark belum dianggap terverifikasi. HOLBERY **belum mendapat legal/trademark clearance**.
@@ -61,7 +61,7 @@ Setiap fase: inspect repository → inspect assets → preserve valid work → i
 
 Laporan wajib: STATUS, CHANGES, FILES, TESTS, EVIDENCE, RISKS, NEXT PHASE. Jangan lewati fase atau mengklaim pekerjaan eksternal selesai dari dokumentasi saja.
 
-Loop operasional yang akan diimplementasikan pada Phase 6:
+Loop operasional didokumentasikan dan template/registry diimplementasikan pada Phase 6; belum terbukti lewat operasi bisnis nyata. [OPERATING-SYSTEM.md](OPERATING-SYSTEM.md):
 
 `DISCOVER → VALIDATE → DESIGN → BUILD → LAUNCH → OPERATE → MEASURE → IMPROVE → SCALE`
 
@@ -69,4 +69,4 @@ Loop operasional yang akan diimplementasikan pada Phase 6:
 
 HOLBERY baru dianggap operasional jika definisi, arsitektur, aturan child brand, digital property utama, pelacakan legal/IP, governance proyek, metode operasi, validasi satu produk/venture nyata, jalur komersial, dan arsitektur reusable memiliki bukti pelaksanaan.
 
-**Status saat ini: fondasi dokumentasi, bukan induk yang sudah operasional.** Visibilitas publik, revenue, legal clearance, dan validasi pelanggan belum terbukti.
+**Status saat ini: induk terdefinisi, website publik verified, operating framework dan research MVP implemented. Bukan klaim induk sudah operasional secara komersial.** Primary custom domain, legal clearance, validasi operator/pelanggan dan revenue masih belum terbukti. Phase 8–10 belum dikerjakan; lihat ROADMAP dan EXECUTION-REPORT. Instruksi wrap-up terbaru menghentikan run ini setelah menutup Phase 7, tanpa membatalkan disiplin bukti.

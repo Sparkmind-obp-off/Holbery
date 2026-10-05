@@ -48,7 +48,7 @@ CUSTOMER TYPE
 REVENUE MODEL
 ```
 
-Nilai yang belum diketahui diberi `UNVERIFIED` atau `UNASSIGNED`, bukan diisi asumsi. Bedakan strategic owner, operating owner, dan legal asset owner. Eksperimen belum teruji tidak berstatus LIVE/VALIDATED. Registry operasional dan kamus status dituntaskan pada Phase 3 dan Phase 6.
+Nilai yang belum diketahui diberi `UNVERIFIED` atau `UNASSIGNED`, bukan diisi asumsi. Bedakan strategic owner, operating owner, dan legal asset owner. Eksperimen belum teruji tidak berstatus LIVE/VALIDATED. Kamus lifecycle tersedia di PROJECT-LIFECYCLE; structural registries dan onboarding CLI telah diimplementasikan pada Phase 6. Placeholder owner/rights tidak boleh dianggap assigned atau verified.
 
 ## Perlindungan proyek internal
 

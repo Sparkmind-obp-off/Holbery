@@ -15,7 +15,7 @@ Roadmap historis di archive tidak menjadi tracker aktif.
 | PHASE 4 — DIGITAL FOUNDATION | holberry.biz; landing page; GitHub structure; email; social; doc hub; analytics; hosting; DNS | Public-site implementation production-ready; custom domain/email/social tracked separately | COMPLETE |
 | PHASE 5 — LEGAL, IP & ASSET FOUNDATION | Register domain, trademark/classes, entity, IP/code/repo/product/brand, licensing, dependencies | Legal/IP checklist jelas, tiap asset status/bukti/gap tanpa fabricated clearance | COMPLETE |
 | PHASE 6 — OPERATING SYSTEM | Loop operasional; opportunity/project/product registries; feedback, metrics, experiments, decisions, revenue, runbooks | Satu workflow proyek bisa dijalankan ulang dengan owner dan bukti | COMPLETE |
-| PHASE 7 — FIRST REAL VENTURE / PROOF | Barber Business System terpisah; pilot masalah operator nyata | Concrete product definition + executable validation path; operator proof tracked separately | PENDING |
+| PHASE 7 — FIRST REAL VENTURE / PROOF | Barber Business System terpisah; pilot masalah operator nyata | Concrete product definition + executable validation path; operator proof tracked separately | COMPLETE |
 | PHASE 8 — PRODUCTIZATION | Satu offer reusable: customer, problem, outcome, delivery, price, acquisition, support, success metric | Satu concrete commercial offer ready for validation, tanpa claim sales | PENDING |
 | PHASE 9 — VERTICAL EXPANSION | Demand → problem → repeatability → unit economics → operational fit → product fit | Objective vertical evaluation framework; no automatic expansion | PENDING |
 | PHASE 10 — ECOSYSTEM & SCALE | Governance berbasis bukti; evaluate licensing/partners/distribution/recurring/acquisition/investment/international | Mature ecosystem model + graduation/scale gates; no claim actual scale | PENDING |
@@ -30,7 +30,7 @@ Roadmap historis di archive tidak menjadi tracker aktif.
 - Legal clearance bukan hasil pemilihan nama/domain. Klaim dan kontrak legal memerlukan bukti serta review yang sesuai.
 - Setiap fase audit ulang, preserve valid work, implement seperlunya, test, document, evidence, update tracker, lalu lanjut otomatis; stop hanya pada blocker nyata.
 
-## Laporan PHASE 0
+## Laporan historis PHASE 0 (baseline sebelum eksekusi lanjutan)
 
 ### STATUS
 
@@ -121,3 +121,22 @@ Evidence: [phase-05.json](evidence/phase-05.json). Test: `node scripts/check-pha
 STATUS COMPLETE framework implemented; actual operations remain unvalidated. CHANGES nine-step operating loop, eleven embedded reusable templates, structural project/opportunity/product/experiment/feedback/metrics/revenue registries and metadata CLI. FILES six operating docs, registries/, scripts/registry.mjs/new-project.mjs, tests/registry.test.mjs. TESTS 6 registry tests plus dry-run onboarding; no real record or fabricated revenue created. EVIDENCE project-dry-run.json labelled dryRun; blank customer metrics/revenue trackers. RISKS operator/owner/consent required for actual execution. NEXT Phase 7.
 
 Evidence: [phase-06.json](evidence/phase-06.json). Test: `node scripts/check-phase.mjs 6`. Dokumen diverifikasi, bukan klaim sukses legal/pelanggan. Lanjut otomatis sesuai H-008.
+
+## Phase 7 — COMPLETE (2026-10-05)
+
+STATUS COMPLETE definition/path + functional research MVP; real pilot BLOCKED/REQUIRES USER ACTION. CHANGES browser calculator, input/range/privacy guards, daily/weekly CSV and printable onboarding. FILES five Phase7 docs, src/barber-page.ts, calculations/barber scripts, downloads, calculator tests and structural project record. TESTS 36 unit tests overall, typecheck/build, HTTP 10 pages/18 targets, responsive browser and calculator submit/error passed. EVIDENCE synthetic engineering tests, actual operators=0, lifecycle EXPERIMENT. RISKS rights/owner/private contact and real operator validation pending; no paid sale. NEXT user requested wrap-up; Phase8–10 remain PENDING.
+
+Evidence: [phase-07.json](evidence/phase-07.json). Test: `node scripts/check-phase.mjs 7`. Dokumen diverifikasi, bukan klaim sukses legal/pelanggan. Lanjut otomatis sesuai H-008.
+
+## Current wrap-up / external components
+
+2026-10-05: Phase0–7 deliverable scope COMPLETE (8/11); Phase8–10 PENDING, NOT STARTED karena instruksi wrap-up terbaru H-014. Master operational/commercial Definition of Done belum tercapai. Source/evidence integration dan release ditutup pada run ini.
+
+- Hosting BYOK: VERIFIED stable Pages host, latest toolkit rollout verified separately at release.
+- Primary custom domain holberry.biz: BLOCKED/REQUIRES USER ACTION; no zone, RDAP404/DNS NXDOMAIN, no DNS change.
+- Legal/trademark/IP title: PENDING/REQUIRES USER ACTION; no clearance claim.
+- Email/social/private support: UNVERIFIED/BLOCKED until owner confirms.
+- Real operator pilot, paid commitments, revenue: NOT VERIFIED; actual sample0, lifecycle EXPERIMENT.
+- Phase8–10: pending work, not fabricated success.
+
+Final report: [EXECUTION-REPORT.md](EXECUTION-REPORT.md). Next action is resume Phase8 plus resolve external gaps, without starting new subtasks during wrap-up.

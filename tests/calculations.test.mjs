@@ -1,0 +1,14 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { calculateDailyClose } from '../public/static/calculations.js';
+const good={services:10,price:30000,openingCash:100000,cashReceipts:200000,digitalReceipts:100000,cashExpenses:50000,actualCash:250000};
+test('balanced SYNTHETIC close reconciles',()=>assert.deepEqual(calculateDailyClose(good),{expectedRevenue:300000,recordedReceipts:300000,receiptGap:0,expectedCash:250000,cashDiscrepancy:0,receiptsLessCashExpenses:250000,balanced:true}));
+test('digital receipt is not cash drawer money',()=>assert.equal(calculateDailyClose({...good,cashReceipts:0,digitalReceipts:300000,cashExpenses:0,actualCash:100000}).expectedCash,100000));
+test('receipt gap separate from cash discrepancy',()=>{const r=calculateDailyClose({...good,digitalReceipts:50000});assert.equal(r.receiptGap,-50000);assert.equal(r.cashDiscrepancy,0);assert.equal(r.balanced,false)});
+test('excess actual cash sign preserved',()=>assert.equal(calculateDailyClose({...good,actualCash:251000}).cashDiscrepancy,1000));
+test('zero day is supported',()=>assert.equal(calculateDailyClose(Object.fromEntries(Object.keys(good).map(k=>[k,0]))).balanced,true));
+for(const [name,value] of [['empty',''],['missing',undefined],['negative',-1],['fraction',1.5],['infinite',Infinity],['NaN','x'],['unsafe',Number.MAX_SAFE_INTEGER],['boolean',true]]) test(`${name} input rejected`,()=>assert.throws(()=>calculateDailyClose({...good,price:value})));
+test('service limit enforced',()=>assert.throws(()=>calculateDailyClose({...good,services:10001})));
+test('cash overspending rejected',()=>assert.throws(()=>calculateDailyClose({...good,cashExpenses:300001}),/cannot exceed/));
+test('calculation range checked',()=>assert.throws(()=>calculateDailyClose({...good,services:10000,price:1e12}),/range/));
+test('pure function does not mutate inputs',()=>{const before={...good};calculateDailyClose(good);assert.deepEqual(good,before)});

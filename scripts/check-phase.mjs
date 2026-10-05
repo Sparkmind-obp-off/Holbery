@@ -13,7 +13,9 @@ const files = {
   10: ['ECOSYSTEM-STRATEGY.md', 'VENTURE-GRADUATION.md', 'SCALE-FRAMEWORK.md'],
 };
 const phase = Number(process.argv[2]);
-const phases = phase ? [phase] : Object.keys(files).map(Number);
+const roadmap = readFileSync('ROADMAP.md', 'utf8');
+const implemented = Object.keys(files).map(Number).filter(n => roadmap.split('\n').some(row => row.startsWith(`| PHASE ${n} —`) && row.endsWith('| COMPLETE |')));
+const phases = process.argv.includes('--implemented') ? implemented : phase ? [phase] : Object.keys(files).map(Number);
 let count = 0;
 for (const n of phases) {
   assert(files[n], 'Unknown phase');

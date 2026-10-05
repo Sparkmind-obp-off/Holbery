@@ -6,6 +6,6 @@ const fields={id:'TEST-001',project_name:'Dry run',category:'SYSTEMS',owner:'UNA
 test('existing registry valid',()=>assert.equal(validateRegistry(JSON.parse(readFileSync('registries/projects.json','utf8'))),true));
 test('new project starts as idea',()=>assert.equal(draftProject(fields).lifecycle,'IDEA'));
 test('duplicate IDs rejected',()=>assert.throws(()=>validateRegistry([draftProject(fields),draftProject(fields)]),/duplicate/));
-test('missing metadata rejected',()=>assert.throws(()=>draftProject({...fields,domain:undefined,category:'BAD'})));
+test('missing metadata rejected',()=>assert.throws(()=>draftProject({...fields,domain:undefined})));
 test('private project cannot enter public registry',()=>assert.throws(()=>validateRegistry([{...draftProject(fields),visibility:'private'}]),/Private/));
 test('no graduation without validation',()=>assert.throws(()=>validateRegistry([{...draftProject(fields),lifecycle:'VALIDATED'}]),/Graduation/));

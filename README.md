@@ -1,94 +1,97 @@
 # HOLBERY
 
-**Master Parent Brand System — v1.0**
+**Master Parent Brand System — v1.2**
 
 Build. Operate. Grow.
 Practical systems, products, and ventures.
 
-## Status nyata
+## Actual status
 
-- HOLBERY adalah master parent brand, bukan produk tunggal.
-- **PHASE 0 — PROJECT INITIALIZATION: COMPLETE**, khusus fondasi dokumentasi; 88/88 pemeriksaan lulus. Bukti: [ROADMAP.md](ROADMAP.md). Phase 1–10 sedang dieksekusi berkelanjutan; lihat tracker terkini.
-- Domain strategis utama: `holberry.biz`; kepemilikan, DNS, HTTPS, dan email **belum diverifikasi**.
-- Legal/trademark clearance: **belum selesai**.
-- Website sudah deployed/verified: https://webapp-4.pages.dev. Custom domain, pelanggan nyata, dan revenue belum dibuktikan.
+**Phase 0–7 COMPLETE at deliverable scope; Phase 8–10 PENDING.** Execution paused for wrap-up at the user's latest instruction, not because a later phase was silently completed. HOLBERY remains the master parent, not a single barber/AI/SaaS/agency product. Full operational/commercial Definition of Done has NOT been achieved.
 
-## Mulai di sini
+- Production BYOK website: **https://webapp-4.pages.dev**.
+- Functional research MVP: **https://webapp-4.pages.dev/systems/barber**.
+- Existing GitHub repository: **https://github.com/Sparkmind-obp-off/Holbery**, branch main. Release/push verification is recorded in EXECUTION-REPORT and evidence/release.json when completed.
+- Strategic primary domain: **holberry.biz**. No accessible CF zone, RDAP404 and DNS NXDOMAIN on 2026-10-05. Ownership/control NOT VERIFIED; custom-domain setup BLOCKED pending owner action. No DNS changes or registration purchase performed.
+- Legal/trademark clearance NOT COMPLETE. Near-spelling screening lead recorded; authoritative review requires qualified counsel.
+- Barber system lifecycle EXPERIMENT, actual operators0, interviews0, paid commitments0. Unit/browser tests are engineering evidence only.
+- Bozq One System remains private/internal Bosku Cukur; no private code, assets, customers, credentials or IP imported.
 
-[Sumber definisi tunggal: HOLBERY-MASTER.md](HOLBERY-MASTER.md).
+## Canonical documentation
 
-| Dokumen aktif | Fungsi |
+Start with [HOLBERY-MASTER.md](HOLBERY-MASTER.md). Status tracker: [ROADMAP.md](ROADMAP.md). Decisions: [DECISIONS.md](DECISIONS.md). Current report: [EXECUTION-REPORT.md](EXECUTION-REPORT.md).
+
+| Phase | Deliverables |
 |---|---|
-| [HOLBERY-MASTER.md](HOLBERY-MASTER.md) | Identitas, cakupan, otoritas, batas proyek, Definition of Done |
-| [ARCHITECTURE.md](ARCHITECTURE.md) | SYSTEMS / PRODUCTS / VENTURES / COMMERCE dan prinsip implementasi |
-| [DECISIONS.md](DECISIONS.md) | Keputusan aktif, termasuk penggantian domain/arsitektur historis |
-| [BRAND-RULES.md](BRAND-RULES.md) | Guardrails induk, child brands, metadata, privasi, keamanan |
-| [ROADMAP.md](ROADMAP.md) | Urutan Phase 0–10, gates, status, laporan bukti |
-| README.md | Panduan masuk dan keadaan repository |
+| 1 | [Brand foundation](BRAND-FOUNDATION.md): vision/mission/purpose/positioning/promise/personality/audience/territory/value/differentiation/IS/IS NOT |
+| 2 | [Master architecture](MASTER-ARCHITECTURE.md), [project lifecycle](PROJECT-LIFECYCLE.md) |
+| 3 | [Brand governance](BRAND-GOVERNANCE.md), [naming system](NAMING-SYSTEM.md), [brand rules](BRAND-RULES.md) |
+| 4 | [Technical architecture](ARCHITECTURE.md), [deployment/configuration/rollback](DEPLOYMENT.md), public website |
+| 5 | [Legal/IP register](LEGAL-IP-REGISTER.md), [asset register](ASSET-REGISTER.md), [clearance tracker](CLEARANCE-TRACKER.md) |
+| 6 | [Operating system](OPERATING-SYSTEM.md), [opportunity/discovery](OPPORTUNITY-TEMPLATE.md), [project/product definition](PROJECT-TEMPLATE.md), [experiment/validation](VALIDATION-TEMPLATE.md), [launch/operations](LAUNCH-TEMPLATE.md), [KPI](KPI-FRAMEWORK.md) |
+| 7 | [Barber system](BARBER-BUSINESS-SYSTEM.md), [MVP spec](MVP-SPEC.md), [customer problem](CUSTOMER-PROBLEM.md), [pricing hypothesis](PRICING-HYPOTHESIS.md), [validation plan](VALIDATION-PLAN.md); functional calculator/CSV/checklist |
 
-## Tujuan dan struktur
+Hierarchy: HOLBERY → SYSTEMS / PRODUCTS / VENTURES / COMMERCE. One primary category per project; category and lifecycle are separate. Products do not all need a child brand or venture entity.
 
-HOLBERY membangun dan mengoperasikan bisnis, sistem, produk digital/fisik, commerce, ventures, dan eksperimen masa depan dengan urutan **clarity → structure → execution → proof → revenue → scale**.
+[Historical archive](archive/legacy-parent-house/README.md) is NON-CANONICAL. Its 19 original files remain byte-identical to baseline9babed0. Historical domain/hierarchy/status statements do not apply to current roadmap. Archive paths changed; external old links may need updates.
 
-```text
-HOLBERY
-├── SYSTEMS
-├── PRODUCTS
-├── VENTURES
-└── COMMERCE
+## Functional entry URIs
+
+| Path | Purpose / parameters |
+|---|---|
+| / | Public parent headquarters |
+| /about | What HOLBERY is |
+| /systems, /products, /ventures, /commerce | Four pillars with truthful development/framework status |
+| /contact | Real public GitHub Issues enquiry; GitHub account required; no confidential data |
+| /docs | Curated public method, not internal document mount |
+| /privacy | Actual site data boundaries; no contact form/customer database/marketing trackers |
+| /systems/barber | Browser-only daily-close calculator; required inputs services, price, openingCash, cashReceipts, digitalReceipts, cashExpenses, actualCash |
+| /downloads/daily-close.csv | Blank daily aggregate close template |
+| /downloads/weekly-review.csv | Blank aggregate weekly review template |
+| /downloads/barber-onboarding.html | Printable workflow/checklist |
+| /downloads/third-party-notices.txt | Preserved MIT runtime notice |
+| /api/health | GET JSON health, no parameters or secrets |
+| /robots.txt, /sitemap.xml | SEO discovery; canonical host stays verified Pages host until domain control/TLS |
+
+Unknown routes/methods return404. No accounts, payment processing, CRM/loyalty/reminder services or database are implemented.
+
+## Data architecture / security
+
+Hono + TypeScript + Vite Cloudflare Pages; original SVG/CSS, no external frontend CDN. Browser calculator is pure computation: inputs are neither transmitted nor saved by application code. Downloads are blank sanitized templates stored on operator device. Cloudflare may process request metadata under hosting policies.
+
+Structural process records in registries/ are versioned JSON/CSV, not runtime application data. Nine metadata fields mandatory; duplicate IDs/private projects/unsupported graduation rejected by CLI. Revenue/metrics/feedback trackers contain no fabricated customer rows. Private customer evidence must never be committed to this public repo. For future app persistence use D1/R2 only when necessary; no memory/file runtime storage.
+
+CSP, nosniff, frame/referrer/permissions controls protect worker/static responses. Credentials remain outside code. 161 lockfile dependency license metadata entries inventoried; runtime Hono MIT notice preserved. No own-source open license or legal IP assignment inferred from public repo.
+
+## Development / repeatable tests
+
+```sh
+cd /home/user/webapp
+npm ci
+npm run check
+# Preview after build, using PM2:
+pm2 start ecosystem.config.cjs
+node scripts/check-http.mjs
+node scripts/browser-check.mjs
+# If Chromium missing: npx playwright install --with-deps chromium
+BASE_URL=https://webapp-4.pages.dev node scripts/check-http.mjs
+BASE_URL=https://webapp-4.pages.dev node scripts/browser-check.mjs
 ```
 
-Setiap proyek punya satu kategori primer dan hubungan pendukung bila diperlukan. Nama child/product tidak wajib memakai HOLBERY. Tidak membangun semua vertikal atau shared infrastructure sekaligus.
+npm run check = typecheck + unit tests + implemented-phase/document integration audit + production build. 36 unit tests, HTTP route/asset checks and browser tests cover widths320/390/768/1440, navigation, calculator submit/errors. Tests do not certify full legal/a11y/security compliance. Full Phase1–10 document readiness check is `node scripts/check-phase.mjs`; it intentionally fails until pending deliverables exist. Implemented scope check is `--implemented`.
 
-## Yang telah diterapkan
+Project onboarding CLI example (DRY RUN ONLY, no real project/PII):
 
-- Audit repository existing, keputusan domain/arsitektur terdahulu, dan batas proyek.
-- Enam dokumen aktif yang diminta untuk fondasi Phase 0.
-- Dokumentasi lama dipertahankan di [arsip historis](archive/legacy-parent-house/README.md), bukan sumber aktif.
-- Git existing dan branch main dipertahankan; .gitignore ditambahkan untuk secrets/artefak lokal.
-- Bozq One System tetap privat/internal Bosku Cukur; tidak mengimpor kode, aset, atau data privat.
+```sh
+node scripts/new-project.mjs --dry-run --id EXAMPLE-ONLY --project-name "Example only" --category SYSTEMS --owner UNASSIGNED --repository "NOT REQUIRED YET" --domain "NOT REQUIRED YET" --customer-type Operator --revenue-model Hypothesis
+```
 
-## Definisi yang telah dituntaskan
+## Deployment
 
-- [Brand foundation](BRAND-FOUNDATION.md) — Phase 1.
-- [Master architecture](MASTER-ARCHITECTURE.md) dan [project lifecycle](PROJECT-LIFECYCLE.md) — Phase 2.
-- [Brand governance](BRAND-GOVERNANCE.md) dan [naming system](NAMING-SYSTEM.md) — Phase 3.
+User-selected **Cloudflare BYOK**, project webapp-4, production branch main; saved metadata and wrangler.jsonc agree. No unrelated existing project overwritten. After authorized token setup: `npx wrangler whoami`, build/tests, then `npx wrangler pages deploy dist --project-name webapp-4 --branch main`. Never wrangler login. No runtime secrets/bindings required. Full exact custom-domain/email/social/analytics/rollback steps in DEPLOYMENT.
 
-## Yang belum diterapkan
+## Remaining / next steps
 
-- Phase 4: website MVP, domain live, GitHub organization strategy, email, social, documentation hub, analytics, DNS dan hosting.
-- Phase 5–6: asset/legal/IP register terverifikasi dan sistem operasi/registries.
-- Phase 7–10: pilot Barber Business System, penawaran berbayar, ekspansi, dan skala ekosistem.
+User actions: confirm/register/control holberry.biz; verify legal owner and trademark/IP rights; provide private business email/support/approved commercial terms; nominate accountable pilot owner and two real operators. No actual pilot or revenue has been fabricated.
 
-Arah pertama: Barber Business System di SYSTEMS, terpisah dari Bozq. Belum ada produk atau venture berstatus validated/live.
-
-## Repository, URL, dan entry points
-
-- Workspace: `/home/user/webapp/`.
-- Remote terkonfigurasi: `https://github.com/Sparkmind-obp-off/Holbery`; permission dan autentikasi belum diuji pada Phase 0.
-- Domain tujuan: `https://holberry.biz` — **bukan klaim URL produksi aktif**.
-- URL produksi BYOK: https://webapp-4.pages.dev; preview port 3000 tersedia.
-- Routes: /, /about, /systems, /products, /ventures, /commerce, /contact, /docs, /privacy, /systems/barber; /api/health tanpa parameter.
-- Entry dokumentasi: README → HOLBERY-MASTER → dokumen terkait → ROADMAP.
-
-## Data dan penyimpanan
-
-Saat ini hanya file Markdown versioned di git. Belum ada database, customer records, layanan cloud storage, atau runtime persistence. Metadata proyek minimal dicatat di HOLBERY-MASTER; schema registry operasional belum diimplementasikan. Ketika aplikasi memerlukan persistence di Cloudflare, pilih D1/R2 sesuai kebutuhan dan jangan gunakan memory/file runtime.
-
-## Panduan penggunaan
-
-1. Baca HOLBERY-MASTER sebelum menambah proyek atau mengambil keputusan.
-2. Cek BRAND-RULES dan tentukan kategori primer lewat ARCHITECTURE.
-3. Catat keputusan material di DECISIONS dan selaraskan sumber terdampak.
-4. Ikuti ROADMAP secara berurutan; klaim selesai hanya dengan bukti.
-5. Jangan gunakan isi archive sebagai instruksi aktif atau bukti kesiapan bisnis.
-
-## Deployment dan pengujian
-
-Repository existing adalah dokumentasi, tanpa package.json, aplikasi, atau konfigurasi Cloudflare. Tidak ada npm build/test, PM2 startup, browser test, deployment, DNS change, atau push GitHub pada Phase 0. Uji yang relevan: keberadaan dokumen, tautan relatif, konsistensi identitas, integritas arsip, pemeriksaan patch, dan hygiene git. Rincian hasil ada di ROADMAP.
-
-Pemilihan jalur hosting dan konfigurasi dilakukan pada Phase 4 sebelum deployment. Gunakan existing repository; jangan membuat repo/organisasi baru tanpa keputusan. Trademark dan legal review berjalan sebagai workstream terpisah, bukan dianggap selesai oleh pemilihan domain.
-
-## Langkah berikutnya
-
-**PHASE 1 — MASTER BRAND FOUNDATION**, setelah laporan penutupan Phase 0. Tidak ada fase yang dilewati atau dinyatakan selesai otomatis oleh dokumentasi fondasi ini.
+Phase8 (product catalog/offer/revenue framework), Phase9 (vertical engine/scorecard), Phase10 (ecosystem graduation/scale framework) remain NOT STARTED in this run due the latest wrap-up instruction. Pricing anchor in Phase7 is a hypothesis, not proof of Phase8 completion. Resume at Phase8 when execution is resumed; do not repeat Phase0 or start naming exploration.

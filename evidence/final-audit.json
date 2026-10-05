@@ -1,0 +1,13 @@
+{
+  "date": "2026-10-05",
+  "rootDocuments": 27,
+  "relativeLinks": 79,
+  "archiveFiles": 19,
+  "currentFilesScanned": 104,
+  "registry": "valid",
+  "revenueRows": 0,
+  "privatePublicBundleBoundary": "pass",
+  "calculatorNoNetworkStorage": "pass",
+  "secretScan": "current files + available secret values/patterns; not forensic PII/history certification",
+  "patchWhitespace": "pass"
+}

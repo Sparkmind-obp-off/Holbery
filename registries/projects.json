@@ -13,7 +13,32 @@
     "lifecycle": "NOT_APPLICABLE",
     "visibility": "public",
     "legal_owner": "UNVERIFIED",
-    "evidence": ["HOLBERY-MASTER.md"],
+    "evidence": [
+      "HOLBERY-MASTER.md"
+    ],
+    "next_review": "2026-11-05"
+  },
+  {
+    "id": "SYS-BARBER-001",
+    "project_name": "Barber Business System",
+    "category": "SYSTEMS",
+    "owner": "UNASSIGNED",
+    "status": "EXPERIMENT",
+    "parent": "HOLBERY",
+    "repository": "https://github.com/Sparkmind-obp-off/Holbery",
+    "domain": "NOT REQUIRED YET; public research route on Pages host",
+    "customer_type": "Single-location independent barber operator",
+    "revenue_model": "Free research toolkit; guided pilot pricing hypothesis only",
+    "lifecycle": "EXPERIMENT",
+    "visibility": "public",
+    "legal_owner": "UNVERIFIED",
+    "evidence": [
+      "BARBER-BUSINESS-SYSTEM.md",
+      "MVP-SPEC.md",
+      "VALIDATION-PLAN.md"
+    ],
+    "validation_evidence": [],
+    "real_operators": 0,
     "next_review": "2026-11-05"
   }
 ]

@@ -1,6 +1,6 @@
 {
   "date": "2026-10-05",
-  "base": "https://webapp-4.pages.dev",
+  "base": "http://localhost:3000",
   "checks": [
     {
       "viewport": 1440,
@@ -21,6 +21,9 @@
       "viewport": 320,
       "horizontalOverflow": false,
       "mainHeading": true
+    },
+    {
+      "calculator": "valid outcome, cash reconciliation, empty input rejected"
     }
   ],
   "javascriptErrors": []
