@@ -2,12 +2,15 @@
 
 Phase 3 | Induk: [HOLBERY-MASTER.md](HOLBERY-MASTER.md).
 Naming implementation: [NAMING-SYSTEM.md](NAMING-SYSTEM.md).
+Library governance: [HOLBERY-LIBRARY.md](HOLBERY-LIBRARY.md).
 
 ## Decision authority
 
 Pemilik proyek HOLBERY menjadi approval authority administratif sementara; nama/entitas legal belum diverifikasi. Operating owner mengusulkan, authority menyetujui, legal adviser memeriksa hak jika diperlukan. Jangan menjadikan GitHub handle sebagai pemilik hukum semua IP.
 
 ## USE HOLBERY DIRECTLY OR CREATE CHILD BRAND
+
+The default is **HOLBERY-native**. A Library item does not receive an independent brand merely because it is useful, named, technically substantial, or reusable. The Library is the parent layer; child branding is an evidence-based promotion decision.
 
 1. Apakah customer dan promise konsisten dengan parent, parent trust berguna, dan tidak membutuhkan market separation? Gunakan HOLBERY + descriptor sederhana.
 2. Jika parent visibility tidak memberi nilai dan penawaran kecil: nama produk deskriptif tanpa child brand baru.
@@ -16,6 +19,10 @@ Pemilik proyek HOLBERY menjadi approval authority administratif sementara; nama/
 5. Jika rights belum jelas: HOLD_FOR_RIGHTS. Jangan meluncurkan nama/endorsement atau membeli banyak domain spekulatif.
 
 Mode parent-native memakai HOLBERY langsung; endorsed menggunakan hubungan yang terbukti; independent mempertahankan identitas sendiri namun tercatat di registry. Tidak ada kewajiban menempelkan HOLBERY pada semua child.
+
+## Library-to-Brand Promotion Gate
+
+Before proposing a child brand, record the item's Library category, lifecycle stage, customer/problem, evidence, economics, owner, rights, and reason for separation. If the separation case is weak, keep the item HOLBERY-native.
 
 ## Approval gate
 
