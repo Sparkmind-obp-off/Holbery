@@ -5,6 +5,7 @@
 **Status:** Strategic Master Parent Brand Lock
 **Legal status:** Not legally cleared; formal trademark/domain/social clearance remains a separate gate.
 **Primary role:** Master Parent / House / Brand Owner / Portfolio Governor / Shared-Operations Operator
+**Parent domain:** `holbery.biz.id` — user-confirmed secured domain
 
 HOLBERY is the parent house for a multi-brand portfolio. It owns the portfolio architecture, governs child brands, and can centralize shared commerce, technology, data, operations, and distribution without forcing every child brand to look like HOLBERY.
 
@@ -34,6 +35,14 @@ HOLBERY uses a **Parent-led Hybrid House**:
 - HOLBERY Group
 
 Use **HOLBERY Group** for corporate/group contexts, **HOLBERY House** for the portfolio/brand-house story, and **HOLBERY Commerce** for the shared commerce capability.
+
+## Parent domain
+
+**Primary domain:** `holbery.biz.id`
+
+Use this as the canonical parent web identity unless a later domain strategy deliberately supersedes it.
+
+Do not represent any unrelated child brand as a HOLBERY domain merely for convenience.
 
 ## Strategic principles
 
@@ -72,6 +81,7 @@ Use **HOLBERY Group** for corporate/group contexts, **HOLBERY House** for the po
 | `docs/14_BRAND_RELATIONSHIP_SYSTEM.md` | Independent / endorsed / parent-native modes |
 | `docs/15_PARENT_IP_AND_LEGAL_OWNERSHIP_MODEL.md` | Legal-entity vs parent-brand ownership model |
 | `docs/16_MASTER_PARENT_LAUNCH_SEQUENCE.md` | Practical sequence to establish the parent |
+| `docs/17_OFFICIAL_PARENT_IDENTITY_AND_DOMAIN.md` | Official parent web identity and rollout |
 
 ## Parent success test
 
@@ -86,6 +96,7 @@ HOLBERY is functioning as a real master parent when:
 ## Current portfolio posture
 
 **Parent:** HOLBERY — strategically locked.
+**Primary domain:** holbery.biz.id — user-confirmed secured.
 **Reserve:** ELCO — reserve/reference only.
 **Backup context:** TOLMOND — historical finalist backup.
 
