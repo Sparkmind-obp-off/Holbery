@@ -48,10 +48,14 @@ Setiap proyek punya satu kategori primer dan hubungan pendukung bila diperlukan.
 - Git existing dan branch main dipertahankan; .gitignore ditambahkan untuk secrets/artefak lokal.
 - Bozq One System tetap privat/internal Bosku Cukur; tidak mengimpor kode, aset, atau data privat.
 
+## Definisi yang telah dituntaskan
+
+- [Brand foundation](BRAND-FOUNDATION.md) — Phase 1.
+- [Master architecture](MASTER-ARCHITECTURE.md) dan [project lifecycle](PROJECT-LIFECYCLE.md) — Phase 2.
+- [Brand governance](BRAND-GOVERNANCE.md) dan [naming system](NAMING-SYSTEM.md) — Phase 3.
+
 ## Yang belum diterapkan
 
-- Phase 1: vision/mission/purpose, brand promise, audience dan positioning lengkap.
-- Phase 2–3: pengujian klasifikasi proyek dan governance lengkap.
 - Phase 4: website MVP, domain live, GitHub organization strategy, email, social, documentation hub, analytics, DNS dan hosting.
 - Phase 5–6: asset/legal/IP register terverifikasi dan sistem operasi/registries.
 - Phase 7–10: pilot Barber Business System, penawaran berbayar, ekspansi, dan skala ekosistem.

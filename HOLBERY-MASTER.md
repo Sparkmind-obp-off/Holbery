@@ -40,7 +40,7 @@ Fondasi merek lengkap: [BRAND-FOUNDATION.md](BRAND-FOUNDATION.md). Definisi pila
 
 1. Dokumen ini menjadi sumber utama identitas, domain strategis, cakupan, dan batas HOLBERY.
 2. [DECISIONS.md](DECISIONS.md) mencatat keputusan dan alasan perubahan. Perubahan berlaku setelah dokumen terdampak diselaraskan dalam commit yang sama.
-3. [ARCHITECTURE.md](ARCHITECTURE.md) mengatur struktur; [BRAND-RULES.md](BRAND-RULES.md) mengatur disiplin merek.
+3. [MASTER-ARCHITECTURE.md](MASTER-ARCHITECTURE.md) dan [PROJECT-LIFECYCLE.md](PROJECT-LIFECYCLE.md) mengatur portfolio; [ARCHITECTURE.md](ARCHITECTURE.md) mengatur implementasi teknis. [BRAND-GOVERNANCE.md](BRAND-GOVERNANCE.md), [NAMING-SYSTEM.md](NAMING-SYSTEM.md), dan [BRAND-RULES.md](BRAND-RULES.md) mengatur disiplin merek.
 4. [ROADMAP.md](ROADMAP.md) menjadi satu-satunya tracker status fase aktif.
 5. [README.md](README.md) menjadi pintu masuk, bukan definisi induk alternatif.
 6. `archive/legacy-parent-house/` hanya arsip historis NON-KANONIS. Pernyataan domain, hierarki, dan status selesai di sana tidak berlaku untuk roadmap v1.0.

@@ -30,7 +30,7 @@ Practical systems, products, and ventures.
 Systems | Products | Ventures | Commerce
 ```
 
-Vision, mission, purpose, positioning, promise, audience, dan strategic territory lengkap adalah pekerjaan Phase 1; bukan dinyatakan final oleh guardrails ini.
+Vision, mission, purpose, positioning, promise, audience, dan strategic territory kanonis ada di [BRAND-FOUNDATION.md](BRAND-FOUNDATION.md). Governance dan naming rinci ada di [BRAND-GOVERNANCE.md](BRAND-GOVERNANCE.md) dan [NAMING-SYSTEM.md](NAMING-SYSTEM.md).
 
 ## Metadata proyek wajib
 
@@ -66,4 +66,4 @@ Tolvey/Tolva tetap terpisah; Kestora tetap kandidat belum di-onboard. Jangan tam
 
 ## Pekerjaan governance lanjutan
 
-Phase 3 menyelesaikan aturan rinci untuk child brands, produk, systems, ventures, proyek internal/eksperimental, campaign, domain, dan social handles. Phase 5 menetapkan asset/IP register, trademark classes sesuai aktivitas nyata, dan review legal. Tidak ada gate tersebut yang dianggap selesai pada Phase 0.
+Phase 3 telah mendokumentasikan aturan rinci untuk child brands, produk, systems, ventures, proyek internal/eksperimental, campaign, domain, social handles, dan repository. Status asset/IP register dan legal review Phase 5 mengikuti ROADMAP; dokumentasi tidak setara dengan legal clearance.

@@ -1,0 +1,12 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { classifyProject, namingDecision, canValidate } from '../scripts/governance.mjs';
+for (const [kind, expected] of [['system','SYSTEMS'],['packaged_product','PRODUCTS'],['operating_business','VENTURES'],['distribution','COMMERCE'],['unknown','HOLD']]) test(`primary category ${kind}`, () => assert.equal(classifyProject({kind}),expected));
+test('private systems excluded', () => assert.equal(classifyProject({kind:'system',visibility:'private'}),'EXCLUDED'));
+test('parent authority by default', () => assert.equal(namingDecision(),'HOLBERY_DIRECT'));
+test('descriptive product without parent trust', () => assert.equal(namingDecision({parentTrust:false}),'DESCRIPTIVE_PRODUCT'));
+test('child identity needs rights gate', () => assert.equal(namingDecision({distinctAudience:true}),'HOLD_FOR_RIGHTS'));
+test('independent strategy requires review not automatic approval', () => assert.equal(namingDecision({independentScale:true,rightsReady:true}),'CHILD_BRAND_REVIEW'));
+test('code/docs are not customer validation', () => assert.equal(canValidate(),false));
+test('real evidence gate', () => assert.equal(canValidate({realOperators:2,baseline:true,outcomePassed:true,consent:true}),true));
+test('missing consent blocks validation', () => assert.equal(canValidate({realOperators:2,baseline:true,outcomePassed:true}),false));

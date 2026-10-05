@@ -64,3 +64,11 @@ Status keputusan berbeda dari status implementasi. Perubahan identitas harus mem
 ## H-008 — Continuous execution / BYOK / GitHub
 
 2026-10-05 / ACCEPTED. Instruksi FULL MASTER EXECUTION mencabut stop per fase dari H-007. Phase 0 tidak diulang. Setiap fase diuji, diberi evidence, dan dilanjutkan otomatis. Blocker komponen dicatat tanpa menghentikan pekerjaan independen. Pengguna meminta push existing GitHub dan deployment Cloudflare BYOK; kedua credential setup berhasil, fetch origin main berhasil. Tidak membuat organisasi baru, tidak force-push, tidak mempublikasikan IP internal.
+
+## H-009 — Empat pilar dan lifecycle independen
+
+2026-10-05 / IMPLEMENTED. MASTER-ARCHITECTURE dan PROJECT-LIFECYCLE menyelesaikan detail H-003. Satu kategori primer; lifecycle bukan kategori. PRODUK tidak wajib menjadi VENTURE. Proyek privat EXCLUDED; ambiguous HOLD.
+
+## H-010 — Naming tanpa child brand spekulatif
+
+2026-10-05 / IMPLEMENTED. Parent-native/descriptive/child-review ditentukan audience, independence, rights, dan equity. Child review bukan approval otomatis. Tidak mengubah nama internal. Legal ownership endorsement butuh bukti. Unit tests mencakup decision gate.

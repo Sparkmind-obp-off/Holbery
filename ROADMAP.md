@@ -10,8 +10,8 @@ Roadmap historis di archive tidak menjadi tracker aktif.
 |---|---|---|---|
 | PHASE 0 — PROJECT INITIALIZATION | Audit; identitas; enam dokumen; decision log; prinsip; aturan awal; batas privat | Satu definisi kanonis tanpa sumber aktif yang bertentangan | COMPLETE — dokumentasi Phase 0 terverifikasi |
 | PHASE 1 — MASTER BRAND FOUNDATION | Vision, mission, purpose, positioning, promise, personality, audience, territory, IS/IS NOT | Proyek baru dapat dinilai terhadap definisi tanpa ambiguitas | COMPLETE |
-| PHASE 2 — MASTER BRAND ARCHITECTURE | Definisi/pemetaan SYSTEMS, PRODUCTS, VENTURES, COMMERCE; contoh dan aturan lintas pilar | Setiap proyek punya kategori primer yang jelas | PENDING |
-| PHASE 3 — NAMING & BRAND GOVERNANCE | Aturan child/product/system/venture/internal/experiment/campaign/domain/social; metadata wajib | Proyek baru tidak mendilusi induk; approval dan ownership jelas | PENDING |
+| PHASE 2 — MASTER BRAND ARCHITECTURE | Definisi/pemetaan SYSTEMS, PRODUCTS, VENTURES, COMMERCE; contoh dan aturan lintas pilar | Setiap proyek punya kategori primer yang jelas | COMPLETE |
+| PHASE 3 — NAMING & BRAND GOVERNANCE | Aturan child/product/system/venture/internal/experiment/campaign/domain/social; metadata wajib | Proyek baru tidak mendilusi induk; approval dan ownership jelas | COMPLETE |
 | PHASE 4 — DIGITAL FOUNDATION | holberry.biz; landing page; GitHub structure; email; social; doc hub; analytics; hosting; DNS | Digital headquarters publik terbukti live, HTTPS dan kendali aset terverifikasi | PENDING |
 | PHASE 5 — LEGAL, IP & ASSET FOUNDATION | Register domain, trademark/classes, entity, IP/code/repo/product/brand, licensing, dependencies | Aset kritis punya owner teridentifikasi dan status legal beserta bukti/gap | PENDING |
 | PHASE 6 — OPERATING SYSTEM | Loop operasional; opportunity/project/product registries; feedback, metrics, experiments, decisions, revenue, runbooks | Satu workflow proyek bisa dijalankan ulang dengan owner dan bukti | PENDING |
@@ -91,3 +91,15 @@ PHASE 1 — MASTER BRAND FOUNDATION. Mulai setelah laporan penutupan Phase 0, bu
 STATUS COMPLETE: brand foundation lengkap. CHANGES vision/mission/positioning/promise/audience/territory/differentiation/fit test ditetapkan; protokol berkelanjutan H-008 berlaku. FILES BRAND-FOUNDATION.md, HOLBERY-MASTER.md, README.md, DECISIONS.md, ROADMAP.md dan scripts. TESTS heading wajib, scope, link, token-pattern lulus. RISKS diferensiasi adalah hipotesis, bukan bukti pasar. NEXT Phase 2.
 
 Evidence: [phase-01.json](evidence/phase-01.json). Test: `node scripts/check-phase.mjs 1`. Dokumen diverifikasi, bukan klaim sukses legal/pelanggan. Lanjut otomatis sesuai H-008.
+
+## Phase 2 — COMPLETE (2026-10-05)
+
+STATUS COMPLETE: empat pilar, ownership/entry/graduation/retirement dan lifecycle ditetapkan. FILES MASTER-ARCHITECTURE.md, PROJECT-LIFECYCLE.md, scripts/governance.mjs, tests/governance.test.mjs. TESTS 13 unit tests lulus termasuk private exclusion dan hold ambiguous category. EVIDENCE node --test dan document checks. RISKS classification bergantung fungsi primer yang jujur; validation memerlukan operator nyata. NEXT Phase 3.
+
+Evidence: [phase-02.json](evidence/phase-02.json). Test: `node scripts/check-phase.mjs 2`. Dokumen diverifikasi, bukan klaim sukses legal/pelanggan. Lanjut otomatis sesuai H-008.
+
+## Phase 3 — COMPLETE (2026-10-05)
+
+STATUS COMPLETE: governance/naming rinci dan framework direct-vs-child diterapkan. FILES BRAND-GOVERNANCE.md, NAMING-SYSTEM.md, BRAND-RULES.md dan indeks kanonis. TESTS naming unit gates lulus pada suite 13 tests; document checks lulus. RISKS preferred handle belum secured, child legal rights perlu review. NEXT Phase 4.
+
+Evidence: [phase-03.json](evidence/phase-03.json). Test: `node scripts/check-phase.mjs 3`. Dokumen diverifikasi, bukan klaim sukses legal/pelanggan. Lanjut otomatis sesuai H-008.
