@@ -53,7 +53,7 @@ Hierarchy: HOLBERY → LIBRARY → SYSTEMS / PRODUCTS / VENTURES / COMMERCE / KN
 | /api/health | GET JSON health, no parameters or secrets |
 | /robots.txt, /sitemap.xml | SEO discovery; canonical host stays verified Pages host until domain control/TLS |
 
-Unknown routes/methods return404. No accounts, payment processing, CRM/loyalty/reminder services or database are implemented.
+Unknown routes/methods return404. Current runtime has no accounts, transactional checkout, payment processing, order management, inventory, CRM/loyalty/reminder services, or database. These are intentionally future platform capabilities; the target architecture is defined in HOLBERY-COMMERCE-ARCHITECTURE.md and HOLBERY-CHILD-ECOSYSTEM.md.
 
 ## Data architecture / security
 
