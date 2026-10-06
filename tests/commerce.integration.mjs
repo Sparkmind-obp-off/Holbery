@@ -79,6 +79,17 @@ test('Commerce runtime / actual Worker and D1, mocked provider, no production da
     await t.test('foundation readiness verifies migrated D1 but no approved catalog',async()=>{
       const result=await req('/api/commerce/readiness',{status:503});assert.equal(result.foundation,'VERIFIED');assert.deepEqual(result.missing,['APPROVED_PUBLISHED_PRODUCT']);
     });
+    await t.test('approved legal pages identify operator and disclose inactive email routing',async()=>{
+      for (const path of ['/legal','/terms/commerce','/refund/commerce','/privacy','/support/commerce','/delivery/commerce','/license/commerce','/contact']) {
+        const response=await mf.dispatchFetch('https://commerce.test'+path);
+        assert.equal(response.status,200);assert.equal(response.headers.get('referrer-policy'),'no-referrer');
+        const html=await response.text();
+        assert.match(html,/PT Waskita Cakrawarti Digital/);
+        assert.match(html,/6285643383832/);
+        assert.match(html,/routing belum/i);
+        assert.doesNotMatch(html,/usulan untuk persetujuan|pemilik perlu menyetujui/i);
+      }
+    });
     await t.test('catalog write without admin capability rejected',()=>req(prefix+'/admin/products',{method:'POST',body:productBody,status:401}));
     await t.test('create product, variant and offer in one transaction, initially draft',async()=>{
       product=await req(prefix+'/admin/products',{method:'POST',token:adminToken,body:productBody,status:201});assert.equal(product.status,'draft');
@@ -93,7 +104,13 @@ test('Commerce runtime / actual Worker and D1, mocked provider, no production da
       await req(prefix+'/admin/products/'+product.productId,{method:'PATCH',token:adminToken,body:{status:'published'}});
       const html=await req(product.url);assert.match(html,/SYNTHETIC local test item/);assert.match(html,/12500/);
       assert.equal((await req(prefix+'/products/local-only')).variants[0].price_idr,12500);
-      assert.equal((await req('/api/commerce/readiness')).status,'VERIFIED');
+      assert.equal((await req('/api/commerce/readiness')).status,'READY');
+    });
+    await t.test('readiness fails closed for inactive production storefront',async()=>{
+      await db.prepare("UPDATE storefronts SET status='inactive' WHERE id='holbery-direct'").run();
+      const result=await req('/api/commerce/readiness',{status:503});assert(result.missing.includes('DB_MIGRATIONS'));
+      await db.prepare("UPDATE storefronts SET status='active' WHERE id='holbery-direct'").run();
+      assert.equal((await req('/api/commerce/readiness')).status,'READY');
     });
     await t.test('catalog validation rejects invalid price and slug',async()=>{
       await req(prefix+'/admin/products',{method:'POST',token:adminToken,body:{...productBody,priceIdr:0},status:400});

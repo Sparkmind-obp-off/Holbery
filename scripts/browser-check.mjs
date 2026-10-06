@@ -23,7 +23,7 @@ try {
  }
  const page=await browser.newPage();
  page.on('pageerror',e=>errors.push(e.message));
- for(const path of ['/about','/systems','/products','/ventures','/commerce','/contact','/docs','/privacy','/systems/barber']) {
+ for(const path of ['/about','/systems','/products','/ventures','/commerce','/contact','/docs','/privacy','/systems/barber','/legal','/terms/commerce','/refund/commerce','/support/commerce','/delivery/commerce','/license/commerce']) {
   await page.goto(base+path); assert.equal(await page.locator('main h1').count(),1); assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
  }
  await page.goto(base+'/systems/barber');
@@ -38,7 +38,32 @@ try {
   assert.match(await page.locator('#calculator-error').innerText(),/required/i);
   checks.push({calculator:'valid outcome, cash reconciliation, empty input rejected'});
  }
+ if (process.env.VERIFY_LIVE_COMMERCE === 'true') {
+  assert.equal(new URL(base).hostname,'webapp-4.pages.dev','Live commerce checks use existing production only');
+  const ready=await (await fetch(base+'/api/commerce/readiness')).json();assert.equal(ready.status,'READY');
+  await page.setViewportSize({width:390,height:1000});
+  await page.goto(base+'/store/direct/products/barber-revenue-starter-system');
+  assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+  assert.equal(await page.locator('#purchase-form button').isEnabled(),true);
+  await page.locator('#purchase-form button').click();
+  await page.waitForSelector('#customer-checkout');
+  await page.waitForFunction(()=>document.querySelector('#cart-summary')?.textContent.includes('99000'));
+  assert.match(await page.locator('#cart-summary').innerText(),/Total cart: Rp 99000/);
+  assert.equal(await page.locator('#customer-checkout input[name="name"]').inputValue(),'');
+  assert.equal(await page.locator('#customer-checkout input[name="email"]').inputValue(),'');
+  assert.equal(await page.locator('#customer-checkout input[name="consent"]').isChecked(),false);
+  // Never fill customer data, submit checkout, create invoice, or process an invented Pop reference.
+  const session=await page.evaluate(()=>JSON.parse(sessionStorage.getItem('holbery-private-checkout')));
+  assert(!session.orderId);
+  const removed=await page.request.delete(base+'/api/commerce/stores/direct/carts/'+session.cartId+'/items/87241d54b36b4cbe880e0184ab493b10',{headers:{Authorization:'Bearer '+session.token}});
+  assert.equal(removed.status(),200);
+  await page.evaluate(()=>sessionStorage.removeItem('holbery-private-checkout'));
+  await page.goto(base+'/checkout/unavailable');
+  await page.waitForFunction(()=>typeof window.checkout?.process==='function',{timeout:20000});
+  assert.match(await page.locator('main').innerText(),/akses privat/);
+  checks.push({productionCommerce:'READY; enabled product; authoritative Rp99000 cart and empty customer form; item removed; no order/invoice/customer created',duitkuPop:'Real production module loaded; process function available; no payment reference passed',ownerSpendIdr:0});
+ }
  assert.equal(errors.length,0,JSON.stringify(errors));
- writeFileSync('evidence/browser.json',JSON.stringify({date:'2026-10-05',base,checks,javascriptErrors:errors},null,2)+'\n');
+ writeFileSync('evidence/browser.json',JSON.stringify({date:new Date().toISOString().slice(0,10),base,checks,javascriptErrors:errors},null,2)+'\n');
  console.log('PASS browser: responsive widths, mobile navigation, page headings, no JavaScript errors'+(checks.some(x=>x.calculator)?', calculator workflow':''));
 } finally { await browser.close(); }

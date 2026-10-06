@@ -1,6 +1,10 @@
 # HOLBERY — Deployment and Digital Foundation
 
-Latest digital product release | VERIFIED on Cloudflare BYOK, 2026-10-06. Source7ab2c1d8665c7bc802aecd5cc680c52c288eab6e, deployment7947ee56-b9e4-4549-b096-75c40d970fa3 at https://7947ee56.webapp-4.pages.dev. Three migrations applied, encrypted merchant/operator secrets installed, private R2 binding active and COMPLETE product published for discovery at99k. Readiness503 now lists ONLY COMMERCIAL_POLICY_APPROVED and COMMERCE_ENABLED. Owner policy approval and an actual customer payment are still required; no production sale is claimed.
+## Owner-approved activation — 2026-10-06
+
+Production flags are now approved and set true in wrangler.jsonc. No readiness gate is bypassed. Operator: PT Waskita Cakrawarti Digital — Perseroan Perorangan. Legal/contact/support/delivery pages are Indonesian and identify this operator; WhatsApp uses 6285643383832. Planned hello@helloberry.biz.id and support@helloberry.biz.id routing remains inactive and is explicitly disclosed. Current deployment identifiers and genuine readiness/provider/browser results are authoritative in evidence/release.json. No owner-funded invoice or synthetic customer/order is created. REAL PAYMENT: NOT STARTED; REAL SALE: NOT ACHIEVED until a genuine transaction occurs.
+
+Historical digital product release | VERIFIED on Cloudflare BYOK, 2026-10-06. Source7ab2c1d8665c7bc802aecd5cc680c52c288eab6e, deployment7947ee56-b9e4-4549-b096-75c40d970fa3 at https://7947ee56.webapp-4.pages.dev. Three migrations applied, encrypted merchant/operator secrets installed, private R2 binding active and COMPLETE product published for discovery at99k. Readiness503 now lists ONLY COMMERCIAL_POLICY_APPROVED and COMMERCE_ENABLED. Owner policy approval and an actual customer payment are still required; no production sale is claimed.
 
 Historical commerce foundation release | VERIFIED on Cloudflare BYOK, 2026-10-06. Source13982a9e06ab9058b61af6cf65fe9daa361b20e9; deployment ecc2e40f-1c9b-4a82-b097-6d6bd32b812b at https://ecc2e40f.webapp-4.pages.dev. Both validated D1 migrations are applied. Checkout/payment remains BLOCKED pending human configuration, with COMMERCE_ENABLED=false. The research-toolkit deployment references below are historical.
 Primary strategic domain: holberry.biz. Live host: **https://webapp-4.pages.dev**.
@@ -21,7 +25,7 @@ Owner must confirm exact spelling, registrant/control, and registrar; add the do
 
 ## Email, social, analytics, GitHub architecture
 
-Email targets hello@, support@, legal@holberry.biz are design references only: NOT ACTIVE and not on contact page. Configure provider, SPF/DKIM/DMARC, recovery/2FA after domain verified. Social preferred @holbery remains UNVERIFIED; reserve only after checks. Existing owner/repo reused; no organization or duplicate repo created. Public documentation hub at /docs is curated, not a raw internal-doc mount.
+Current owner-supplied email targets are hello@helloberry.biz.id and support@helloberry.biz.id; routing is NOT ACTIVE and that status is published. The older holberry.biz email designs are superseded. Configure routing and verify delivery before claiming email support works. Email routing alone does not provide an outbound mailbox; outbound replies need an appropriate mail service. Social preferred @holbery remains UNVERIFIED; reserve only after checks. Existing owner/repo reused; no organization or duplicate repo created. Public documentation hub at /docs is curated, not a raw internal-doc mount.
 
 Cloudflare hosting metrics are the initial operational observability channel. No visitor analytics/marketing scripts configured. Web Analytics/RUM can be enabled later with explicit data-purpose/consent review; no invented token or fake metric. /api/health supports uptime checks. Privacy page states actual application behavior.
 

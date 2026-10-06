@@ -23,5 +23,5 @@ for(const file of files) {
  for(const key of ['CLOUDFLARE_API_TOKEN','GSK_TOKEN','GITHUB_TOKEN','GH_TOKEN']) if(process.env[key]?.length>12) assert(!text.includes(process.env[key]),`Environment secret in ${file}`);
 }
 execFileSync('git',['diff','--check']);execFileSync('git',['diff','--cached','--check']);
-const evidence={date:'2026-10-05',rootDocuments:docs.length,relativeLinks:links,archiveFiles:19,currentFilesScanned:files.length,registry:'valid',revenueRows:0,privatePublicBundleBoundary:'pass',calculatorNoNetworkStorage:'pass',secretScan:'current files + available secret values/patterns; not forensic PII/history certification',patchWhitespace:'pass'};
+const evidence={date:new Date().toISOString().slice(0,10),rootDocuments:docs.length,relativeLinks:links,archiveFiles:19,currentFilesScanned:files.length,registry:'valid',revenueRows:0,privatePublicBundleBoundary:'pass',calculatorNoNetworkStorage:'pass',secretScan:'current files + available secret values/patterns; not forensic PII/history certification',patchWhitespace:'pass'};
 writeFileSync('evidence/final-audit.json',JSON.stringify(evidence,null,2)+'\n');console.log('PASS integration audit:',JSON.stringify(evidence));

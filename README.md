@@ -7,9 +7,9 @@ Build. Operate. Grow. HOLBERY is the parent commerce infrastructure for SYSTEMS,
 - **IMPLEMENTED / VERIFIED locally:** M0 D1 runtime, tenant resolution, request IDs, readiness/errors; M1 canonical catalog; M2 persistent cart and atomic checkout; M3 Duitku adapter, Pop JS integration and verified HTTP callback handler.
 - **VERIFIED:** the actual Barber Revenue Starter System COMPLETE package, version BRS-2026-V1: one integrated9-tab Excel workbook,9 PDFs and editable SOP/WhatsApp text. LibreOffice recalculation passed18 expected results with no formula errors; ledger/customer rows are blank. Original paid-product files/build sources are private, not served as public static assets or committed to the repository.
 - **VERIFIED:** supplied real merchant secrets and a newly generated COMMERCE_ADMIN_TOKEN are encrypted in Pages production. Authenticated read-only Duitku production method discovery returnedHTTP200 / responseCode00 /18 methods; this is NOT invoice or payment verification.
-- **BLOCKED — HUMAN CONFIGURATION REQUIRED:** owner approval of commercial/support/refund/privacy policies and one actual customer payment. Credentials are no longer the missing configuration. The exposed API key should be rotated directly in Duitku/Cloudflare, never pasted again.
+- **OWNER APPROVED:** commercial/support/refund/privacy/delivery policies and production activation. Operator: PT Waskita Cakrawarti Digital — Perseroan Perorangan. WhatsApp: 0856 4338 3832. Planned hello@helloberry.biz.id and support@helloberry.biz.id are not routed yet; pages explicitly disclose that. No repeated policy approval or owner-funded transaction is required.
 - **NOT PRODUCTION VERIFIED:** invoice/payment/first sale. Mocked tests are engineering evidence, not revenue or provider acceptance evidence.
-- Production checkout is deliberately disabled: `COMMERCE_ENABLED=false`, `COMMERCIAL_POLICY_APPROVED=false`. A disabled foundation release is safe without merchant credentials; an enabled payment release is not.
+- Production configuration enables `COMMERCE_ENABLED=true`, `COMMERCIAL_POLICY_APPROVED=true`; all credential, tenant, catalog and private delivery readiness gates remain enforced. Readiness success is `READY`, not evidence of payment. Final deployed verification is recorded in evidence/release.json. Owner test spending: Rp0. No invoice or fictitious customer is created for activation tests.
 - Existing informational website, barber calculator and canonical architecture remain intact. Earlier brand Phase0–7 deliverables are historical; they do not prove commerce readiness or customer validation. Phase8–10 branding/scale deliverables are not claimed complete.
 
 ## URLs and source
@@ -46,10 +46,11 @@ Orders progress PENDING_PAYMENT → PAID → PROCESSING → FULFILLED → COMPLE
 | URI | Purpose / inputs |
 |---|---|
 | `/`, `/about`, `/systems`, `/products`, `/ventures`, `/commerce` | Existing parent/pillars; Commerce links to the direct store |
-| `/contact`, `/docs`, `/privacy` | Public enquiry/method/data boundaries; never send credentials to GitHub Issues |
+| `/contact`, `/docs`, `/privacy` | Operator contact/method/data boundaries; WhatsApp and email-routing disclosure |
+| `/legal`, `/terms/commerce`, `/refund/commerce`, `/support/commerce`, `/delivery/commerce`, `/license/commerce` | Approved Indonesian digital-commerce policies and private order support |
 | `/systems/barber`, `/downloads/*` | Existing browser-only calculator and blank research templates |
 | `/api/health`, `/robots.txt`, `/sitemap.xml` | Existing hosting health/SEO |
-| `GET /api/commerce/readiness` | DB/migration/config/product readiness;503 is expected while gated |
+| `GET /api/commerce/readiness` | DB/migration/config/product/private-asset readiness;200 READY only when every check passes, otherwise503 with exact blockers |
 | `GET /store/:slug`, `/store/:slug/products/:productSlug` | Canonical database-backed catalog; `slug=direct` initially |
 | `GET /api/commerce/stores/:slug/products[/:productSlug]` | Published catalog/variants/offers |
 | `POST .../stores/:slug/admin/products` | Create draft product+variant+offer; name, slug, description, type, sku, variantName, stock, priceIdr |
