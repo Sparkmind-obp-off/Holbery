@@ -1,0 +1,88 @@
+{
+  "date": "2026-10-06T21:39:32.629Z",
+  "sourceReleaseCommit": "70d4e5651150ffd0f0fffb99ccb910124840e8ab",
+  "githubSourcePush": "VERIFIED; remote main matched source before deploy",
+  "deploymentProject": "webapp-4",
+  "deploymentId": "5a480bc9-ff81-4acc-a3ac-d136233df280",
+  "deploymentUrl": "https://5a480bc9.webapp-4.pages.dev",
+  "stableUrl": "https://webapp-4.pages.dev",
+  "hosting": "Cloudflare BYOK Pages",
+  "productionBranch": "main",
+  "schemaMigration": "0004 additive; remote migrations list clean",
+  "preserved": "Existing DB/R2/secrets/approved policies/operator/BRS offer; no duplicate checkout",
+  "tools": [
+    "/tools",
+    "/tools/templates",
+    "/tools/barber/daily-close",
+    "/tools/barber/target-omzet",
+    "/tools/barber/break-even"
+  ],
+  "tests": {
+    "unit": 113,
+    "commerceIntegration": 75,
+    "fieldIntegration": 10,
+    "productionHttpPages": 21,
+    "productionInternalTargets": 34,
+    "productionBrowser": "PASS responsive/calculator/navigation",
+    "utilityBrowser": "PASS three tools, default-off, opt-in envelopes, test isolation, disable/GPC",
+    "security": [
+      {
+        "name": "reject_pii",
+        "status": 400
+      },
+      {
+        "name": "reject_client_payment",
+        "status": 400
+      },
+      {
+        "name": "reject_foreign_origin",
+        "status": 403
+      },
+      {
+        "name": "honor_dnt",
+        "status": 204
+      },
+      {
+        "name": "honor_gpc",
+        "status": 204
+      },
+      {
+        "name": "admin_review_protected",
+        "status": 401
+      }
+    ],
+    "npmAuditVulnerabilities": 0
+  },
+  "readiness": {
+    "stable": {
+      "status": "READY",
+      "foundation": "VERIFIED",
+      "payment": "NOT STARTED",
+      "missing": [],
+      "release": "70d4e5651150ffd0f0fffb99ccb910124840e8ab"
+    },
+    "deployment": {
+      "status": "READY",
+      "foundation": "VERIFIED",
+      "payment": "NOT STARTED",
+      "missing": [],
+      "release": "70d4e5651150ffd0f0fffb99ccb910124840e8ab"
+    }
+  },
+  "limits": "Synthetic verification only; no customer/order/invoice/payment created; no real usage period/outcome or sales counts inferred. Utility events do not establish transaction/payment/market proof.",
+  "contact": {
+    "hello": "hello@holbery.id",
+    "support": "support@holbery.id",
+    "routing": "NOT ACTIVE VERIFIED",
+    "webApex": "Full suffix confirmation required; Pages origin preserved; no DNS mutation"
+  },
+  "content": "Nine text drafts and relative calendar; NOT PUBLISHED",
+  "review": "Weekly Markdown/CSV + authorized utility-only CLI; opt-in short sessions, test excluded, no cross-day retention",
+  "rollback": "Previous successful Pages deployment; retain additive migration/commerce records; no destructive database rollback",
+  "initialObservedUtilityTraffic": {
+    "checked_at": "2026-10-06",
+    "productionStepSessions": 0,
+    "testLedgerEvents": 31,
+    "limits": "Initial rollout baseline only; not total visitors, human identity, customers or sales; tests excluded from review."
+  }
+}

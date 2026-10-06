@@ -53,6 +53,31 @@
       "securityHeaders": true
     },
     {
+      "path": "/tools",
+      "status": 200,
+      "securityHeaders": true
+    },
+    {
+      "path": "/tools/templates",
+      "status": 200,
+      "securityHeaders": true
+    },
+    {
+      "path": "/tools/barber/daily-close",
+      "status": 200,
+      "securityHeaders": true
+    },
+    {
+      "path": "/tools/barber/target-omzet",
+      "status": 200,
+      "securityHeaders": true
+    },
+    {
+      "path": "/tools/barber/break-even",
+      "status": 200,
+      "securityHeaders": true
+    },
+    {
       "path": "/legal",
       "status": 200,
       "securityHeaders": true
@@ -83,7 +108,9 @@
       "securityHeaders": true
     }
   ],
-  "internalLinksChecked": 26,
+  "internalLinksChecked": 34,
+  "externalCatalogDependencies": [],
+  "canonicalBarberRedirect": 301,
   "notFound": 404,
   "health": "ok"
 }

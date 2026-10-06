@@ -60,3 +60,7 @@ Source commit 02202ca6617ea139ef2db6bd810676e58188efac, deployed to https://e0e8
 Existing webapp-4 / holbery-commerce-production / PRODUCT_BUCKET are reused; secrets and approved commerce flags preserved. Migration0004 is additive; rollback Worker does not remove event tables or alter commerce records. Commit source before build so embedded Git SHA is truthful. Verify tools/redirect/metadata/privacy with HTTP/browser suites; synthetic events must remain traffic_class=test. Do not create an invoice/customer/order to test utility release. Latest evidence: evidence/utility-release.json, separate from historical commerce release.json.
 
 Authorized weekly operator review: `node scripts/utility-review.mjs 7`; ignored private report, no customer/order/payment queries. Retention cleanup is lazy; monitor actual observations, not fake ninety-day summaries.
+
+## Verified utility rollout — 2026-10-06
+
+Source70d4e5651150ffd0f0fffb99ccb910124840e8ab, deployment5a480bc9-ff81-4acc-a3ac-d136233df280, https://5a480bc9.webapp-4.pages.dev. Stable/deploy-specific readiness READY with matching SHA; HTTP/browser/privacy checks pass. evidence/utility-release.json is this release's authority; evidence/release.json is preserved historical commerce evidence. No DNS changes, private package reads or production financial test performed.

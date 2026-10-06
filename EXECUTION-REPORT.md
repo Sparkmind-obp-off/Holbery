@@ -8,7 +8,7 @@ Canonical utility strategy, nine social text drafts + publication calendar, blan
 
 Verification before release: strict typecheck;113 unit tests,75 isolated commerce integration checks,10 utility Worker/D1 checks;30 legacy document deliverables; archive/secret/whitespace audit; npm audit0 vulnerabilities. Local HTTP21 pages/34 targets (one public-product dependency verified read-only in production because local D1 intentionally has no catalog seed); two Chromium suites pass. Initial production utility-only baseline contains zero measured step sessions at this read, not evidence of no customers/sales or a completed observation window. Test traffic excluded; empty rates null.
 
-Source release/push/BYOK and final public checks are recorded separately in evidence/utility-release.json after actual deployment. Earlier report sections below are dated historical evidence, not current customer/payment counts or the newest deployed SHA.
+Source70d4e5651150ffd0f0fffb99ccb910124840e8ab pushed to existing main and deployed BYOK webapp-4 as5a480bc9-ff81-4acc-a3ac-d136233df280. Stable/deploy-specific readiness READY with matching source SHA. Production HTTP21 pages/34 targets and both Chromium suites passed; six safe privacy/auth negative checks passed. Only test events31 recorded at utility baseline, no production usage sessions at this observation. No customer/order/invoice/payment created. Full release evidence: evidence/utility-release.json. Earlier report sections below are dated historical evidence, not current customer/payment counts or the newest deployed SHA.
 
 ---
 
