@@ -5,7 +5,9 @@ Build. Operate. Grow. HOLBERY is the parent commerce infrastructure for SYSTEMS,
 ## Current execution status — 2026-10-06
 
 - **IMPLEMENTED / VERIFIED locally:** M0 D1 runtime, tenant resolution, request IDs, readiness/errors; M1 canonical catalog; M2 persistent cart and atomic checkout; M3 Duitku adapter, Pop JS integration and verified HTTP callback handler.
-- **BLOCKED — HUMAN CONFIGURATION REQUIRED:** production merchant secrets, scoped operator secret, approved first product, commercial/support/privacy/refund terms, and actual payment action.
+- **VERIFIED:** the actual Barber Revenue Starter System COMPLETE package, version BRS-2026-V1: one integrated9-tab Excel workbook,9 PDFs and editable SOP/WhatsApp text. LibreOffice recalculation passed18 expected results with no formula errors; ledger/customer rows are blank. Original paid-product files/build sources are private, not served as public static assets or committed to the repository.
+- **VERIFIED:** supplied real merchant secrets and a newly generated COMMERCE_ADMIN_TOKEN are encrypted in Pages production. Authenticated read-only Duitku production method discovery returnedHTTP200 / responseCode00 /18 methods; this is NOT invoice or payment verification.
+- **BLOCKED — HUMAN CONFIGURATION REQUIRED:** owner approval of commercial/support/refund/privacy policies and one actual customer payment. Credentials are no longer the missing configuration. The exposed API key should be rotated directly in Duitku/Cloudflare, never pasted again.
 - **NOT PRODUCTION VERIFIED:** invoice/payment/first sale. Mocked tests are engineering evidence, not revenue or provider acceptance evidence.
 - Production checkout is deliberately disabled: `COMMERCE_ENABLED=false`, `COMMERCIAL_POLICY_APPROVED=false`. A disabled foundation release is safe without merchant credentials; an enabled payment release is not.
 - Existing informational website, barber calculator and canonical architecture remain intact. Earlier brand Phase0–7 deliverables are historical; they do not prove commerce readiness or customer validation. Phase8–10 branding/scale deliverables are not claimed complete.
@@ -29,7 +31,7 @@ Historical archive files remain byte-identical to baseline9babed0. Bozq/Bosku pr
 
 Hono + TypeScript + Cloudflare Pages + dedicated Cloudflare D1 `holbery-commerce-production`, binding `DB`. The real database was created through the authorized BYOK account; its identifier is in wrangler.jsonc, not fabricated. Executable migrations in `migrations/` are authoritative; `commerce/schema.sql` is retained as a historical design, NOT applied to production.
 
-Entities: organizations, brands, storefronts, products, variants, offers, carts/items, customers, orders/items, payments/events, fulfillments, commerce events and short-lived rate counters. Composite foreign keys enforce ownership. Public catalog queries, capabilities and operator queries are storefront-scoped.
+Entities: organizations, brands, storefronts, products, variants, offers, carts/items, customers, orders/items, payments/events, fulfillments, commerce events, rate counters, product/order delivery assets, download receipts and private support requests. Product assets live in a dedicated private R2 bucket bound as PRODUCT_BUCKET. Asset version, SHA256, bytes and policy versions are pinned at checkout; paid customer downloads verify bytes before delivery. Download preparation advances PAID→PROCESSING→FULFILLED, and explicit customer acknowledgement of the matching package completes the order. No browser acknowledgement changes payment truth. Digital orders cannot be completed through the legacy manual-fulfillment route. Composite foreign keys enforce ownership. Public catalog queries, capabilities and operator queries are storefront-scoped.
 
 Checkout uses a serialized SQLite trigger transaction: validate open cart, publication, variant/offer, price freshness, stock and server total; create immutable item snapshots; reserve stock; close cart; create payment identity and audit event. Customer and order insertion is one D1 batch; failures roll everything back. Duplicate keys return the same order; keys reused for another cart fail. Client totals/prices are rejected.
 
@@ -68,7 +70,13 @@ Orders progress PENDING_PAYMENT → PAID → PROCESSING → FULFILLED → COMPLE
 | `GET .../stores/:slug/admin/orders/:orderId/evidence` | Controlled non-PII order/payment/fulfillment/timeline evidence |
 | `POST .../stores/:slug/admin/orders/:orderId/reconcile` | Authenticated provider inquiry/reference recovery; no unverified paid mutation |
 | `POST .../stores/:slug/admin/orders/:orderId/cancel` | Safe unpaid cancellation; unknown/pending invoices require reconciliation |
-| `POST .../stores/:slug/admin/orders/:orderId/fulfillment` | Validated PROCESSING/FULFILLED/COMPLETED; fulfilled requires deliveryReference |
+| `POST .../stores/:slug/admin/orders/:orderId/fulfillment` | Legacy manual service fulfillment; rejected for versioned digital orders |
+| `PUT .../stores/:slug/admin/variants/:id/digital-delivery` | Verify private R2 bytes/SHA and attach versioned delivery/policies |
+| `GET .../stores/:slug/orders/:id/download/:variantId` | Private bearer, verified PAID entitlement, matching immutable asset only |
+| `POST .../stores/:slug/orders/:id/delivery-confirmation` | Record matching customer package receipt; complete only fulfilled/paid order |
+| `/terms/commerce`, `/refund/commerce`, `/support/commerce` | Proposed owner-review policies and real private ticket channel |
+| `GET/POST .../stores/:slug/orders/:id/support` | Private order-scoped ticket history/submission |
+| `GET .../stores/:slug/admin/support`, `PATCH .../admin/support/:id` | Scoped operator inbox/replies; no automatic email or unapproved SLA |
 
 In the table, `...` means `/api/commerce`. Operator routes use a separately configured bearer token scoped to HOLBERY Direct, not a customer capability. Database IDs and product IDs are server-generated, never client identities.
 
@@ -85,16 +93,16 @@ npm run test:http
 node scripts/browser-check.mjs
 ```
 
-`check` runs strict TypeScript,53 unit tests, a fresh build,66 integration checks in actual local workerd/D1, then document/archive/secret/whitespace checks. Integration keys/fixtures are generated locally and ALL provider network calls are intercepted. No synthetic product/customer is seeded into production. Checkout concurrency, overselling, duplicate callbacks, signature/amount mismatches, tenant isolation, provider failure, fulfillment and disabled-production gates are covered. Pop's real production iframe/provider acceptance is still NOT PRODUCTION VERIFIED.
+`check` runs strict TypeScript,53 unit tests, a fresh build,73 integration checks in actual local workerd/D1, then document/archive/secret/whitespace checks. Integration keys/fixtures are generated locally and ALL provider network calls are intercepted. No synthetic product/customer is seeded into production. Checkout concurrency, overselling, duplicate callbacks, signature/amount mismatches, tenant isolation, provider failure, fulfillment and disabled-production gates are covered. Pop's real production iframe/provider acceptance is still NOT PRODUCTION VERIFIED.
 
 ## Deployment and human configuration
 
 Only the selected **Cloudflare BYOK** path is used, existing Pages project `webapp-4`, branch `main`. Do not use hosted deployment or unrelated databases. Build embeds the actual release Git SHA; release evidence maps that SHA to the returned Pages deployment identifier. Apply validated migrations remotely before deploying; do not drop/reset production tables. Never run wrangler login or commit `.dev.vars`/credentials.
 
 Owner action required:
-1. In Cloudflare dashboard → Workers & Pages → webapp-4 → Settings → Variables and Secrets → Production, set encrypted `DUITKU_MERCHANT_CODE`, `DUITKU_API_KEY` from the actual production Duitku project; set `COMMERCE_ADMIN_TOKEN` to a fresh32-byte random hex value. Do not paste values into chat, GitHub or source.
-2. Confirm one deliverable digital/service product, price, available units, fulfillment owner, private support and commercial/privacy/refund terms. Create draft through the protected API, then publish only after approval. No fake first product is selected by the agent.
+1. Secrets have been installed securely in Cloudflare dashboard → Workers & Pages → webapp-4 → Settings → Variables and Secrets → Production. COMMERCE_ADMIN_TOKEN is additional operator authentication, not a customer credential. Rotate it to a value you keep privately if you need your own operator API access; encrypted values cannot be recovered from the dashboard. Rotate the API key exposed in chat directly through Duitku and update the Cloudflare secret. Never paste values into chat, GitHub or source.
+2. The user selected Barber Revenue Starter System COMPLETE at Rp99.000 (launch hypothesis). The real package is ready for canonical D1 registration/publication through the protected commerce API after rollout. Review /terms/commerce, /refund/commerce, /privacy and /support/commerce; confirm the accountable operator and response/privacy/refund arrangements. No false customer or sale is created to test it.
 3. Keep `DUITKU_ENV=production`, `ENVIRONMENT=production`, `PUBLIC_ORIGIN=https://webapp-4.pages.dev`, `ADMIN_STOREFRONT_ID=holbery-direct`. Only after commercial approval set `COMMERCIAL_POLICY_APPROVED=true` and `COMMERCE_ENABLED=true` in the authoritative deployment configuration and redeploy after tests. Missing required secrets forbid an enabled deployment.
 4. Verify readiness returns200 with no missing fields; verify provider supports the documented HMAC contract using real merchant credentials. Run one controlled real customer payment, verify the HTTP callback/inquiry, then manual fulfillment and evidence. Never treat browser success as payment truth.
 
-Next priority: configure the real production merchant and approved first product, then verify the first sale. Child storefront/portfolio/distribution/marketplace expansion waits for this proof. Automatic expiry/refunds, operator dashboard UI, shipping and customer recovery workflow remain explicit future work; existing protected APIs are operational primitives, not a complete admin console.
+Next priority: obtain owner approval of the published proposed policies, enable the gate after tests, then have an actual customer pay and verify the first sale. Child storefront/portfolio/distribution/marketplace expansion waits for this proof. Automatic expiry/refunds, operator dashboard UI, shipping and customer recovery workflow remain explicit future work; existing protected APIs are operational primitives, not a complete admin console.

@@ -1,12 +1,14 @@
 import { Hono, type Context } from 'hono'
 import { bodyLimit } from 'hono/body-limit'
 import { DuitkuAdapter, ProviderError, digest, equal } from './payments'
+import { digitalReadiness, verifiedAsset, type DeliveryAsset } from './digital'
 
 export type Bindings = {
   DB: D1Database; ENVIRONMENT?: string; PUBLIC_ORIGIN?: string; COMMERCE_ENABLED?: string;
   DUITKU_ENV?: string; DUITKU_MERCHANT_CODE?: string; DUITKU_API_KEY?: string;
   COMMERCE_ADMIN_TOKEN?: string; ADMIN_STOREFRONT_ID?: string; RELEASE_COMMIT?: string;
-  COMMERCIAL_POLICY_APPROVED?: string;
+  COMMERCIAL_POLICY_APPROVED?: string; PRODUCT_BUCKET?: R2Bucket;
+  SUPPORT_CHANNEL?: string; TERMS_VERSION?: string; REFUND_POLICY_VERSION?: string; PRIVACY_POLICY_VERSION?: string; FULFILLMENT_MODE?: string;
 }
 declare const __RELEASE_COMMIT__: string
 const releaseCommit = (e: Bindings) => e.RELEASE_COMMIT || __RELEASE_COMMIT__
@@ -46,9 +48,17 @@ function configBlockers(e: Bindings) {
   if (!/^[a-f0-9]{40}$/.test(releaseCommit(e))) missing.push('RELEASE_COMMIT')
   if (e.COMMERCIAL_POLICY_APPROVED !== 'true') missing.push('COMMERCIAL_POLICY_APPROVED')
   if (e.COMMERCE_ENABLED !== 'true') missing.push('COMMERCE_ENABLED')
+  if (e.ENVIRONMENT === 'production') {
+    if (!e.PRODUCT_BUCKET) missing.push('PRODUCT_BUCKET')
+    if (e.SUPPORT_CHANNEL !== '/support/commerce') missing.push('SUPPORT_CHANNEL')
+    if (!e.TERMS_VERSION || !e.REFUND_POLICY_VERSION || !e.PRIVACY_POLICY_VERSION) missing.push('COMMERCIAL_POLICY_VERSIONS')
+    if (e.FULFILLMENT_MODE !== 'secure-download') missing.push('FULFILLMENT_MODE')
+  }
   return missing
 }
-function transactions(c: C) { if (configBlockers(c.env).length) fail('COMMERCE_NOT_READY',503) }
+async function transactions(c: C) {
+  if (configBlockers(c.env).length || (await digitalReadiness(c.env,store(c).id)).length) fail('COMMERCE_NOT_READY',503)
+}
 async function rate(c: C, action: string) {
   const window=Math.floor(Date.now()/60000), keyHash=await digest(action+':'+store(c).id+':'+(c.req.header('CF-Connecting-IP') || 'local'))
   const result=await c.env.DB.batch([
@@ -91,7 +101,8 @@ commerce.get('/api/commerce/readiness',async c=>{
   const catalog = database ? await first(c,"SELECT count(*) AS count FROM offers o JOIN products p ON p.id=o.product_id JOIN product_variants v ON v.id=o.variant_id WHERE o.storefront_id='holbery-direct' AND o.status='active' AND p.status='published' AND v.status='active' AND v.stock>0") : null
   if (!catalog || !Number(catalog.count)) missing.push('APPROVED_PUBLISHED_PRODUCT')
   if (!database) missing.push('DB_MIGRATIONS')
-  return c.json({status:missing.length?'BLOCKED':'VERIFIED',foundation:database?'VERIFIED':'BLOCKED',payment:'NOT PRODUCTION VERIFIED',missing,release:releaseCommit(c.env)},missing.length?503:200)
+  if (database) try { missing.push(...await digitalReadiness(c.env)) } catch { missing.push('DELIVERY_MIGRATIONS_OR_STORAGE') }
+  return c.json({status:missing.length?'BLOCKED — HUMAN CONFIGURATION REQUIRED':'VERIFIED',foundation:database?'VERIFIED':'BLOCKED — HUMAN CONFIGURATION REQUIRED',payment:'NOT STARTED',missing,release:releaseCommit(c.env)},missing.length?503:200)
 })
 commerce.use('/api/commerce/stores/:slug/*',async(c,next)=>{
   if (!c.env.DB) fail('DATABASE_NOT_CONFIGURED',503)
@@ -169,17 +180,17 @@ commerce.get('/api/commerce/stores/:slug/admin/orders',async c=>{
   return c.json({orders:(await statement(c,'SELECT o.id,o.status,o.total_idr,o.created_at,p.status AS payment_status,p.provider_reference FROM orders o JOIN payments p ON p.order_id=o.id WHERE o.storefront_id=? AND o.organization_id=? ORDER BY o.created_at DESC LIMIT 100',store(c).id,store(c).organization_id).all()).results})
 })
 commerce.post('/api/commerce/stores/:slug/carts',async c=>{
-  transactions(c); await rate(c,'cart'); const token=id()+id(),cart=id()
+  await transactions(c); await rate(c,'cart'); const token=id()+id(),cart=id()
   await statement(c,"INSERT INTO carts VALUES (?,?,?,'OPEN',?)",cart,store(c).id,await digest(token),now()).run()
   return c.json({cartId:cart,accessToken:token},201)
 })
 commerce.get('/api/commerce/stores/:slug/carts/:cartId',async c=>{
   const cart=await owned(c,'carts',c.req.param('cartId'))
-  const items=(await statement(c,'SELECT offer_id,quantity,price_idr FROM cart_items WHERE cart_id=? AND storefront_id=?',String(cart.id),store(c).id).all()).results
+  const items=(await statement(c,'SELECT ci.offer_id,ci.quantity,ci.price_idr,p.name AS product_name FROM cart_items ci JOIN offers o ON o.id=ci.offer_id JOIN products p ON p.id=o.product_id WHERE ci.cart_id=? AND ci.storefront_id=?',String(cart.id),store(c).id).all()).results
   return c.json({cartId:cart.id,status:cart.status,items})
 })
 commerce.put('/api/commerce/stores/:slug/carts/:cartId/items',async c=>{
-  transactions(c); const cart=await owned(c,'carts',c.req.param('cartId')); if(cart.status!=='OPEN') fail('CART_CLOSED',409)
+  await transactions(c); const cart=await owned(c,'carts',c.req.param('cartId')); if(cart.status!=='OPEN') fail('CART_CLOSED',409)
   const b=await body(c,['offerId','quantity']),offerId=text(b.offerId,'OFFER',100),quantity=integer(b.quantity,'QUANTITY',1,99)
   const offer=await first(c,'SELECT o.id,o.price_idr FROM offers o JOIN products p ON p.id=o.product_id JOIN product_variants v ON v.id=o.variant_id WHERE o.id=? AND o.storefront_id=? AND o.status=\'active\' AND p.status=\'published\' AND v.status=\'active\' AND v.stock>=?',offerId,store(c).id,quantity)
   if (!offer) fail('OFFER_UNAVAILABLE',409)
@@ -193,7 +204,7 @@ commerce.delete('/api/commerce/stores/:slug/carts/:cartId/items/:offerId',async 
   return c.json({removed:true})
 })
 commerce.post('/api/commerce/stores/:slug/checkouts',async c=>{
-  transactions(c); await rate(c,'checkout')
+  await transactions(c); await rate(c,'checkout')
   const b=await body(c,['cartId','name','email','consent']),cartId=text(b.cartId,'CART',100),cart=await owned(c,'carts',cartId),key=text(c.req.header('Idempotency-Key'),'IDEMPOTENCY_KEY',100)
   if(!/^[A-Za-z0-9_-]{16,100}$/.test(key)) fail('INVALID_IDEMPOTENCY_KEY')
   const existing=await first(c,'SELECT id,cart_id FROM orders WHERE storefront_id=? AND idempotency_key=?',store(c).id,key)
@@ -219,10 +230,11 @@ commerce.get('/api/commerce/stores/:slug/orders/:orderId',async c=>{
   const order=await owned(c,'orders',c.req.param('orderId'))
   const items=(await statement(c,'SELECT product_name,variant_name,quantity,unit_price_idr,line_total_idr FROM order_items WHERE order_id=?',String(order.id)).all()).results
   const payment=await first(c,'SELECT status,provider_reference FROM payments WHERE order_id=?',String(order.id))
-  return c.json({orderId:order.id,status:order.status,totalIdr:order.total_idr,currency:'IDR',items,payment})
+  const downloads=(await statement(c,'SELECT variant_id,version,sha256,filename FROM order_delivery_assets WHERE order_id=?',String(order.id)).all()).results
+  return c.json({orderId:order.id,status:order.status,totalIdr:order.total_idr,currency:'IDR',items,payment,downloads,supportPath:'/support/commerce',termsPath:'/terms/commerce',refundPath:'/refund/commerce'})
 })
 commerce.post('/api/commerce/stores/:slug/orders/:orderId/payments',async c=>{
-  transactions(c); const order=await owned(c,'orders',c.req.param('orderId')),s=store(c)
+  await transactions(c); const order=await owned(c,'orders',c.req.param('orderId')),s=store(c)
   if(order.status!=='PENDING_PAYMENT') fail('ORDER_NOT_PAYABLE',409)
   const payment=await first(c,'SELECT * FROM payments WHERE order_id=?',String(order.id))
   if(payment?.provider_reference) return c.json({reference:payment.provider_reference,paymentUrl:payment.payment_url})
@@ -305,6 +317,7 @@ commerce.post('/api/commerce/stores/:slug/admin/orders/:orderId/cancel',async c=
 commerce.post('/api/commerce/stores/:slug/admin/orders/:orderId/fulfillment',async c=>{
   await admin(c); const order=await first(c,'SELECT id,status FROM orders WHERE id=? AND storefront_id=?',c.req.param('orderId'),store(c).id)
   if(!order) fail('NOT_FOUND',404)
+  if(await first(c,'SELECT variant_id FROM order_delivery_assets WHERE order_id=? LIMIT 1',String(order!.id))) fail('USE_SECURE_DOWNLOAD_FLOW',409)
   const b=await body(c,['status','deliveryReference']),target=text(b.status,'STATUS',20)
   const next:Record<string,string>={PAID:'PROCESSING',PROCESSING:'FULFILLED',FULFILLED:'COMPLETED'}
   if(next[String(order!.status)]!==target) fail('INVALID_TRANSITION',409)
@@ -319,6 +332,81 @@ commerce.post('/api/commerce/stores/:slug/admin/orders/:orderId/fulfillment',asy
   return c.json({status:target})
 })
 
+commerce.put('/api/commerce/stores/:slug/admin/variants/:variantId/digital-delivery',async c=>{
+  await admin(c)
+  const variantId=c.req.param('variantId'),s=store(c)
+  if(!await first(c,'SELECT v.id FROM product_variants v JOIN offers o ON o.variant_id=v.id WHERE v.id=? AND o.storefront_id=? AND o.organization_id=?',variantId,s.id,s.organization_id)) fail('NOT_FOUND',404)
+  if(await first(c,'SELECT order_id FROM order_delivery_assets WHERE variant_id=? LIMIT 1',variantId)) fail('DELIVERY_VERSION_IN_USE',409)
+  const b=await body(c,['version','objectKey','sha256','bytes','filename'])
+  const version=text(b.version,'VERSION',50),key=text(b.objectKey,'OBJECT_KEY',200),sha=text(b.sha256,'SHA256',64),bytes=integer(b.bytes,'BYTES',1,5000000),filename=text(b.filename,'FILENAME',120)
+  if(!/^[A-Z0-9-]+$/.test(version) || !/^brs\/[A-Za-z0-9._-]+\.zip$/.test(key) || !/^[a-f0-9]{64}$/.test(sha) || !/^[A-Za-z0-9._-]+\.zip$/.test(filename)) fail('INVALID_ASSET')
+  const buffer=await verifiedAsset(c.env,key,sha,bytes);if(!buffer) fail('ASSET_CHECK_FAILED',409)
+  if(!c.env.TERMS_VERSION || !c.env.REFUND_POLICY_VERSION || !c.env.PRIVACY_POLICY_VERSION || c.env.SUPPORT_CHANNEL!=='/support/commerce') fail('POLICIES_NOT_CONFIGURED',503)
+  await c.env.PRODUCT_BUCKET!.put(key,buffer,{customMetadata:{sha256:sha},httpMetadata:{contentType:'application/zip'}})
+  await c.env.DB.batch([
+    statement(c,'INSERT INTO product_delivery_assets VALUES (?,?,?,?,?,?,?,?,?,?,?) ON CONFLICT(variant_id) DO UPDATE SET version=excluded.version,object_key=excluded.object_key,sha256=excluded.sha256,bytes=excluded.bytes,filename=excluded.filename,support_path=excluded.support_path,terms_version=excluded.terms_version,refund_version=excluded.refund_version,privacy_version=excluded.privacy_version',variantId,version,key,sha,bytes,filename,c.env.SUPPORT_CHANNEL!,c.env.TERMS_VERSION!,c.env.REFUND_POLICY_VERSION!,c.env.PRIVACY_POLICY_VERSION!,now()),
+    statement(c,'INSERT INTO commerce_events VALUES (?,?,?,?,?,?,?)',id(),s.organization_id,s.id,null,'DIGITAL_ASSET_REGISTERED',version,now())
+  ])
+  return c.json({version,verifiedBytes:bytes,sha256:sha,status:'VERIFIED'})
+})
+commerce.get('/api/commerce/stores/:slug/orders/:orderId/download/:variantId',async c=>{
+  const order=await owned(c,'orders',c.req.param('orderId')),orderId=String(order.id),s=store(c)
+  const payment=await first(c,'SELECT status FROM payments WHERE order_id=?',orderId)
+  if(!['PAID','PROCESSING','FULFILLED','COMPLETED'].includes(String(order.status)) || payment?.status!=='PAID') fail('VERIFIED_PAYMENT_REQUIRED',409)
+  const a=await statement(c,'SELECT * FROM order_delivery_assets WHERE order_id=? AND variant_id=?',orderId,c.req.param('variantId')).first<DeliveryAsset>();if(!a) fail('NOT_FOUND',404)
+  const buffer=await verifiedAsset(c.env,a!.object_key,a!.sha256,a!.bytes);if(!buffer) fail('DELIVERY_UNAVAILABLE',503)
+  const date=now()
+  await c.env.DB.batch([
+    statement(c,"UPDATE orders SET status='PROCESSING',updated_at=? WHERE id=? AND status='PAID'",date,orderId),
+    statement(c,"UPDATE orders SET status='FULFILLED',updated_at=? WHERE id=? AND status='PROCESSING'",date,orderId),
+    statement(c,"INSERT INTO fulfillments VALUES (?,'FULFILLED',?,?) ON CONFLICT(order_id) DO NOTHING",orderId,a!.version,date),
+    statement(c,'INSERT INTO download_receipts VALUES (?,?,?,NULL) ON CONFLICT(order_id,variant_id) DO NOTHING',orderId,a!.variant_id,date),
+    statement(c,'INSERT INTO commerce_events VALUES (?,?,?,?,?,?,?)',id(),s.organization_id,s.id,orderId,'SECURE_DOWNLOAD_PREPARED',a!.version,date)
+  ])
+  c.header('Content-Type','application/zip');c.header('Content-Disposition',`attachment; filename="${a!.filename}"`);c.header('X-Product-SHA256',a!.sha256)
+  return c.body(buffer!)
+})
+commerce.post('/api/commerce/stores/:slug/orders/:orderId/delivery-confirmation',async c=>{
+  const order=await owned(c,'orders',c.req.param('orderId')),orderId=String(order.id)
+  const b=await body(c,['variantId','sha256']),variant=text(b.variantId,'VARIANT',100),sha=text(b.sha256,'SHA256',64)
+  if(!['FULFILLED','COMPLETED'].includes(String(order.status))) fail('INVALID_TRANSITION',409)
+  const payment=await first(c,'SELECT status FROM payments WHERE order_id=?',orderId);if(payment?.status!=='PAID') fail('VERIFIED_PAYMENT_REQUIRED',409)
+  const asset=await first(c,'SELECT a.version FROM order_delivery_assets a JOIN download_receipts r ON r.order_id=a.order_id AND r.variant_id=a.variant_id WHERE a.order_id=? AND a.variant_id=? AND a.sha256=?',orderId,variant,sha)
+  if(!asset) fail('DELIVERY_NOT_OFFERED_OR_HASH_MISMATCH',409)
+  const date=now()
+  await c.env.DB.batch([
+    statement(c,'UPDATE download_receipts SET confirmed_at=COALESCE(confirmed_at,?) WHERE order_id=? AND variant_id=?',date,orderId,variant),
+    statement(c,"UPDATE orders SET status='COMPLETED',updated_at=? WHERE id=? AND status='FULFILLED' AND NOT EXISTS(SELECT 1 FROM order_delivery_assets a LEFT JOIN download_receipts r ON r.order_id=a.order_id AND r.variant_id=a.variant_id WHERE a.order_id=orders.id AND r.confirmed_at IS NULL)",date,orderId),
+    statement(c,"UPDATE fulfillments SET status='COMPLETED',updated_at=? WHERE order_id=? AND EXISTS(SELECT 1 FROM orders WHERE id=? AND status='COMPLETED')",date,orderId,orderId)
+  ])
+  return c.json({status:'VERIFIED',receipt:'Customer acknowledged downloaded bytes and package hash'})
+})
+commerce.get('/api/commerce/stores/:slug/orders/:orderId/support',async c=>{
+  await owned(c,'orders',c.req.param('orderId'))
+  return c.json({requests:(await statement(c,'SELECT id,category,message,operator_reply,status,created_at FROM support_requests WHERE order_id=? AND storefront_id=? ORDER BY created_at DESC',c.req.param('orderId'),store(c).id).all()).results})
+})
+commerce.post('/api/commerce/stores/:slug/orders/:orderId/support',async c=>{
+  const order=await owned(c,'orders',c.req.param('orderId'));await rate(c,'support')
+  const b=await body(c,['category','message']),category=text(b.category,'CATEGORY',20),message=text(b.message,'MESSAGE',2000)
+  if(!['download','billing','refund','other'].includes(category)) fail('INVALID_CATEGORY')
+  const requestId=id(),date=now()
+  await statement(c,"INSERT INTO support_requests VALUES (?,?,?,?,?,NULL,'OPEN',?,?)",requestId,String(order.id),store(c).id,category,message,date,date).run()
+  return c.json({requestId,status:'IMPLEMENTED'},201)
+})
+commerce.get('/api/commerce/stores/:slug/admin/support',async c=>{
+  await admin(c)
+  return c.json({requests:(await statement(c,'SELECT id,order_id,category,message,status,created_at FROM support_requests WHERE storefront_id=? ORDER BY created_at DESC LIMIT 100',store(c).id).all()).results})
+})
+commerce.patch('/api/commerce/stores/:slug/admin/support/:requestId',async c=>{
+  await admin(c);const b=await body(c,['reply']),reply=text(b.reply,'REPLY',2000)
+  const result=await statement(c,"UPDATE support_requests SET operator_reply=?,status='REPLIED',updated_at=? WHERE id=? AND storefront_id=?",reply,now(),c.req.param('requestId'),store(c).id).run()
+  if(!result.meta.changes) fail('NOT_FOUND',404)
+  return c.json({status:'IMPLEMENTED'})
+})
+commerce.get('/support/commerce',c=>c.html(page('Bantuan pesanan HOLBERY','<p>Gunakan browser yang dipakai checkout. Tiket tersimpan privat dan dibaca operator HOLBERY, bukan GitHub publik. Tidak ada email otomatis atau SLA respons yang belum disetujui. Bila akses sesi hilang, pemulihan memerlukan pemeriksaan operator; jangan posting data pesanan ke kanal publik.</p><form id="support-form"><label>Kategori<select name="category"><option value="download">Download</option><option value="billing">Pembayaran</option><option value="refund">Permintaan review/refund</option><option value="other">Lainnya</option></select></label><label>Pesan<input name="message" maxlength="2000" required></label><button class="button">Kirim tiket privat</button></form><section id="support-history"></section>')))
+commerce.get('/terms/commerce',c=>c.html(page('Ketentuan produk digital','<p>Versi BRS-TERMS-2026-1. Paket COMPLETE berisi workbook terintegrasi, SOP, template pesan dan rencana30 hari. Lisensi untuk satu barbershop; boleh diedit dan dicetak untuk penggunaan internal, tidak untuk dijual ulang atau dibagikan sebagai kit. Bukan SaaS, POS, booking, konsultasi personal, payroll atau jaminan kenaikan pendapatan.</p><p>Harga di katalog adalah hipotesis peluncuran. Nama/email digunakan untuk pesanan dan informasi yang perlu diproses Duitku. Setelah pembayaran terverifikasi, download tersedia di sesi checkout yang sama. Simpan paket setelah diunduh. Support privat tersedia di halaman bantuan pesanan. Tidak ada email delivery otomatis.</p><p>Penjualan belum diaktifkan sampai pemilik menyetujui ketentuan, refund dan pengelolaan data ini.</p><a href="/refund/commerce">Kebijakan refund</a> · <a href="/privacy">Privasi</a> · <a href="/support/commerce">Bantuan</a>')))
+commerce.get('/refund/commerce',c=>c.html(page('Review dan refund','<p>Versi BRS-REFUND-2026-1, usulan untuk persetujuan pemilik sebelum penjualan. Pelanggan dapat mengajukan review untuk tagihan ganda, paket tidak bisa diakses, atau file rusak melalui tiket privat order. Cantumkan masalah seperlunya tanpa data kartu atau password.</p><p>Operator memeriksa bukti server/provider dan menawarkan pemulihan akses atau file yang benar. Bila produk tidak dapat dikirim, permintaan pengembalian perlu diproses operator melalui provider dan dicatat dengan bukti; sistem tidak mengklaim refund otomatis. Hak yang diwajibkan hukum tetap berlaku. Tidak ada jaminan peningkatan pendapatan atau pembatalan otomatis setelah perubahan pikiran.</p><p>Waktu respons dan penanggung jawab perlu dikonfirmasi pemilik sebelum gate komersial diaktifkan.</p>')))
+
 function page(title:string,content:string) { return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(title)} — HOLBERY</title><link rel="stylesheet" href="/static/style.css"><script src="/static/commerce.js" defer></script></head><body><header class="site-header"><a class="brand" href="/">HOLBERY</a><a href="/store/direct">Direct store</a></header><main class="prose"><h1>${esc(title)}</h1>${content}<p id="commerce-message" role="status" aria-live="polite"></p></main></body></html>` }
 commerce.get('/store/:slug',async c=>{
   if(!c.env.DB) fail('DATABASE_NOT_CONFIGURED',503)
@@ -330,8 +418,8 @@ commerce.get('/store/:slug/products/:product',async c=>{
   if(!c.env.DB) fail('DATABASE_NOT_CONFIGURED',503)
   const s=await statement(c,"SELECT * FROM storefronts WHERE slug=? AND status='active'",c.req.param('slug')).first<Store>();if(!s) fail('NOT_FOUND',404)
   const products=(await statement(c,catalogSQL+' AND p.slug=?',s!.id,c.req.param('product')).all()).results;if(!products.length) fail('NOT_FOUND',404)
-  const p=products[0]
-  return c.html(page(String(p.name),`<p>${esc(p.description)}</p><form id="purchase-form" data-store="${esc(s!.slug)}"><label>Variant<select name="offerId">${products.map(p=>`<option value="${esc(p.offer_id)}">${esc(p.variant_name)} — Rp ${esc(p.price_idr)} (${esc(p.stock)} available)</option>`).join('')}</select></label><label>Quantity<input name="quantity" type="number" min="1" max="99" value="1" required></label><button class="button" ${configBlockers(c.env).length?'disabled':''}>Add to cart / checkout</button></form>`))
+  const p=products[0],blocked=configBlockers(c.env).length || (await digitalReadiness(c.env,s!.id)).length
+  return c.html(page(String(p.name),`<p>${esc(p.description)}</p><p>Produk digital; satu lisensi untuk satu barbershop. Harga peluncuran adalah hipotesis, bukan bukti hasil bisnis. Setelah pembayaran server terverifikasi, paket tersedia lewat download privat di halaman order.</p><p><a href="/support/commerce">Bantuan pesanan</a> · <a href="/terms/commerce">Ketentuan produk</a> · <a href="/refund/commerce">Review / refund</a> · <a href="/privacy">Privasi</a></p>${blocked?'<p role="status">BLOCKED — HUMAN CONFIGURATION REQUIRED. Pemilik perlu menyetujui kebijakan sebelum menerima pembayaran.</p>':''}<form id="purchase-form" data-store="${esc(s!.slug)}"><label>Variant<select name="offerId">${products.map(p=>`<option value="${esc(p.offer_id)}" data-price="${esc(p.price_idr)}">${esc(p.variant_name)} — Rp ${esc(p.price_idr)}</option>`).join('')}</select></label><label>Jumlah lisensi<input name="quantity" type="number" min="1" max="99" value="1" required></label><button class="button" ${blocked?'disabled':''}>Tambah ke cart / checkout</button></form>`))
 })
 commerce.get('/checkout/:orderId',c=>{
   const host=c.env.DUITKU_ENV==='production'?'https://app-prod.duitku.com':'https://app-sandbox.duitku.com'

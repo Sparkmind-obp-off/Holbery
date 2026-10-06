@@ -6,7 +6,7 @@ import { Miniflare, convertV4MiniflareOptions } from 'miniflare';
 
 async function migrate(db) {
   let sql = '';
-  for (const line of (await Promise.all(['0001_commerce_runtime.sql','0002_integrity_guards.sql'].map(file=>readFile('migrations/'+file,'utf8')))).join('\n').split('\n')) {
+  for (const line of (await Promise.all(['0001_commerce_runtime.sql','0002_integrity_guards.sql','0003_digital_delivery_support.sql'].map(file=>readFile('migrations/'+file,'utf8')))).join('\n').split('\n')) {
     if (!line.trim() || line.trim().startsWith('--')) continue;
     sql += line + '\n';
     const trigger = /^CREATE TRIGGER/.test(sql.trim());
@@ -24,10 +24,10 @@ test('Commerce runtime / actual Worker and D1, mocked provider, no production da
   const sign = value => createHmac('sha256', apiKey).update(value).digest('hex');
   const mf = new Miniflare(convertV4MiniflareOptions({
     modules: true, scriptPath: 'dist/_worker.js', compatibilityDate: '2026-10-01',
-    d1Databases: ['DB'], bindings: {
+    d1Databases: ['DB'], r2Buckets:['PRODUCT_BUCKET'], bindings: {
       ENVIRONMENT: 'development', PUBLIC_ORIGIN: 'https://commerce.test', DUITKU_ENV: 'sandbox',
       DUITKU_MERCHANT_CODE: merchant, DUITKU_API_KEY: apiKey, COMMERCE_ADMIN_TOKEN: adminToken,
-      ADMIN_STOREFRONT_ID: 'holbery-direct', RELEASE_COMMIT: release, COMMERCE_ENABLED: 'true', COMMERCIAL_POLICY_APPROVED: 'true'
+      SUPPORT_CHANNEL:'/support/commerce', TERMS_VERSION:'BRS-TERMS-2026-1',REFUND_POLICY_VERSION:'BRS-REFUND-2026-1',PRIVACY_POLICY_VERSION:'BRS-PRIVACY-2026-1',FULFILLMENT_MODE:'secure-download', ADMIN_STOREFRONT_ID: 'holbery-direct', RELEASE_COMMIT: release, COMMERCE_ENABLED: 'true', COMMERCIAL_POLICY_APPROVED: 'true'
     },
     outboundService: async request => {
       const url = new URL(request.url), body = await request.json();
@@ -273,6 +273,49 @@ test('Commerce runtime / actual Worker and D1, mocked provider, no production da
       const fields=callback(order,reference),form=new URLSearchParams(fields);form.append('amount','1');
       const response=await mf.dispatchFetch('https://commerce.test/api/commerce/payments/duitku/callback',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:form.toString()});assert.equal(response.status,400);
     });
+    await t.test('private digital asset registration rejects incorrect hashes',async()=>{
+      const bucket=await mf.getR2Bucket('PRODUCT_BUCKET'),bytes=Buffer.from('504b05060000000000000000000000000000000000000000','hex');
+      await bucket.put('brs/LOCAL-COMPLETE.zip',bytes);
+      await req(prefix+'/admin/variants/'+product.variantId+'/digital-delivery',{method:'PUT',token:adminToken,body:{version:'LOCAL-V1',objectKey:'brs/LOCAL-COMPLETE.zip',sha256:'0'.repeat(64),bytes:bytes.length,filename:'LOCAL-COMPLETE.zip'},status:409});
+    });
+    let digitalOrder,digitalCart,digitalBytes,digitalSha;
+    await t.test('digital package is verified and pinned to canonical variant before checkout',async()=>{
+      digitalBytes=Buffer.from('504b05060000000000000000000000000000000000000000','hex');digitalSha=(await import('node:crypto')).createHash('sha256').update(digitalBytes).digest('hex');
+      await req(prefix+'/admin/variants/'+product.variantId+'/digital-delivery',{method:'PUT',token:adminToken,body:{version:'LOCAL-V1',objectKey:'brs/LOCAL-COMPLETE.zip',sha256:digitalSha,bytes:digitalBytes.length,filename:'LOCAL-COMPLETE.zip'}});
+      digitalCart=await makeCart();await item(digitalCart);digitalOrder=await checkout(digitalCart);
+      const current=await req(orderRoute(digitalOrder),{token:digitalCart.accessToken});assert.equal(current.downloads[0].version,'LOCAL-V1');assert.equal(current.downloads[0].sha256,digitalSha);
+      await req(prefix+'/admin/variants/'+product.variantId+'/digital-delivery',{method:'PUT',token:adminToken,body:{},status:409});
+    });
+    await t.test('unpaid or cross-store buyer cannot download product',async()=>{
+      await req(orderRoute(digitalOrder)+'/download/'+product.variantId,{token:digitalCart.accessToken,status:409});
+      await req('/api/commerce/stores/other/orders/'+digitalOrder.orderId+'/download/'+product.variantId,{token:digitalCart.accessToken,status:404});
+      await req(orderRoute(digitalOrder)+'/download/'+product.variantId,{token:adminToken,status:404});
+    });
+    await t.test('verified callback grants entitlement but corrupt R2 bytes cannot be delivered',async()=>{
+      const invoice=await pay(digitalOrder,digitalCart);invoices.get('HB-'+digitalOrder.orderId).statusCode='00';await cb(callback(digitalOrder,invoice.reference));
+      const bucket=await mf.getR2Bucket('PRODUCT_BUCKET');await bucket.put('brs/LOCAL-COMPLETE.zip','CORRUPT');
+      await req(orderRoute(digitalOrder)+'/download/'+product.variantId,{token:digitalCart.accessToken,status:503});
+      assert.equal((await req(orderRoute(digitalOrder),{token:digitalCart.accessToken})).status,'PAID');
+      await bucket.put('brs/LOCAL-COMPLETE.zip',digitalBytes,{customMetadata:{sha256:digitalSha}});
+    });
+    await t.test('authorized download returns only matching package and fulfills without premature completion',async()=>{
+      const response=await mf.dispatchFetch('https://commerce.test'+orderRoute(digitalOrder)+'/download/'+product.variantId,{headers:{Authorization:'Bearer '+digitalCart.accessToken}});
+      assert.equal(response.status,200);assert.equal(response.headers.get('content-type'),'application/zip');assert.equal(response.headers.get('x-product-sha256'),digitalSha);assert.deepEqual(Buffer.from(await response.arrayBuffer()),digitalBytes);
+      assert.equal((await req(orderRoute(digitalOrder),{token:digitalCart.accessToken})).status,'FULFILLED');
+      await req(orderRoute(digitalOrder)+'/delivery-confirmation',{method:'POST',token:digitalCart.accessToken,body:{variantId:product.variantId,sha256:'0'.repeat(64)},status:409});
+    });
+    await t.test('customer receipt completes the paid order with matching asset hash, duplicates harmless',async()=>{
+      for(let i=0;i<2;i++)await req(orderRoute(digitalOrder)+'/delivery-confirmation',{method:'POST',token:digitalCart.accessToken,body:{variantId:product.variantId,sha256:digitalSha}});
+      const current=await req(orderRoute(digitalOrder),{token:digitalCart.accessToken});assert.equal(current.status,'COMPLETED');
+      assert.equal((await query('SELECT status FROM fulfillments WHERE order_id=?',digitalOrder.orderId)).status,'COMPLETED');
+    });
+    await t.test('private support tickets and scoped operator replies do not bypass order authorization',async()=>{
+      const ticket=await req(orderRoute(digitalOrder)+'/support',{method:'POST',token:digitalCart.accessToken,body:{category:'download',message:'LOCAL_ONLY help request'},status:201});
+      await req(orderRoute(digitalOrder)+'/support',{token:adminToken,status:404});
+      await req(prefix+'/admin/support/'+ticket.requestId,{method:'PATCH',body:{reply:'LOCAL_ONLY reply'},status:401});
+      await req(prefix+'/admin/support/'+ticket.requestId,{method:'PATCH',token:adminToken,body:{reply:'LOCAL_ONLY reply'}});
+      assert.equal((await req(orderRoute(digitalOrder)+'/support',{token:digitalCart.accessToken})).requests[0].operator_reply,'LOCAL_ONLY reply');
+    });
     await t.test('request body limit and API not-found are structured',async()=>{
       await req(prefix+'/admin/products',{method:'POST',token:adminToken,body:{...productBody,description:'x'.repeat(18000)},status:413});
       await req(prefix+'/unknown',{status:404});
@@ -287,7 +330,7 @@ test('Production fail-closed foundation: disabled commerce, missing secrets, no 
     const db=await mf.getD1Database('DB');await migrate(db);
     await t.test('readiness reports real configuration gaps but usable foundation',async()=>{
       const response=await mf.dispatchFetch('https://webapp-4.pages.dev/api/commerce/readiness');assert.equal(response.status,503);
-      const report=await response.json();assert.equal(report.foundation,'VERIFIED');assert(report.missing.includes('DUITKU_API_KEY'));assert(report.missing.includes('COMMERCE_ENABLED'));assert.equal(report.payment,'NOT PRODUCTION VERIFIED');assert.match(report.release,/^[a-f0-9]{40}$/);
+      const report=await response.json();assert.equal(report.foundation,'VERIFIED');assert(report.missing.includes('DUITKU_API_KEY'));assert(report.missing.includes('COMMERCE_ENABLED'));assert.equal(report.payment,'NOT STARTED');assert.match(report.release,/^[a-f0-9]{40}$/);
     });
     await t.test('cart and checkout creation fail closed without writing runtime data',async()=>{
       for(const path of ['carts','checkouts']) {const r=await mf.dispatchFetch('https://webapp-4.pages.dev/api/commerce/stores/direct/'+path,{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'});assert.equal(r.status,503);}
