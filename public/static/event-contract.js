@@ -1,0 +1,33 @@
+export const FIELD_SCHEMA_VERSION=1;
+export const TOOL_PATHS={daily_close:'/tools/barber/daily-close',target_revenue:'/tools/barber/target-omzet',break_even:'/tools/barber/break-even'};
+export const TOOL_FIELDS={daily_close:['services','price','openingCash','cashReceipts','digitalReceipts','cashExpenses','actualCash'],target_revenue:['target','price','days'],break_even:['fixed','price','variable','days']};
+export const PRODUCT_ID='8f12debf220c4847b2778292aac2b082';
+export const FIELD_EVENTS=['surface_viewed','tool_opened','tool_started','tool_completed','result_viewed','product_cta_viewed','product_cta_clicked','field_interacted','tool_error','tool_shared','tool_to_tool','template_download','repeat_use_observed'];
+const surfaces=['/tools','/tools/templates',...Object.values(TOOL_PATHS)];
+const sources=['direct','organic','instagram','tiktok','threads','internal','other'];
+const templates=['daily_close','weekly_review','utility_review','target_revenue'];
+const campaigns=['organic_daily_close_01','organic_target_01','organic_break_even_01'];
+const uuid=/^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$/i;
+export function validateFieldEvent(b,now=Date.now()){
+ if(!b||typeof b!=='object'||Array.isArray(b))throw new Error('INVALID_BODY');
+ const allowed=['event_id','event_name','occurred_at','surface','tool_id','product_id','session_id','source','schema_version','consent','traffic_class','referrer_class','campaign_id','result_class','field_id','next_tool_id','template_id'];
+ if(Object.keys(b).some(k=>!allowed.includes(k)))throw new Error('UNEXPECTED_FIELD');
+ if(b.consent!==true)throw new Error('CONSENT_REQUIRED');
+ if(!uuid.test(b.event_id)||!uuid.test(b.session_id))throw new Error('INVALID_ID');
+ if(!FIELD_EVENTS.includes(b.event_name))throw new Error('SERVER_OR_UNKNOWN_EVENT');
+ if(b.schema_version!==1||!surfaces.includes(b.surface)||!sources.includes(b.source))throw new Error('INVALID_CONTEXT');
+ if(!['production','test'].includes(b.traffic_class))throw new Error('INVALID_TRAFFIC_CLASS');
+ if(typeof b.occurred_at!=='string'||!/^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d\.\d{3}Z$/.test(b.occurred_at)||!Number.isFinite(Date.parse(b.occurred_at))||Math.abs(now-Date.parse(b.occurred_at))>300000)throw new Error('INVALID_TIME');
+ if(b.tool_id!==undefined&&(!Object.hasOwn(TOOL_PATHS,b.tool_id)||b.surface!==TOOL_PATHS[b.tool_id]))throw new Error('INVALID_TOOL_SURFACE');
+ if(b.event_name!=='surface_viewed'&&!['template_download'].includes(b.event_name)&&!b.tool_id)throw new Error('TOOL_REQUIRED');
+ if(b.product_id!==undefined&&b.product_id!==PRODUCT_ID)throw new Error('INVALID_PRODUCT');
+ if(b.event_name.startsWith('product_cta_')&&b.product_id!==PRODUCT_ID)throw new Error('PRODUCT_REQUIRED');
+ if(b.field_id!==undefined&&!TOOL_FIELDS[b.tool_id]?.includes(b.field_id))throw new Error('INVALID_FIELD');
+ if(b.event_name==='field_interacted'&&!b.field_id)throw new Error('FIELD_REQUIRED');
+ if(b.next_tool_id!==undefined&&!Object.hasOwn(TOOL_PATHS,b.next_tool_id))throw new Error('INVALID_NEXT_TOOL');
+ if(b.template_id!==undefined&&!templates.includes(b.template_id))throw new Error('INVALID_TEMPLATE');
+ if(b.campaign_id!==undefined&&!campaigns.includes(b.campaign_id))throw new Error('INVALID_CAMPAIGN');
+ if(b.referrer_class!==undefined&&!['direct','search','social','internal','other'].includes(b.referrer_class))throw new Error('INVALID_REFERRER');
+ if(b.result_class!==undefined&&!['calculated','nonviable'].includes(b.result_class))throw new Error('INVALID_RESULT_CLASS');
+ return b;
+}

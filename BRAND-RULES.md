@@ -7,8 +7,8 @@ Sumber utama: [HOLBERY-MASTER.md](HOLBERY-MASTER.md).
 
 - HOLBERY tetap MASTER PARENT BRAND, bukan nama satu produk vertikal.
 - Penulisan induk: **HOLBERY**. Jangan menciptakan competing master brand.
-- Domain strategis utama: `holberry.biz`. Status kepemilikan, DNS, HTTPS, email, dan social handles belum diverifikasi atau dikonfigurasi.
-- Empat kategori resmi: SYSTEMS, PRODUCTS, VENTURES, COMMERCE.
+- Ejaan domain holbery, satu r. Email hello@holbery.id dan support@holbery.id belum aktif terverifikasi. Website apex suffix/control mengikuti [CONTACT-DOMAINS.md](CONTACT-DOMAINS.md); Pages tetap live origin.
+- Library memuat SYSTEMS, PRODUCTS, VENTURES, COMMERCE, KNOWLEDGE, CAPABILITIES, ASSETS; Brand Portfolio/Child Brands terpisah sesuai HOLBERY-LIBRARY.md.
 - Gunakan HOLBERY langsung jika otoritas induk memberi nilai bagi penawaran.
 - Child brand independen diperbolehkan jika memiliki identitas pasar sendiri, potensi skala mandiri, audiens berbeda secara substansial, atau nilai strategis dari pemisahan. Alasan dan approval harus dicatat.
 - Tidak setiap produk/venture wajib mengandung HOLBERY. Independent, endorsed, dan parent-native tidak mengubah posisi induk.

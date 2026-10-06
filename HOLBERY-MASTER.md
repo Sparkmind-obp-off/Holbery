@@ -1,72 +1,72 @@
 # HOLBERY — Master Parent Brand System
 
-Versi: 1.3 | Ditetapkan: 2026-10-06 | Phase 0–7 deliverables COMPLETE; Phase 8–10 PENDING karena instruksi wrap-up terakhir
+Versi1.4 | 2026-10-06 | Canonical identity; active maturity status follows [ROADMAP.md](ROADMAP.md).
 
 ## Identitas kanonis
 
 | Field | Nilai |
 |---|---|
-| PROJECT NAME | HOLBERY |
+| PROJECT NAME | HOLBERY — satu r |
 | CATEGORY | MASTER PARENT BRAND |
-| OWNER | Pemilik proyek HOLBERY; nama penanggung jawab dan entitas hukum belum diverifikasi |
-| STATUS | DEFINED MASTER PARENT; website BYOK live; operating framework dan research MVP implemented; operational/commercial proof pending |
-| PARENT | Tidak ada; HOLBERY adalah lapisan induk |
-| REPOSITORY | Sparkmind-obp-off/Holbery; setup GitHub dan fetch remote berhasil pada eksekusi lanjutan |
-| DOMAIN | holberry.biz; domain strategis, control BLOCKED/UNVERIFIED (RDAP404/DNS NXDOMAIN); live host https://webapp-4.pages.dev |
-| CUSTOMER TYPE | Operator bisnis dan pelanggan produk/venture; pelanggan pertama belum divalidasi |
-| REVENUE MODEL | Ditentukan per penawaran; belum ada pendapatan terverifikasi |
+| OWNER | Pemilik proyek HOLBERY; approved commerce operator PT Waskita Cakrawarti Digital — Perseroan Perorangan; blanket legal/IP title not inferred |
+| STATUS | Defined parent; utility and commerce implementation; actual operational/commercial proof requires real evidence |
+| PARENT | Tidak ada |
+| REPOSITORY | https://github.com/Sparkmind-obp-off/Holbery — existing main |
+| DOMAIN | Verified live host https://webapp-4.pages.dev; website apex suffix requires explicit confirmation; see CONTACT-DOMAINS.md |
+| CONTACT | hello@holbery.id; support@holbery.id — requested names, routing/mailboxes not verified active |
+| CUSTOMER TYPE | Operators and customers of evidence-backed offers; do not infer actual customer count |
+| REVENUE MODEL | Offer-specific; existing BRS COMPLETE catalog offer; revenue authority is server commerce evidence, not events |
 
 ## Definisi tunggal
 
-HOLBERY adalah ekosistem induk untuk membangun dan mengoperasikan bisnis, sistem, produk, dan ventures yang praktis. HOLBERY dapat memiliki, menginkubasi, mengoperasikan, memprodukkan, dan mendistribusikan penawaran lintas kategori. Kepemilikan strategis ini tidak membuktikan kepemilikan hukum suatu aset.
+HOLBERY adalah Master Parent Brand untuk membangun dan mengoperasikan bisnis, sistem, produk dan ventures praktis. HOLBERY dapat menginkubasi, mengoperasikan, memprodukkan dan mendistribusikan penawaran lintas kategori. Strategic association is not legal ownership proof.
 
-HOLBERY bukan produk vertikal tunggal. HOLBERY tidak diposisikan sebagai perusahaan AI generik, software agency, digital agency, SaaS generik, marketplace generik, atau konsultan generik. AI, software, layanan, dan perdagangan boleh menjadi kapabilitas atau penawaran di bawah induk, bukan pengganti definisi induk.
+HOLBERY bukan barber product, generic AI company, SaaS, agency, marketplace atau konsultan generik. Software, AI, services dan commerce boleh menjadi capability, bukan pengganti identitas induk.
 
-Prioritas: **clarity → structure → execution → proof → revenue → scale**.
+**BRAND-FIRST, PROOF-DRIVEN, COMMERCE-BACKED.** Latest entry sequence: **UTILITY → USAGE → TRUST → AUDIENCE → POSITIONING → PRODUCT DEMAND → TRANSACTION.** Cashflow remains a survival constraint; free utility does not make all operating-system value free.
 
-## Arsitektur yang ditetapkan
+## Arsitektur kanonis
 
 ```text
 HOLBERY
-├── SYSTEMS
-├── PRODUCTS
-├── VENTURES
-└── COMMERCE
+├── LIBRARY
+│   ├── SYSTEMS
+│   ├── PRODUCTS
+│   ├── VENTURES
+│   ├── COMMERCE
+│   ├── KNOWLEDGE
+│   ├── CAPABILITIES
+│   └── ASSETS
+└── BRAND PORTFOLIO
+    └── CHILD BRANDS
 ```
 
-Fondasi merek lengkap: [BRAND-FOUNDATION.md](BRAND-FOUNDATION.md). Definisi pilar dan prinsip implementasi: [ARCHITECTURE.md](ARCHITECTURE.md). Status penyelesaian tiap fase mengikuti ROADMAP, bukan diagram semata.
+Authority: [HOLBERY-LIBRARY.md](HOLBERY-LIBRARY.md), [HOLBERY-LIBRARY-AUTHORITY.md](HOLBERY-LIBRARY-AUTHORITY.md), [HOLBERY-CANONICAL-MAP.md](HOLBERY-CANONICAL-MAP.md). No cosmetic new child brand or competing catalog.
 
 ## Otoritas dokumentasi
 
-1. Dokumen ini menjadi sumber utama identitas, domain strategis, cakupan, dan batas HOLBERY.
-2. [DECISIONS.md](DECISIONS.md) mencatat keputusan dan alasan perubahan. Perubahan berlaku setelah dokumen terdampak diselaraskan dalam commit yang sama.
-3. [MASTER-ARCHITECTURE.md](MASTER-ARCHITECTURE.md) dan [PROJECT-LIFECYCLE.md](PROJECT-LIFECYCLE.md) mengatur portfolio; [ARCHITECTURE.md](ARCHITECTURE.md) mengatur implementasi teknis. [BRAND-GOVERNANCE.md](BRAND-GOVERNANCE.md), [NAMING-SYSTEM.md](NAMING-SYSTEM.md), dan [BRAND-RULES.md](BRAND-RULES.md) mengatur disiplin merek.
-4. [ROADMAP.md](ROADMAP.md) menjadi satu-satunya tracker status fase aktif.
-5. [README.md](README.md) menjadi pintu masuk, bukan definisi induk alternatif.
-6. `archive/legacy-parent-house/` hanya arsip historis NON-KANONIS. Pernyataan domain, hierarki, dan status selesai di sana tidak berlaku untuk roadmap v1.0.
+- This file: parent identity and boundaries.
+- [CONTACT-DOMAINS.md](CONTACT-DOMAINS.md): corrected spelling/contact/domain scope. Old double-r instructions superseded; historical evidence is retained, not reused for corrected domains.
+- [strategy/HOLBERY-BRAND-FIRST-MASTER.md](strategy/HOLBERY-BRAND-FIRST-MASTER.md): primary strategy; [utility strategy](strategy/HOLBERY-FREE-UTILITY-ORGANIC-GROWTH.md) adds the latest entry/discovery lock.
+- [execution/HOLBERY-FIELD-EVENT-SSOT.md](execution/HOLBERY-FIELD-EVENT-SSOT.md): event authority/privacy contract.
+- [ROADMAP.md](ROADMAP.md): active maturity roadmap; document-complete is not commercially proven.
+- [DECISIONS.md](DECISIONS.md): changes/supersession; [README.md](README.md): practical entry guide.
+- Archive is NON-CANONICAL, byte-preserved. Earlier execution reports are dated history.
 
-Jika ditemukan konflik aktif, jangan menebak: catat keputusan, selaraskan dokumen, uji, lalu commit. Jangan membuka kembali eksplorasi nama tanpa konflik legal, linguistik, atau strategis yang material.
+## Implementation and evidence boundaries
+
+Daily Close remains Free Tool1. Target Omzet and Break-even complete the first small portfolio at `/tools`. No account or purchase required; inputs/results stay in browser. Explicit opt-in short-session events contain no financial values/PII. Browser events cannot establish transaction, payment, fulfillment, identity or business outcome. Tests are synthetic engineering evidence.
+
+Existing approved commerce, D1/R2, BRS-2026-V1 package and support are preserved. Public BRS offer uses canonical server catalog; free templates never include the private paid package. Approved operator/policies are not re-requested. Productization, portfolio and scale frameworks exist, but real repeated usage, sales, outcomes and repeatable economics cannot be inferred from them. Do not assert historical zero counts as today's customer/sale state.
+
+Social drafts/calendar and weekly review are prepared, not published or observed over90 days. Next tools/new paid offers require real converging evidence. Commercial proof remains a separate roadmap gate.
 
 ## Batas privasi dan proyek
 
-- Bozq One System tetap privat/internal milik konteks Bosku Cukur. Bukan produk publik HOLBERY dan tidak dipindahkan ke repository ini.
-- Barber Business System adalah proyek terpisah di SYSTEMS; research MVP/browser calculator/CSV/checklist dibangun dan engineering-tested. Lifecycle EXPERIMENT; operator validation, legal commercial readiness dan sales belum terbukti.
-- Hanya pelajaran operasional yang diizinkan dan disanitasi yang boleh dijadikan referensi. Jangan salin kode, data pelanggan, aset, kredensial, atau IP privat tanpa izin eksplisit dan pemeriksaan hak.
-- Tolvey/Tolva tetap terpisah; Kestora belum di-onboard. ELCO/TOLMOND hanya konteks historis, bukan alternatif induk aktif.
-- Entitas hukum, pemilik IP, domain, dan trademark belum dianggap terverifikasi. HOLBERY **belum mendapat legal/trademark clearance**.
+Bozq One System tetap privat/internal Bosku Cukur. No code, assets, credentials, customer records or private IP imported/exposed. Barber research utility is separate. Tolvey/Tolva remain separate; Kestora not onboarded. Parent domain/control evidence is not trademark clearance; HOLBERY is **not legally/trademark cleared**. Legal title and asset assignments require specific evidence, despite the separately approved operator.
 
-## Protokol eksekusi
+## Eksekusi dan Definition of Done
 
-Setiap fase: inspect repository → inspect assets → preserve valid work → identify gaps → implement required changes → test → document → produce evidence → update roadmap → lanjut fase berikutnya. Perintah stop/report setelah setiap fase dicabut oleh instruksi FULL MASTER EXECUTION. Berhenti hanya pada blocker nyata yang memerlukan tindakan pengguna; lanjutkan pekerjaan independen ketika satu komponen terblokir.
+Inspect → preserve → identify gaps → implement → test → document → evidence → release → verify → learn. Latest user resumes continuous execution, existing GitHub main and Cloudflare BYOK; earlier Phase7 wrap-up pause is superseded. Independent work continues when domain/mail/publication components require owner action.
 
-Laporan wajib: STATUS, CHANGES, FILES, TESTS, EVIDENCE, RISKS, NEXT PHASE. Jangan lewati fase atau mengklaim pekerjaan eksternal selesai dari dokumentasi saja.
-
-Loop operasional didokumentasikan dan template/registry diimplementasikan pada Phase 6; belum terbukti lewat operasi bisnis nyata. [OPERATING-SYSTEM.md](OPERATING-SYSTEM.md):
-
-`DISCOVER → VALIDATE → DESIGN → BUILD → LAUNCH → OPERATE → MEASURE → IMPROVE → SCALE`
-
-## Definition of Done induk operasional
-
-HOLBERY baru dianggap operasional jika definisi, arsitektur, aturan child brand, digital property utama, pelacakan legal/IP, governance proyek, metode operasi, validasi satu produk/venture nyata, jalur komersial, dan arsitektur reusable memiliki bukti pelaksanaan.
-
-**Status saat ini: induk terdefinisi, website publik verified, operating framework dan research MVP implemented. Bukan klaim induk sudah operasional secara komersial.** Primary custom domain, legal clearance, validasi operator/pelanggan dan revenue masih belum terbukti. Phase 8–10 belum dikerjakan; lihat ROADMAP dan EXECUTION-REPORT. Instruksi wrap-up terbaru menghentikan run ini setelah menutup Phase 7, tanpa membatalkan disiplin bukti.
+Operational parent maturity requires useful real delivery, actual usage/outcomes, repeatable operations/economics and governed reusable portfolio—not only documents or a live site. Scale only proven patterns. No fabricated customers, payments, revenue, ownership, clearance or outcomes.

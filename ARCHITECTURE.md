@@ -4,15 +4,15 @@ v1.2 | 2026-10-06
 
 ## Canonical hierarchy
 
-HOLBERY → SYSTEMS / PRODUCTS / VENTURES / COMMERCE.
+HOLBERY → LIBRARY (SYSTEMS / PRODUCTS / VENTURES / COMMERCE / KNOWLEDGE / CAPABILITIES / ASSETS) + BRAND PORTFOLIO / CHILD BRANDS.
 
 The technical architecture is intentionally **platform-capable**: the current public website is only the first surface. Future commerce and child capabilities must be added as reusable domain modules rather than rebuilt per child.
 
 ## Current runtime
 
-Hono + TypeScript + Vite on Cloudflare Pages/Workers. The current deployment is an informational/public foundation and research MVP.
+Hono + TypeScript + Vite on Cloudflare Pages/Workers. Existing commerce uses persistent D1, Duitku server adapter, private R2 digital delivery and protected support; current utility surfaces add browser-only math and an opt-in anonymous event module.
 
-Current implementation does **not** yet provide persistent commerce, accounts, checkout, payment processing, order management, inventory, or multi-tenant child data. This is an implementation-status statement, not an architectural limitation.
+Catalog/cart/checkout/order/stock/payment verification/digital delivery are implemented and engineering-tested; readiness is not a genuine payment/outcome. End-user accounts, marketplace and active child businesses are not introduced. The target diagram below is a capability map, not launched portfolio.
 
 ## Target platform architecture
 
@@ -125,19 +125,23 @@ Authorization must be evaluated at the tenant/brand/resource boundary. Secrets r
 | Parent website | Implemented | Keep |
 | Library/governance | Implemented | Keep/evolve |
 | Systems | Research implementation | Reusable platform modules |
-| Product catalog | Registry placeholder | Persistent catalog |
-| Commerce storefront | Informational page | Transactional storefront |
-| Cart | Not implemented | Durable cart |
-| Checkout | Not implemented | Durable/idempotent checkout |
-| Payments | Not implemented | Provider adapters + reconciliation |
-| Orders | Not implemented | Durable order lifecycle |
-| Fulfillment | Not implemented | Extensible fulfillment |
-| Child support | Governance only | Tenant/brand-aware runtime |
-| Customer data | Not implemented | Isolated persistent records |
-| Analytics | Structural registries | Commerce/portfolio reporting |
+| Product catalog | Existing canonical D1 BRS offer | Evidence-led improvements |
+| Commerce storefront | Database-backed direct storefront | No marketplace required |
+| Cart | Durable capability-protected cart | Maintain integrity |
+| Checkout | Durable atomic/idempotent checkout | Real-customer delivery evidence |
+| Payments | Duitku adapter/callback+inquiry/reconciliation | Genuine transaction verification |
+| Orders | Durable guarded lifecycle | Real operations and repeatability |
+| Fulfillment | Private R2 entitlement/versioned package/support | Genuine paid delivery/outcome |
+| Child support | Scoped runtime/guards; no active child implied | Validated independent units only |
+| Customer data | Isolated private D1 commerce records | Lawful minimal data, never public Git |
+| Analytics | Opt-in utility ledger; separate server commerce evidence | Meaningful weekly learning, no identity joins |
 
 ## Non-negotiable
 
 HOLBERY must be able to grow from parent website → commerce engine → multi-brand ecosystem without replacing the core architecture.
 
 The current site is therefore the **first shell**, not the final product.
+
+## Utility boundary
+
+Browser math has no persistent financial values. Shared strict event contract feeds /api/field-events only after opt-in, hashed short sessions, DNT/GPC, test isolation, rate cap and UUID dedup. Three additive D1 tables reuse DB, no commerce joins or duplicate payment truth. Review reuses existing admin secret. Ledger/aggregate deletion is lazy, not cron. See execution/HOLBERY-FIELD-EVENT-SSOT.md and README for current capabilities; current table reports implementation, not verified market maturity.

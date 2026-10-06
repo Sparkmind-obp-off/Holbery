@@ -1,0 +1,73 @@
+{
+  "date": "2026-10-06",
+  "scope": "Read-only exact-domain zone and public DNS checks, not mailbox or registrant proof",
+  "domains": [
+    {
+      "name": "holbery.id",
+      "cloudflareAccess": 200,
+      "zonePresent": false,
+      "zoneStatus": "UNVERIFIED",
+      "dns": {
+        "A": {
+          "status": 3,
+          "answers": []
+        },
+        "MX": {
+          "status": 3,
+          "answers": []
+        },
+        "TXT": {
+          "status": 3,
+          "answers": []
+        }
+      }
+    },
+    {
+      "name": "holbery.biz.id",
+      "cloudflareAccess": 200,
+      "zonePresent": true,
+      "zoneStatus": "active",
+      "dns": {
+        "A": {
+          "status": 0,
+          "answers": [
+            {
+              "type": 1,
+              "data": "104.21.60.245"
+            },
+            {
+              "type": 1,
+              "data": "172.67.202.202"
+            }
+          ]
+        },
+        "MX": {
+          "status": 0,
+          "answers": [
+            {
+              "type": 15,
+              "data": "40 route2.mx.cloudflare.net."
+            },
+            {
+              "type": 15,
+              "data": "86 route3.mx.cloudflare.net."
+            },
+            {
+              "type": 15,
+              "data": "9 route1.mx.cloudflare.net."
+            }
+          ]
+        },
+        "TXT": {
+          "status": 0,
+          "answers": [
+            {
+              "type": 16,
+              "data": "\"v=spf1 include:_spf.mx.cloudflare.net ~all\""
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

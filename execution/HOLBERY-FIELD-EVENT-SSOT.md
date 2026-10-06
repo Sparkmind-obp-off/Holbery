@@ -1,7 +1,8 @@
 # HOLBERY FIELD EVIDENCE & EVENT SSOT
 
-**Status:** CANONICAL  
-**Date:** 2026-10-06  
+**Status:** CANONICAL
+**Version:** V1.1; browser envelope schema1
+**Date:** 2026-10-06
 **Strategy:** BRAND-FIRST, PROOF-DRIVEN, COMMERCE-BACKED
 
 ## 1. Purpose
@@ -24,7 +25,7 @@ The purpose is not to build a large analytics platform. It is to answer:
 
 | Event class | Canonical source of truth |
 |---|---|
-| Anonymous tool interaction | First-party field-event ledger, when implemented |
+| Anonymous tool interaction | First-party field-event ledger in existing D1; opt-in, client-reported only |
 | Product/catalog state | Commerce database / canonical product records |
 | Cart/checkout state | Commerce database |
 | Payment state | Verified provider callback + server inquiry, persisted in commerce DB |
@@ -248,9 +249,9 @@ Complete now:
 ### E1 — First free tool
 Implement one useful tool only.
 
-Recommended first candidate:
+Latest execution lock (2026-10-06) supersedes the earlier Revenue Calculator suggestion:
 
-**HOLBERY Barber Revenue Calculator**
+**Daily Close first; Target Omzet and Break-even complete the bounded three-tool portfolio.** See section18.
 
 Required events:
 - tool_opened
@@ -338,3 +339,43 @@ The first tool should be judged by usefulness and evidence, not by feature count
 ---
 
 **Canonical status:** This document is the source of truth for HOLBERY field-event vocabulary and event/analytics boundaries unless superseded by a formally versioned architecture decision.
+
+## 18. Utility implementation extension — 2026-10-06
+
+Latest user lock supersedes the earlier one-tool recommendation: preserve Daily Close as Free Tool1, Target Omzet as2, Break-even as3; no additional calculators approved. Technical source: public/static/event-contract.js shared by browser and server; src/field-events.ts; migration0004. This contract extension preserves all server commerce/evidence authority above.
+
+### Implemented vocabulary and exact semantics
+
+| Event | Observed fact | Not proven |
+|---|---|---|
+| surface_viewed | Opted-in utility surface initialized | Unique visitor or actual human |
+| tool_opened | Tool page initialized | Used or useful |
+| tool_started | First interaction/calculation in page | Correct inputs/problem validation |
+| field_interacted | Allowed field name touched once/page | Field value or financial state |
+| tool_completed | Deterministic calculation completed; calculated/nonviable class only | Value, profit or outcome |
+| result_viewed | Result panel rendered | Human read/understood it |
+| tool_error | Validation/calculation could not finish | User identity, exact private error text |
+| product_cta_viewed | CTA crossed visibility threshold | Demand, purchase or product-page arrival |
+| product_cta_clicked | Existing-product link clicked | Product-page loaded, order or revenue |
+| tool_shared | Clean URL copied successfully | Recipient received/opened/shared socially |
+| tool_to_tool | Navigation link clicked | Destination loaded or used |
+| template_download | Blank download link clicked | File saved/opened/used |
+| repeat_use_observed | Same tool revisited in the opted-in30-minute tab session | Cross-day retention or repeat customer |
+
+CTA points to existing canonical BRS product id8f12debf220c4847b2778292aac2b082. No shadow product/checkout or client payment events. No automatic session linkage to cart/customer/order; report utility intent and commerce evidence separately.
+
+### Envelope and minimization
+
+Required: event_id, event_name, occurred_at, surface, session_id, source, schema_version1, consent=true, traffic_class. Controlled optional fields: tool_id, product_id, referrer_class, campaign_id, result_class, field_id, next_tool_id, template_id. UUIDv4 IDs, known paths/tools/fields/products/campaigns, ISO time within5 minutes. Unknown properties rejected, not silently discarded. Never collect raw URLs/referrers, emails/phones/IP, customer identities, input values or numeric results. Source/campaign are coarse allowlisted classes, not full query strings.
+
+Default OFF; tools work without consent/account/payment. Explicit enable button sets random tab session in sessionStorage; fixed30-minute expiry. Browser/server DNT/GPC prevent collection. Server stores SHA256 session hash with test/production namespace, never raw session ID; no utility-to-commerce identity joins. Hashed short random ID is pseudonymous technical state, not anonymous-human certification. Disable removes session; prior accepted ledger events remain until retention (no identity-based deletion UI).
+
+POST /api/field-events requires same-origin JSON,4KB body max, strict validator;80 requests/minute per session, UUID retry dedup and separate traffic_class=test/production. Client-reported/test classification is not bot authentication; spam/adversarial events remain a limitation. Analytics failure never blocks math. Copy URL strips inputs/query.
+
+### Storage, retention and review
+
+Reuse existing DB with separate holbery_field_events / holbery_field_daily / holbery_field_rate; no commerce table modifications or new database. Target retention ledger30 days, aggregate90 days; cleanup is request-driven, ledger batches capped100/request. Dormancy/backlog can delay deletion; these targets are not guaranteed hard TTLs. Rate-window rows cleaned lazily. No cron added.
+
+GET /api/field-events/review?days=7 reuses COMMERCE_ADMIN_TOKEN; only production aggregates and distinct short-session counts, no raw hashes/customer/payment data. CLI scripts/utility-review.mjs queries only utility ledger, writes ignored private report. Zero denominators become null. Same-session repeat is not return-visitor retention; opt-in bias means no total visitor denominator or universal traffic count.
+
+Synthetic browser/integration evidence is test traffic, not E3 external use. Public deployment verifies engineering availability, not90-day observation, market proof or outcomes. Real organic publication starts the observation window. Weekly interpretation uses UTILITY-REVIEW-TEMPLATE.md and structured evidence/decision records. Monetization/portfolio advancement requires separate converging external and server evidence, never counts alone.

@@ -12,7 +12,11 @@
     "test:http": "node scripts/check-http.mjs",
     "deploy": "npm run build && wrangler pages deploy dist --branch main",
     "test:commerce": "npm run build && node --test tests/commerce.integration.mjs",
-    "check": "npm run typecheck && npm test && npm run test:commerce && npm run test:docs"
+    "check": "npm run typecheck && npm test && npm run test:commerce && npm run test:field-events && npm run test:docs",
+    "test:field-events": "npm run build && node --test tests/field-events.integration.mjs"
+  },
+  "overrides": {
+    "sharp": "0.35.5"
   },
   "dependencies": {
     "hono": "4.13.13"

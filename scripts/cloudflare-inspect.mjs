@@ -10,8 +10,10 @@ async function api(path) {
 const accounts = await api('accounts');
 if (accounts.length !== 1) throw new Error('Account selection requires user input');
 const projects = await api(`accounts/${accounts[0].id}/pages/projects`);
-const zones = await api('zones?name=holberry.biz');
+const domain=process.argv[2];
+if(!['holbery.id','holbery.biz.id'].includes(domain))throw new Error('Explicit supported domain required: holbery.id or holbery.biz.id; read-only, not web-apex selection');
+const zones = await api('zones?name='+encodeURIComponent(domain));
 const domains = zones.map(z => ({name:z.name,status:z.status}));
-const evidence = {date:'2026-10-05',accountCount:accounts.length,pagesProjectCount:projects.length,candidateProjectAvailable:!projects.some(p=>p.name==='webapp'),primaryDomainZones:domains,scope:'Read-only; no DNS modifications. Zone access proves account access, not legal registrant ownership.'};
-writeFileSync('evidence/cloudflare-discovery.json',JSON.stringify(evidence,null,2)+'\n');
+const evidence = {date:new Date().toISOString().slice(0,10),domain,accountCount:accounts.length,pagesProjectCount:projects.length,candidateProjectAvailable:!projects.some(p=>p.name==='webapp'),primaryDomainZones:domains,scope:'Read-only; no DNS modifications. Zone access proves account access, not legal registrant ownership.'};
+writeFileSync('evidence/cloudflare-discovery-'+domain.replaceAll('.','-')+'.json',JSON.stringify(evidence,null,2)+'\n');
 console.log(JSON.stringify(evidence,null,2));

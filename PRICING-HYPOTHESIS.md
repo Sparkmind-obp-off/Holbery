@@ -1,6 +1,6 @@
 # HOLBERY — Barber Pricing Hypothesis
 
-Phase 7 | Hypotheses only; no sales/paid commitments or active checkout.
+Phase7 historical guided-pilot hypothesis, NOT the current offer. Existing BRS COMPLETE server catalog anchor is Rp99.000 (BRS-2026-V1), with approved commerce checkout/policies. No new Rp149.000 offer is launched; actual payment evidence is separate.
 
 ## First test
 
@@ -21,3 +21,7 @@ No automatic subscription. No lifetime unlimited support. No custom software per
 ## Decision
 
 Go to productization validation when an operator understands outcome/delivery and at least one real paid commitment can be accepted safely. Adjust on actual cost/WTP evidence; do not treat the free calculator as validated paid demand. Recurring workflow support may be explored only if operator use persists and ongoing value justifies recurring cost.
+
+## Latest utility-first decision
+
+Keep free calculations/blank templates separate from existing paid package. Review actual demand and support economics before any new price or offer. This historical cost scenario is not current margin, sales or operator approval status. Productization follows PRODUCTIZATION.md and current commerce/FIRST-PRODUCT.md.

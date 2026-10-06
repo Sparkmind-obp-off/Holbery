@@ -7,10 +7,10 @@ Build. Operate. Grow. HOLBERY is the parent commerce infrastructure for SYSTEMS,
 - **IMPLEMENTED / VERIFIED locally:** M0 D1 runtime, tenant resolution, request IDs, readiness/errors; M1 canonical catalog; M2 persistent cart and atomic checkout; M3 Duitku adapter, Pop JS integration and verified HTTP callback handler.
 - **VERIFIED:** the actual Barber Revenue Starter System COMPLETE package, version BRS-2026-V1: one integrated9-tab Excel workbook,9 PDFs and editable SOP/WhatsApp text. LibreOffice recalculation passed18 expected results with no formula errors; ledger/customer rows are blank. Original paid-product files/build sources are private, not served as public static assets or committed to the repository.
 - **VERIFIED:** supplied real merchant secrets and a newly generated COMMERCE_ADMIN_TOKEN are encrypted in Pages production. Authenticated read-only Duitku production method discovery returnedHTTP200 / responseCode00 /18 methods; this is NOT invoice or payment verification.
-- **OWNER APPROVED:** commercial/support/refund/privacy/delivery policies and production activation. Operator: PT Waskita Cakrawarti Digital — Perseroan Perorangan. WhatsApp: 0856 4338 3832. Planned hello@helloberry.biz.id and support@helloberry.biz.id are not routed yet; pages explicitly disclose that. No repeated policy approval or owner-funded transaction is required.
+- **OWNER APPROVED:** commercial/support/refund/privacy/delivery policies and production activation. Operator: PT Waskita Cakrawarti Digital — Perseroan Perorangan. WhatsApp: 0856 4338 3832. Planned hello@holbery.id and support@holbery.id are not routed yet; pages explicitly disclose that. No repeated policy approval or owner-funded transaction is required.
 - **NOT PRODUCTION VERIFIED:** invoice/payment/first sale. Mocked tests are engineering evidence, not revenue or provider acceptance evidence.
 - Production configuration enables `COMMERCE_ENABLED=true`, `COMMERCIAL_POLICY_APPROVED=true`; all credential, tenant, catalog and private delivery readiness gates remain enforced. Readiness success is `READY`, not evidence of payment. Final deployed verification is recorded in evidence/release.json. Owner test spending: Rp0. No invoice or fictitious customer is created for activation tests.
-- Existing informational website, barber calculator and canonical architecture remain intact. Earlier brand Phase0–7 deliverables are historical; they do not prove commerce readiness or customer validation. Phase8–10 branding/scale deliverables are not claimed complete.
+- Existing informational website, barber calculator and canonical architecture remain intact. Earlier brand Phase0–7 deliverables are historical; they do not prove commerce readiness or customer validation. Productization/portfolio/scale frameworks now exist; operational/commercial maturity is not claimed. See current ROADMAP.
 
 ## URLs and source
 
@@ -19,9 +19,22 @@ Build. Operate. Grow. HOLBERY is the parent commerce infrastructure for SYSTEMS,
 - Readiness: https://webapp-4.pages.dev/api/commerce/readiness
 - GitHub: https://github.com/Sparkmind-obp-off/Holbery — existing repository, `main`.
 - Actual deploy/source references: [evidence/release.json](evidence/release.json).
-- Strategic domain holberry.biz remains unverified. No registration, DNS purchase or canonical-host substitution was performed.
+- Ejaan domain: holbery (satu r). Email: hello@holbery.id / support@holbery.id, routing belum aktif. Full website apex requires suffix confirmation; keep the verified Pages host. Exact domain facts: [CONTACT-DOMAINS.md](CONTACT-DOMAINS.md).
 
-## Current strategic direction — BRAND-FIRST\n\nHOLBERY is now governed by a **brand-first, proof-driven, commerce-backed** strategy. The brand is the primary long-term asset; products create value and evidence; commerce converts value into real economics; distribution is a secondary acquisition capability.\n\nPrimary strategy documents:\n- [strategy/HOLBERY-BRAND-FIRST-MASTER.md](strategy/HOLBERY-BRAND-FIRST-MASTER.md)\n- [strategy/HOLBERY-PRODUCT-DIRECTION.md](strategy/HOLBERY-PRODUCT-DIRECTION.md)\n- [strategy/HOLBERY-EVIDENCE-FRAMEWORK.md](strategy/HOLBERY-EVIDENCE-FRAMEWORK.md)\n- [strategy/HOLBERY-OPERATING-ROADMAP.md](strategy/HOLBERY-OPERATING-ROADMAP.md)\n- [strategy/HOLBERY-PRODUCT-EVIDENCE-LEDGER.md](strategy/HOLBERY-PRODUCT-EVIDENCE-LEDGER.md)\n\nThe distribution engine remains available as a **secondary / optional capability**, not the primary strategic direction.\n\n## Canonical references
+## Current strategic direction — BRAND-FIRST
+
+HOLBERY is now governed by a **brand-first, proof-driven, commerce-backed** strategy. The brand is the primary long-term asset; products create value and evidence; commerce converts value into real economics; distribution is a secondary acquisition capability.
+
+Primary strategy documents:
+- [strategy/HOLBERY-BRAND-FIRST-MASTER.md](strategy/HOLBERY-BRAND-FIRST-MASTER.md)
+- [strategy/HOLBERY-PRODUCT-DIRECTION.md](strategy/HOLBERY-PRODUCT-DIRECTION.md)
+- [strategy/HOLBERY-EVIDENCE-FRAMEWORK.md](strategy/HOLBERY-EVIDENCE-FRAMEWORK.md)
+- [strategy/HOLBERY-OPERATING-ROADMAP.md](strategy/HOLBERY-OPERATING-ROADMAP.md)
+- [strategy/HOLBERY-PRODUCT-EVIDENCE-LEDGER.md](strategy/HOLBERY-PRODUCT-EVIDENCE-LEDGER.md)
+
+The distribution engine remains available as a **secondary / optional capability**, not the primary strategic direction.
+
+## Canonical references
 
 [HOLBERY-MASTER.md](HOLBERY-MASTER.md), [HOLBERY-LIBRARY.md](HOLBERY-LIBRARY.md), [MASTER-ARCHITECTURE.md](MASTER-ARCHITECTURE.md), [HOLBERY-COMMERCE-ARCHITECTURE.md](HOLBERY-COMMERCE-ARCHITECTURE.md), [commerce/MASTER-COMMERCE-IMPLEMENTATION.md](commerce/MASTER-COMMERCE-IMPLEMENTATION.md), [commerce/FIRST-SALE-SPEC.md](commerce/FIRST-SALE-SPEC.md), [commerce/DUITKU-PRODUCTION.md](commerce/DUITKU-PRODUCTION.md), [commerce/PRODUCTION-EVIDENCE.md](commerce/PRODUCTION-EVIDENCE.md), [commerce/FIRST-PRODUCT.md](commerce/FIRST-PRODUCT.md), [commerce/PRODUCTION-SECRETS.md](commerce/PRODUCTION-SECRETS.md), [DEPLOYMENT.md](DEPLOYMENT.md), [EXECUTION-REPORT.md](EXECUTION-REPORT.md).
 
@@ -48,7 +61,10 @@ Orders progress PENDING_PAYMENT → PAID → PROCESSING → FULFILLED → COMPLE
 | `/`, `/about`, `/systems`, `/products`, `/ventures`, `/commerce` | Existing parent/pillars; Commerce links to the direct store |
 | `/contact`, `/docs`, `/privacy` | Operator contact/method/data boundaries; WhatsApp and email-routing disclosure |
 | `/legal`, `/terms/commerce`, `/refund/commerce`, `/support/commerce`, `/delivery/commerce`, `/license/commerce` | Approved Indonesian digital-commerce policies and private order support |
-| `/systems/barber`, `/downloads/*` | Existing browser-only calculator and blank research templates |
+| `/tools`, `/tools/templates`, `/tools/barber/daily-close`, `/tools/barber/target-omzet`, `/tools/barber/break-even` | Three Indonesian free calculators and blank templates; no signup, browser-only values |
+| `/systems/barber` |301 canonical redirect to Daily Close |
+| `POST /api/field-events` | Explicit opt-in strict anonymous envelope; unknown/PII/value/payment fields rejected |
+| `GET /api/field-events/review?days=7` | Existing admin bearer; production-only session aggregates, days1–30 |
 | `/api/health`, `/robots.txt`, `/sitemap.xml` | Existing hosting health/SEO |
 | `GET /api/commerce/readiness` | DB/migration/config/product/private-asset readiness;200 READY only when every check passes, otherwise503 with exact blockers |
 | `GET /store/:slug`, `/store/:slug/products/:productSlug` | Canonical database-backed catalog; `slug=direct` initially |
@@ -94,16 +110,28 @@ npm run test:http
 node scripts/browser-check.mjs
 ```
 
-`check` runs strict TypeScript,53 unit tests, a fresh build,75 integration checks in actual local workerd/D1, then document/archive/secret/whitespace checks. Integration keys/fixtures are generated locally and ALL provider network calls are intercepted. No synthetic product/customer is seeded into production. Checkout concurrency, overselling, duplicate callbacks, signature/amount mismatches, tenant isolation, provider failure, fulfillment and disabled-production gates are covered. The real production Pop JS module loaded in Chromium and exposes checkout.process; no invented reference was passed. Invoice issuance, payment modal transaction acceptance and genuine paid callback/inquiry remain NOT STARTED.
+`check` runs strict TypeScript, unit tests, a fresh build,75 integration checks in actual local workerd/D1, utility Worker/D1 integration, then document/archive/secret/whitespace checks. Integration keys/fixtures are generated locally and ALL provider network calls are intercepted. No synthetic product/customer is seeded into production. Checkout concurrency, overselling, duplicate callbacks, signature/amount mismatches, tenant isolation, provider failure, fulfillment and disabled-production gates are covered. The real production Pop JS module loaded in Chromium and exposes checkout.process; no invented reference was passed. Invoice issuance, payment modal transaction acceptance and genuine paid callback/inquiry remain NOT STARTED.
 
 ## Deployment and human configuration
 
 Only the selected **Cloudflare BYOK** path is used, existing Pages project `webapp-4`, branch `main`. Do not use hosted deployment or unrelated databases. Build embeds the actual release Git SHA; release evidence maps that SHA to the returned Pages deployment identifier. Apply validated migrations remotely before deploying; do not drop/reset production tables. Never run wrangler login or commit `.dev.vars`/credentials.
 
-Activation and production deployment are verified in evidence/release.json. Readiness is HTTP200 / READY with no missing gates. Source93ef3175008ab5f49602733946d7d2e5cc5074bf is deployed BYOK as13e89b59-e1f5-4a9e-a54f-75c38493058f. Both approved flags are true; production credentials/private R2 remain protected. No fake customer/order/invoice/payment was created. Two anonymous technical carts were left empty after zero-cost cart checks; stock remains100.
+Activation and production deployment are verified in evidence/release.json. Readiness is HTTP200 / READY with no missing gates. Source93ef3175008ab5f49602733946d7d2e5cc5074bf is deployed BYOK as13e89b59-e1f5-4a9e-a54f-75c38493058f. Both approved flags are true; production credentials/private R2 remain protected. No fake customer/order/invoice/payment was created. The cart/stock statement in that historical release is not a current inventory or customer-count assertion.
 
 Use the product page to select a license, review the server-priced cart, and enter your own name/email and consent only for a genuine purchase. The real buyer may then open Duitku Pop, pay, wait for server verification, download the private package and acknowledge receipt. No owner-funded test is requested. Server snapshots/callback+inquiry remain the authority.
 
 Owner-managed follow-up: configure and verify email routing for the supplied addresses before announcing email support is active. Cloudflare Email Routing forwards incoming mail; an outbound mailbox/reply service is separate. WhatsApp and private order tickets are already published. COMMERCE_ADMIN_TOKEN is additional operator authentication; replace it through Cloudflare with a privately retained value if direct operator API access is needed. Rotate credentials through provider/Cloudflare rather than pasting replacements into chat. This is security hygiene, not another approval gate.
 
 ZERO-COST PRODUCTION VERIFICATION COMPLETE. FINAL PAID-STATE VERIFICATION REQUIRES A GENUINE CUSTOMER PAYMENT. REAL PAYMENT: NOT STARTED. REAL SALE: NOT ACHIEVED. Actual invoice issuance, paid notification/inquiry and paid download cannot be claimed production verified without that transaction. Automatic expiry/refunds, operator dashboard UI, shipping, automatic email delivery and self-service customer recovery remain unimplemented. Operator-reviewed recovery/support and protected APIs are present. Child/marketplace expansion waits for real proof.
+
+## Free utility release and weekly operation — 2026-10-06
+
+Latest strategy: [utility-first lock](strategy/HOLBERY-FREE-UTILITY-ORGANIC-GROWTH.md). Daily Close, Target Omzet and Break-even are the only three initial tools. One intent per page, Indonesian formulas/limitations/FAQ, clean sharing URLs, relevant optional existing-product CTA. Blank CSVs are not the private paid operating package.
+
+Measurement is OFF by default. Explicit session opt-in; DNT/GPC respected. Values/results stay in browser. Random tab session expires in30 minutes, SHA256 hash only in D1. Sessions are not unique humans or cross-day retention. Separate production/test traffic, UUID deduplication and80/minute cap. Ledger30-day/aggregates90-day retention uses lazy request cleanup, so dormancy may delay deletion. Migration0004 adds three utility tables to the existing DB; no new checkout/database. See [event SSOT](execution/HOLBERY-FIELD-EVENT-SSOT.md).
+
+Use a tool without opting in; enter your own numbers and review assumptions. Opt in only if you want anonymous step measurement, and disable anytime. No tool inputs or results in copy-link sharing.
+
+Owner can publish [Instagram/TikTok/Threads drafts](strategy/HOLBERY-ORGANIC-CONTENT-LOOP.md). They are not published posts. Start the observation window at actual publication. Authorized BYOK operator: `node scripts/utility-review.mjs 7`, writes ignored private aggregate report; use [UTILITY-REVIEW-TEMPLATE.md](UTILITY-REVIEW-TEMPLATE.md) and `/downloads/utility-weekly-review.csv`. Empty denominator = unavailable, not0% conversion. Real usage/90-day outcomes are not asserted.
+
+Additional checks: `node scripts/utility-browser.mjs`; `npm run test:field-events`. Latest utility release evidence is recorded separately in `evidence/utility-release.json` after deployment; existing commerce evidence is preserved. Future Pricing/Snapshot and other verticals remain candidates. Email activation, domain binding, social publishing, real payment/outcome and repeated economics remain separate actions/evidence gates.

@@ -5,6 +5,8 @@ phase=int(sys.argv[1]); status=sys.argv[2]; note=sys.argv[3]
 if status not in {'COMPLETE','BLOCKED'} or not 1 <= phase <= 10:
     raise SystemExit('Invalid phase/status')
 roadmap=Path('ROADMAP.md'); text=roadmap.read_text()
+if '**Version:** 2.' in text or '| PHASE ' not in text:
+    raise SystemExit('Legacy recorder disabled for roadmap v2: document readiness is not operational/commercial completion. Preserve current roadmap and record scoped evidence separately.')
 if phase > 1:
     prior=next(l for l in text.splitlines() if l.startswith(f'| PHASE {phase-1} —'))
     assert '| PENDING |' not in prior, 'Previous phase has not been recorded'

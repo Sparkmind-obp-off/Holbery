@@ -100,3 +100,19 @@ Status keputusan berbeda dari status implementasi. Perubahan identitas harus mem
 
 - Canonical documents: [ARCHITECTURE.md](ARCHITECTURE.md), [HOLBERY-COMMERCE-ARCHITECTURE.md](HOLBERY-COMMERCE-ARCHITECTURE.md), [HOLBERY-CHILD-ECOSYSTEM.md](HOLBERY-CHILD-ECOSYSTEM.md).
 - Consequence: Phase 8–10 implementation must preserve commerce readiness and multi-child isolation. Do not build a throwaway single-store architecture that requires replacement when a second child appears.
+
+## H-017 — One-r contact/domain correction supersedes H-002
+
+2026-10-06 / ACCEPTED. HOLBERY / holbery uses one r. Exact requested names hello@holbery.id and support@holbery.id, not activated mailboxes. Website full suffix needs confirmation; keep verified Pages origin. Exact read-only zone/DNS check is evidence/corrected-domain-check.json. No DNS/redirect/provider mutation. Historical spelling evidence retained, not current authority.
+
+## H-018 — Resume with utility-first lock
+
+2026-10-06 / ACCEPTED. Supersedes H-014 pause. Brand-first/proof-driven/commerce-backed; Daily Close first, Target Omzet and Break-even initial portfolio, organic drafts and weekly review. No more tools/new paid offer solely from counts. Library hierarchy and current roadmap v2 maturity remain authoritative. Framework completion is not commercial proof.
+
+## H-019 — Preserve remote commerce and privacy authority
+
+2026-10-06 / IMPLEMENTED locally. Fast-forward remote7c79fdb retained approved operator/policies, existing D1/R2/BRS private product, Duitku and protected APIs. Additive0004 event tables reuse DB; no alternate checkout/catalog/analytics database. Default-off opt-in, DNT/GPC, short random sessions hashed server-side, strict no-values/PII envelope, test isolation, duplicate/rate controls and lazy retention. Client never supplies payment/outcome truth.
+
+## H-020 — Artifact/readiness tests are not maturity gates
+
+2026-10-06 / IMPLEMENTED. Legacy phase-file checks explicitly labelled document readiness; do not parse absent v1 table rows into zero-test success or promote v2 Commercial Proof. Social text/calendar are drafts; no external usage/90-day outcomes fabricated. Sharp override0.35.5 resolves development advisories without forced stack downgrade; complete runtime regression required before release.

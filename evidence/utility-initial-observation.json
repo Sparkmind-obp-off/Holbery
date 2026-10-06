@@ -1,0 +1,46 @@
+{
+  "date": "2026-10-06",
+  "window_start": "2026-09-30",
+  "days": 7,
+  "stage": "Initial pre-rollout utility-only baseline, not an elapsed usage period",
+  "tools": [
+    {
+      "tool_id": "daily_close",
+      "opened_sessions": 0,
+      "started_sessions": 0,
+      "completed_sessions": 0,
+      "result_sessions": 0,
+      "same_tab_repeat_sessions": 0,
+      "product_cta_clicked_sessions": 0,
+      "activation_rate": null,
+      "result_rate": null,
+      "product_intent_rate": null
+    },
+    {
+      "tool_id": "target_revenue",
+      "opened_sessions": 0,
+      "started_sessions": 0,
+      "completed_sessions": 0,
+      "result_sessions": 0,
+      "same_tab_repeat_sessions": 0,
+      "product_cta_clicked_sessions": 0,
+      "activation_rate": null,
+      "result_rate": null,
+      "product_intent_rate": null
+    },
+    {
+      "tool_id": "break_even",
+      "opened_sessions": 0,
+      "started_sessions": 0,
+      "completed_sessions": 0,
+      "result_sessions": 0,
+      "same_tab_repeat_sessions": 0,
+      "product_cta_clicked_sessions": 0,
+      "activation_rate": null,
+      "result_rate": null,
+      "product_intent_rate": null
+    }
+  ],
+  "scope": "Opt-in only; short-lived sessions not unique humans; test traffic excluded; no cross-day visitor retention, payment/revenue attribution, market proof or outcome inferred.",
+  "next": "Publish actual organic content, observe external opt-in use and complete weekly review; no conversion or new-product decision from empty denominators."
+}

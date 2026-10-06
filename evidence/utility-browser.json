@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-06",
+  "base": "http://localhost:3000",
+  "threeCalculators": "PASS",
+  "defaultOff": true,
+  "consentedEnvelopeOnly": true,
+  "testTrafficIsolated": true,
+  "eventNames": [
+    "surface_viewed",
+    "tool_opened",
+    "product_cta_viewed",
+    "tool_started",
+    "tool_completed",
+    "result_viewed",
+    "tool_to_tool",
+    "field_interacted",
+    "repeat_use_observed"
+  ],
+  "acceptedEvents": 26,
+  "disableAndGpc": "PASS",
+  "javascriptErrors": [],
+  "scope": "SYNTHETIC engineering traffic, not market usage"
+}

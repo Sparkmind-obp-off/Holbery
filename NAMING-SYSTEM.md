@@ -14,11 +14,11 @@ Phase 3 | [Governance](BRAND-GOVERNANCE.md). HOLBERY tetap nama induk.
 | Internal project | Pertahankan existing valid name; visibility private; jangan publikasi data/IP | Bozq One System tetap private/internal |
 | Experiment | exp-<vertical>-<problem>-<sequence>; timebox dan owner | exp-barber-daily-close-001 |
 | Campaign | <offer>-<channel>-<YYYYMM>; tidak punya parent baru | daily-close-discovery-202610 |
-| Domain | holberry.biz induk; child domain hanya jika strategic value/rights | Availability dan ownership dicek terpisah |
+| Domain | holbery satu r; apex sesuai CONTACT-DOMAINS.md; child hanya jika rights/value | Availability dan ownership dicek terpisah |
 | Social | Utamakan exact HOLBERY atau holbery + descriptor relevan jika tidak tersedia | @holbery adalah preferred, UNVERIFIED |
 | Repository | holbery tetap repo existing; child holbery-<function> hanya bila perlu | Sparkmind-obp-off/Holbery |
 
-Ejaan domain induk sengaja holberry.biz (dua r); merek tetap HOLBERY (satu r). Jangan mengoreksi domain menjadi varian lain. Domain lama hanya sejarah; jangan membuat redirect tanpa kendali sah.
+Ejaan HOLBERY / holbery memakai satu r. Email hello@holbery.id dan support@holbery.id adalah nama diminta, bukan mailbox aktif. Full website suffix belum dikonfirmasi; jangan infer dari email. [CONTACT-DOMAINS.md](CONTACT-DOMAINS.md) supersedes instruksi dua-r lama; tidak ada DNS/redirect tanpa verifikasi.
 
 ## Screening sequence
 

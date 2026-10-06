@@ -1,12 +1,13 @@
 import { readFileSync, readdirSync, existsSync, writeFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import assert from 'node:assert/strict';
+import { dirname, resolve } from 'node:path';
 import { validateRegistry } from './registry.mjs';
-const docs=readdirSync('.').filter(n=>n.endsWith('.md'));
+const docs=[...readdirSync('.').filter(n=>n.endsWith('.md')), 'strategy/HOLBERY-FREE-UTILITY-ORGANIC-GROWTH.md', 'strategy/HOLBERY-ORGANIC-CONTENT-LOOP.md', 'execution/HOLBERY-FIELD-EVENT-SSOT.md'];
 let links=0;
 for(const file of docs) {
  const text=readFileSync(file,'utf8');assert(text.startsWith('# '),file);
- for(const [,link] of text.matchAll(/\[[^\]]*\]\(([^)]+)\)/g)) if(!/^(https?:|mailto:|#)/.test(link)){assert(existsSync(link.split('#')[0]),`${file}: ${link}`);links++;}
+ for(const [,link] of text.matchAll(/\[[^\]]*\]\(([^)]+)\)/g)) if(!/^(https?:|mailto:|#)/.test(link)){assert(existsSync(resolve(dirname(file),link.split('#')[0])),`${file}: ${link}`);links++;}
 }
 for(const file of execFileSync('git',['ls-tree','-r','--name-only','9babed0'],{encoding:'utf8'}).trim().split('\n')) assert.deepEqual(readFileSync('archive/legacy-parent-house/'+file),execFileSync('git',['show','9babed0:'+file]),`Archive changed ${file}`);
 validateRegistry(JSON.parse(readFileSync('registries/projects.json','utf8')));
@@ -14,6 +15,9 @@ assert.equal(readFileSync('registries/revenue.csv','utf8').trim().split('\n').le
 assert(readFileSync('CLEARANCE-TRACKER.md','utf8').includes('NOT LEGALLY CLEARED'));
 assert(!/Bozq|Bosku Cukur|Tolvey|Kestora/.test(readFileSync('dist/_worker.js','utf8')),'Private project context leaked to public bundle');
 assert(!/fetch\(|localStorage|sessionStorage/.test(readFileSync('public/static/barber.js','utf8')),'Calculator must not transmit or persist inputs');
+for(const file of ['public/static/utility-math.js','public/static/calculations.js']) assert(!/fetch\(|localStorage|sessionStorage/.test(readFileSync(file,'utf8')),`Pure math must not transmit/persist ${file}`);
+assert(!/fetch\(|localStorage|sessionStorage/.test(readFileSync('public/static/utility-tool.js','utf8')),'Tool UI must delegate envelope-only tracking, never transmit values');
+assert(readFileSync('public/static/utility-events.js','utf8').includes("credentials:'omit'"),'No commerce cookies/capabilities in field events');
 const files=execFileSync('git',['ls-files','--cached','--others','--exclude-standard','-z'],{encoding:'utf8'}).split('\0').filter(Boolean);
 // Require key payload to distinguish a private key from a scanner's literal test marker.
 const pattern=/(?:gh[pousr]_[A-Za-z0-9]{20,}|sk-[A-Za-z0-9]{20,}|-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----\s+[A-Za-z0-9+/=\r\n]{40,})/;

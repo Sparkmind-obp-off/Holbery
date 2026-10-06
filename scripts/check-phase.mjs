@@ -13,9 +13,13 @@ const files = {
   10: ['ECOSYSTEM-STRATEGY.md', 'VENTURE-GRADUATION.md', 'SCALE-FRAMEWORK.md'],
 };
 const phase = Number(process.argv[2]);
-const roadmap = readFileSync('ROADMAP.md', 'utf8');
-const implemented = Object.keys(files).map(Number).filter(n => roadmap.split('\n').some(row => row.startsWith(`| PHASE ${n} —`) && row.endsWith('| COMPLETE |')));
-const phases = process.argv.includes('--implemented') ? implemented : phase ? [phase] : Object.keys(files).map(Number);
+// Legacy deliverable groups are document readiness, NOT roadmap-v2 maturity stages.
+// --implemented verifies every existing complete group; a partial group fails loudly.
+const groups = Object.keys(files).map(Number);
+const implemented = groups.filter(n => files[n].some(path => existsSync(path)));
+const phases = process.argv.includes('--implemented') ? implemented : phase ? [phase] : groups;
+assert(phases.length > 0, 'No document groups selected: refusing zero-check success');
+console.log('Document readiness only; legacy groups9/10 map to active roadmap10/11–12, not Commercial Proof completion.');
 let count = 0;
 for (const n of phases) {
   assert(files[n], 'Unknown phase');

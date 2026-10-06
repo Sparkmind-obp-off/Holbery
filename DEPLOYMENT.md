@@ -2,12 +2,12 @@
 
 ## Owner-approved activation — 2026-10-06
 
-Production flags are now approved and set true in wrangler.jsonc. No readiness gate is bypassed. Operator: PT Waskita Cakrawarti Digital — Perseroan Perorangan. Legal/contact/support/delivery pages are Indonesian and identify this operator; WhatsApp uses 6285643383832. Planned hello@helloberry.biz.id and support@helloberry.biz.id routing remains inactive and is explicitly disclosed. Current deployment identifiers and genuine readiness/provider/browser results are authoritative in evidence/release.json. No owner-funded invoice or synthetic customer/order is created. REAL PAYMENT: NOT STARTED; REAL SALE: NOT ACHIEVED until a genuine transaction occurs.
+Production flags are now approved and set true in wrangler.jsonc. No readiness gate is bypassed. Operator: PT Waskita Cakrawarti Digital — Perseroan Perorangan. Legal/contact/support/delivery pages are Indonesian and identify this operator; WhatsApp uses 6285643383832. Planned hello@holbery.id and support@holbery.id routing remains inactive and is explicitly disclosed. Current deployment identifiers and genuine readiness/provider/browser results are authoritative in evidence/release.json. No owner-funded invoice or synthetic customer/order is created. REAL PAYMENT: NOT STARTED; REAL SALE: NOT ACHIEVED until a genuine transaction occurs.
 
 Historical digital product release | VERIFIED on Cloudflare BYOK, 2026-10-06. Source7ab2c1d8665c7bc802aecd5cc680c52c288eab6e, deployment7947ee56-b9e4-4549-b096-75c40d970fa3 at https://7947ee56.webapp-4.pages.dev. Three migrations applied, encrypted merchant/operator secrets installed, private R2 binding active and COMPLETE product published for discovery at99k. Readiness503 now lists ONLY COMMERCIAL_POLICY_APPROVED and COMMERCE_ENABLED. Owner policy approval and an actual customer payment are still required; no production sale is claimed.
 
 Historical commerce foundation release | VERIFIED on Cloudflare BYOK, 2026-10-06. Source13982a9e06ab9058b61af6cf65fe9daa361b20e9; deployment ecc2e40f-1c9b-4a82-b097-6d6bd32b812b at https://ecc2e40f.webapp-4.pages.dev. Both validated D1 migrations are applied. Checkout/payment remains BLOCKED pending human configuration, with COMMERCE_ENABLED=false. The research-toolkit deployment references below are historical.
-Primary strategic domain: holberry.biz. Live host: **https://webapp-4.pages.dev**.
+Primary web apex requires explicit suffix confirmation; one-r holbery naming follows CONTACT-DOMAINS.md. Live host: **https://webapp-4.pages.dev**.
 
 ## Evidence and actual scope
 
@@ -19,15 +19,13 @@ Project name selection: default webapp and webapp-2 collided; webapp-3 was alrea
 
 ## Custom domain — REQUIRES USER ACTION
 
-Token successfully lists account zones but exact query for holberry.biz returns none. This proves absence from accessible zones, not global ownership/availability. No DNS mutation, transfer, redirect or domain purchase performed. Canonical/sitemap use verified Pages host until domain control and TLS are verified; changing SEO to an unverified host would misrepresent readiness.
-
-Owner must confirm exact spelling, registrant/control, and registrar; add the domain to their Cloudflare account and configure correct nameservers if appropriate. Then Pages → webapp-4 → Custom domains → Set up domain → holberry.biz. Review existing DNS/services before changes. Verify HTTPS, A/AAAA/CNAME as applicable, and intended www redirects. Only then update origin in src/index.ts, rebuild and redeploy. Do not repurpose historical domain without explicit approval.
+Exact holbery.id has no accessible zone and public DNS returned NXDOMAIN at the recorded check. holbery.biz.id is accessible/active with existing DNS/email-routing records. Neither email naming nor zone access authorizes silently choosing/changing the primary website apex. See [CONTACT-DOMAINS.md](CONTACT-DOMAINS.md). Keep Pages origin until full suffix confirmation and safe domain/TLS review. No DNS mutation, transfer, purchase or service deletion.
 
 ## Email, social, analytics, GitHub architecture
 
-Current owner-supplied email targets are hello@helloberry.biz.id and support@helloberry.biz.id; routing is NOT ACTIVE and that status is published. The older holberry.biz email designs are superseded. Configure routing and verify delivery before claiming email support works. Email routing alone does not provide an outbound mailbox; outbound replies need an appropriate mail service. Social preferred @holbery remains UNVERIFIED; reserve only after checks. Existing owner/repo reused; no organization or duplicate repo created. Public documentation hub at /docs is curated, not a raw internal-doc mount.
+Current owner-supplied email targets are hello@holbery.id and support@holbery.id; routing is NOT ACTIVE and that status is published. Older incorrect-spelling email designs are superseded. Configure routing and verify delivery before claiming email support works. Email routing alone does not provide an outbound mailbox; outbound replies need an appropriate mail service. Social preferred @holbery remains UNVERIFIED; reserve only after checks. Existing owner/repo reused; no organization or duplicate repo created. Public documentation hub at /docs is curated, not a raw internal-doc mount.
 
-Cloudflare hosting metrics are the initial operational observability channel. No visitor analytics/marketing scripts configured. Web Analytics/RUM can be enabled later with explicit data-purpose/consent review; no invented token or fake metric. /api/health supports uptime checks. Privacy page states actual application behavior.
+Cloudflare hosting metrics are the initial operational observability channel. Utility measurement is default-off explicit opt-in; no third-party marketing tracker configured. Web Analytics/RUM can be enabled later with explicit data-purpose/consent review; no invented token or fake metric. /api/health supports uptime checks. Privacy page states actual application behavior.
 
 ## Reproducible commands
 
@@ -56,3 +54,9 @@ Tag or record source commit and deployment URL; rerun tests before release. Roll
 ## Verified final research-toolkit rollout
 
 Source commit 02202ca6617ea139ef2db6bd810676e58188efac, deployed to https://e0e8c8b2.webapp-4.pages.dev; stable https://webapp-4.pages.dev. Production HTTP10 pages/18 targets and Chromium responsive/calculator workflow checks passed. Exact sanitized evidence: [release.json](evidence/release.json). Source commit was pushed and matched GitHub remote main; following documentation-only evidence commit does not change deployed application code.
+
+## Three-utility release
+
+Existing webapp-4 / holbery-commerce-production / PRODUCT_BUCKET are reused; secrets and approved commerce flags preserved. Migration0004 is additive; rollback Worker does not remove event tables or alter commerce records. Commit source before build so embedded Git SHA is truthful. Verify tools/redirect/metadata/privacy with HTTP/browser suites; synthetic events must remain traffic_class=test. Do not create an invoice/customer/order to test utility release. Latest evidence: evidence/utility-release.json, separate from historical commerce release.json.
+
+Authorized weekly operator review: `node scripts/utility-review.mjs 7`; ignored private report, no customer/order/payment queries. Retention cleanup is lazy; monitor actual observations, not fake ninety-day summaries.

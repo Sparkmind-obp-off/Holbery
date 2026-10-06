@@ -6,8 +6,8 @@ Allowed item statuses: VERIFIED, UNVERIFIED, PENDING, BLOCKED, NOT REQUIRED YET.
 | ID / asset | Status | Owner / evidence | Required action |
 |---|---|---|---|
 | L01 HOLBERY mark | PENDING | Strategic master selected; no authoritative clearance report | Qualified IP adviser: exact/phonetic/near marks, relevant territories/classes; record search/date and interpretation |
-| L02 holberry.biz | BLOCKED | RDAP 404, DNS NXDOMAIN (Status 3), no accessible CF zone; no ownership evidence | Owner confirm/register/control exact domain; fees/registration require user action |
-| L03 legal entity | UNVERIFIED | Legal owner not established in repo | Owner identify entity/person and jurisdiction before contracts/invoicing |
+| L02 corrected domain/contact | BLOCKED | holbery.id DNS NXDOMAIN; holbery.biz.id zone accessible, not legal title | CONTACT-DOMAINS.md; confirm website suffix and exact mail-domain control/provider |
+| L03 commerce operator | VERIFIED | Owner-approved PT Waskita Cakrawarti Digital — Perseroan Perorangan | Preserve approved policies; independently verify any broader asset/IP title |
 | L04 repository administration | VERIFIED | Sparkmind-obp-off/Holbery; authenticated fetch, public/main/Issues API evidence | Owner maintain 2FA/recovery and collaborators; not proof of code/IP title |
 | L05 original site source/IP | UNVERIFIED | Authored in this repo; no Bozq source imported; contribution rights assignment not verified | Confirm legal owner/contributor assignment; no public source license granted by assumption |
 | L06 original wordmark/SVG assets | UNVERIFIED | Original local SVGs, no stock imagery used | Owner confirm rights/title and approved brand use |
@@ -16,7 +16,7 @@ Allowed item statuses: VERIFIED, UNVERIFIED, PENDING, BLOCKED, NOT REQUIRED YET.
 | L09 build/test dependencies | VERIFIED | 161 lockfile packages license metadata inventoried; no unknown metadata; not full legal audit | Review transitive terms/redistribution if shipping tooling or code |
 | L10 social handles | UNVERIFIED | @holbery preferred only; not secured | Owner account checks, registration, control proof, 2FA |
 | L11 licensing between child entities | NOT REQUIRED YET | No approved child entity or license transaction | When needed, document permitted use, territory, royalties, termination, data/IP boundaries |
-| L12 customer data/payment compliance | NOT REQUIRED YET | Site has no accounts/customer storage/payment collection | Before adding, review privacy lawful basis, retention, security, contracts and payment obligations |
+| L12 data/payment controls | PENDING | Approved commerce policies; real D1/private R2, verified adapter, privacy-first utility event ledger | Maintain lawful basis/retention/security; policy approval is not blanket legal clearance |
 
 ## Trademark class candidates — not filing advice
 
@@ -29,3 +29,7 @@ Counsel must select precise goods/services wording, territory, ownership, priori
 Brand is not legal entity. GitHub admin is not legal title. Domain record is not trademark right. Generalized workflow must not reuse Bozq code, assets, customer PII, private procedures, or credentials without explicit permission. No commercial launch requiring contracts/payment until owner, rights, delivery terms, support/refund and contact channel are confirmed.
 
 Sources/evidence: [clearance tracker](CLEARANCE-TRACKER.md), [asset register](ASSET-REGISTER.md), [domain technical check](evidence/domain-check.json), [license inventory](evidence/dependency-licenses.json). This register does not provide legal advice.
+
+## Current scope correction — 2026-10-06
+
+Earlier pilot/rights checklist is historical where superseded by approved commerce. No repeat approval requested for already approved BRS policies. Utility values are not stored/transmitted; event opt-in does not cover private purchase data. Domain evidence for old wrong spelling is historical, not evidence about corrected domains. Trademark remains NOT LEGALLY CLEARED.

@@ -1,0 +1,15 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {calculateTargetRevenue as target,calculateBreakEven as be} from '../public/static/utility-math.js';
+test('target example: 10m / 25k / 25 days',()=>{const r=target({target:10000000,price:25000,days:25});assert.equal(r.requiredServices,400);assert.equal(r.servicesPerDay,16);assert.equal(r.dailyTarget,400000)});
+test('target rounds up, never understates service count',()=>assert.equal(target({target:10000001,price:25000,days:25}).servicesPerDay,17));
+test('zero revenue target valid',()=>assert.equal(target({target:0,price:10000,days:26}).servicesPerDay,0));
+for(const days of [0,32,1.5,'',Infinity])test(`target rejects invalid days ${days}`,()=>assert.throws(()=>target({target:100000,price:20000,days})));
+for(const price of [0,-1,1.5,true,''])test(`target rejects invalid price ${price}`,()=>assert.throws(()=>target({target:100000,price,days:26})));
+test('break-even example 3m fixed / 20k contribution',()=>{const r=be({fixed:3000000,price:30000,variable:10000,days:25});assert.equal(r.requiredServices,150);assert.equal(r.servicesPerDay,6);assert.equal(r.requiredRevenue,4500000)});
+test('zero margin produces nonviable result, not infinity',()=>assert.equal(be({fixed:10000,price:10000,variable:10000,days:25}).feasible,false));
+test('negative margin produces nonviable result',()=>assert.equal(be({fixed:10000,price:10000,variable:12000,days:25}).feasible,false));
+test('zero fixed cost valid with positive margin',()=>assert.equal(be({fixed:0,price:10000,variable:0,days:25}).requiredServices,0));
+test('break-even monthly rounding',()=>assert.equal(be({fixed:3000001,price:30000,variable:10000,days:25}).requiredServices,151));
+test('fractional input rejected',()=>assert.throws(()=>be({fixed:1.5,price:30000,variable:10000,days:25})));
+test('missing variable cost rejected',()=>assert.throws(()=>be({fixed:1,price:30000,days:25})));
+test('unsafe computed revenue rejected',()=>assert.throws(()=>be({fixed:1e12,price:1e12,variable:1e12-1,days:25}),/terlalu besar/));

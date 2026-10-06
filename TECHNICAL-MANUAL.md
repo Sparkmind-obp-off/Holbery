@@ -37,7 +37,7 @@ Use approved secret stores/environment configuration. Never commit credentials, 
 
 Record source commit, environment/project, deployment identifier/URL, verification result, and rollback reference.
 
-Current public host: webapp-4.pages.dev. Strategic domain holberry.biz remains pending independent control/TLS verification.
+Current public host: webapp-4.pages.dev. Corrected one-r domain/contact authority is CONTACT-DOMAINS.md; website apex suffix/control/TLS and email routing remain separate open items.
 
 ## Backup and recovery
 

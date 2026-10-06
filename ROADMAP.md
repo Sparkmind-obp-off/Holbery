@@ -1,7 +1,7 @@
 # HOLBERY — Master Roadmap
 
-**Version:** 2.0  
-**Status:** CANONICAL ACTIVE ROADMAP  
+**Version:** 2.0
+**Status:** CANONICAL ACTIVE ROADMAP
 **Parent layer:** [HOLBERY-LIBRARY.md](HOLBERY-LIBRARY.md)
 
 > This document is the active roadmap. Historical execution reports belong in the archive and must not be mixed with current planning.
@@ -470,7 +470,7 @@ HOLBERY becomes meaningfully real as a master parent ecosystem when it can demon
 - a second validated use of the operating pattern;
 - and eventually, selective independent portfolio units where justified.
 
-**The destination is not the number of brands.  
+**The destination is not the number of brands.
 The destination is the ability to repeatedly create and operate valuable businesses with clarity and proof.**
 
 
@@ -509,3 +509,21 @@ The implementation must preserve three separations:
 Phase 8 therefore includes the first productization/commercial slice plus the reusable commerce foundation. Phase 9 validates the commercial engine. Phase 10 governs multi-child expansion and graduation.
 
 This replaces any interpretation of COMMERCE as merely a distribution page. The existing informational page remains valid as the current implementation state, but it is not the destination architecture.
+
+# CURRENT UTILITY EXECUTION APPENDIX — 2026-10-06
+
+This appendix reports artifacts, not advancement through real-proof gates. Existing current roadmap numbering remains unchanged.
+
+| Work | Implementation | Evidence gate still open |
+|---|---|---|
+| Daily Close / Target Omzet / Break-even / hub / templates / SEO | Built and engineering-tested; release evidence recorded separately | External usage and search discovery |
+| Opt-in field events and weekly review | Additive existing-DB migration, strict privacy contract, production/test split | Actual observation period and opt-in sample limitations |
+| Social content loop | Instagram/TikTok/Threads text drafts + relative calendar | Owner publication/account control and real responses |
+| Stage8 Productization | Four framework docs plus existing approved BRS offer preserved | Repeated real delivery/demand; no PMF claim |
+| Stage9 Commercial Proof | Existing server payment/fulfillment authority retained | Actual customer transaction and outcome evidence; no synthetic proof |
+| Stage10 Portfolio Engine | Vertical template/scorecard implemented | Second validated problem and reusable external evidence |
+| Stages11–12 Graduation/scale | Governance/framework artifacts | Real separation/economics/repeatability gates |
+
+Legacy Phase9 expansion files map to current Stage10; legacy Phase10 scale files to Stages11–12. Document readiness checker does not mark maturity COMPLETE. Contact/domain spelling correction follows CONTACT-DOMAINS.md; full website apex/email activation remain external gaps.
+
+Latest entry loop: UTILITY → USAGE → TRUST → AUDIENCE → POSITIONING → PRODUCT DEMAND → TRANSACTION. No forced signup, paid traffic, invented use or new speculative paid products. Use UTILITY-REVIEW-TEMPLATE.md weekly after actual publication.

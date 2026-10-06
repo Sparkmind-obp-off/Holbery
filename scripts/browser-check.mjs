@@ -31,11 +31,11 @@ try {
   await page.locator('#services').fill('10'); await page.locator('#price').fill('30000');
   await page.locator('#cash-receipts').fill('200000'); await page.locator('#digital-receipts').fill('100000');
   await page.locator('#opening-cash').fill('100000'); await page.locator('#cash-expenses').fill('50000'); await page.locator('#actual-cash').fill('250000');
-  await page.getByRole('button',{name:'Calculate daily close'}).click();
+  await page.getByRole('button',{name:'Hitung penutupan harian'}).click();
   assert.match(await page.locator('#calculation-result').innerText(),/300\.000/);
-  assert.match(await page.locator('#calculation-result').innerText(),/Balanced/);
-  await page.locator('#services').fill(''); await page.getByRole('button',{name:'Calculate daily close'}).click();
-  assert.match(await page.locator('#calculator-error').innerText(),/required/i);
+  assert.match(await page.locator('#calculation-result').innerText(),/Cocok/);
+  await page.locator('#services').fill(''); await page.getByRole('button',{name:'Hitung penutupan harian'}).click();
+  assert.match(await page.locator('#calculator-error').innerText(),/wajib/i);
   checks.push({calculator:'valid outcome, cash reconciliation, empty input rejected'});
  }
  if (process.env.VERIFY_LIVE_COMMERCE === 'true') {

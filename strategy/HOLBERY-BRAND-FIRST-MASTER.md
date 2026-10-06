@@ -1,8 +1,8 @@
 # HOLBERY BRAND-FIRST MASTER STRATEGY
 
-**Status:** PRIMARY STRATEGY  
-**Version:** V1.0  
-**Date:** 2026-10-06  
+**Status:** PRIMARY STRATEGY
+**Version:** V1.0
+**Date:** 2026-10-06
 **Repository:** `Sparkmind-obp-off/Holbery`
 
 ## 1. Strategic Decision
@@ -159,3 +159,7 @@ Fake revenue, fake proof, and fake scale are not acceptable.
 Every major initiative follows:
 
 **DECIDE → BUILD → VERIFY → DOCUMENT → LEARN → COMMIT OR KILL.**
+
+## Latest utility-first execution lock — 2026-10-06
+
+[Free utility & organic growth](HOLBERY-FREE-UTILITY-ORGANIC-GROWTH.md) extends this primary strategy. UTILITY → USAGE → TRUST → AUDIENCE → POSITIONING → PRODUCT DEMAND → TRANSACTION. Daily Close preserved; only Target Omzet and Break-even added. Organic content drafts, explicit opt-in events and weekly review; no forced signup/paid traffic/new speculative paid offer. Existing approved commerce/package remains available and private. Client counts are signals, not payment/outcome/market proof.

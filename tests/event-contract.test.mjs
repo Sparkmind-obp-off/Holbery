@@ -1,0 +1,15 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {randomUUID} from 'node:crypto';
+import{validateFieldEvent as validate,PRODUCT_ID}from'../public/static/event-contract.js';
+const valid=()=>({event_id:randomUUID(),event_name:'tool_opened',occurred_at:new Date().toISOString(),surface:'/tools/barber/daily-close',tool_id:'daily_close',session_id:randomUUID(),source:'direct',schema_version:1,consent:true,traffic_class:'test'});
+test('minimal canonical envelope accepted',()=>assert.equal(validate(valid()).event_name,'tool_opened'));
+for(const field of ['email','phone','input_values','revenue','price','token','ip','raw_referrer','customer_id','result_value'])test(`reject ${field} rather than silently collect`,()=>assert.throws(()=>validate({...valid(),[field]:'private'}),/UNEXPECTED_FIELD/));
+for(const event_name of ['checkout_started','payment_verified','order_completed','transaction','outcome_reported','feedback_received'])test(`client cannot establish ${event_name}`,()=>assert.throws(()=>validate({...valid(),event_name}),/SERVER_OR_UNKNOWN/));
+test('consent required',()=>assert.throws(()=>validate({...valid(),consent:false}),/CONSENT/));
+test('unknown free-text campaign rejected',()=>assert.throws(()=>validate({...valid(),campaign_id:'email@example.test'}),/CAMPAIGN/));
+test('field name only, allowed by tool',()=>assert.equal(validate({...valid(),event_name:'field_interacted',field_id:'price'}).field_id,'price'));
+test('field from another tool rejected',()=>assert.throws(()=>validate({...valid(),field_id:'variable'}),/FIELD/));
+test('wrong surface rejected',()=>assert.throws(()=>validate({...valid(),surface:'/checkout/private-order'}),/CONTEXT/));
+test('product CTA must refer to existing canonical product',()=>assert.equal(validate({...valid(),event_name:'product_cta_clicked',product_id:PRODUCT_ID}).product_id,PRODUCT_ID));
+test('backdated event rejected',()=>assert.throws(()=>validate({...valid(),occurred_at:'2020-01-01T00:00:00.000Z'}),/TIME/));
+test('inherited tool property is not a valid next tool',()=>assert.throws(()=>validate({...valid(),next_tool_id:'toString'}),/NEXT_TOOL/));
+test('inherited tool property is not a valid tool',()=>assert.throws(()=>validate({...valid(),tool_id:'constructor'}),/TOOL_SURFACE/));

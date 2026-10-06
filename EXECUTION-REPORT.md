@@ -1,5 +1,17 @@
 # HOLBERY MASTER EXECUTION
 
+## Current utility-first implementation — 2026-10-06
+
+Three free calculators, `/tools`/templates, Indonesian SEO, default-off privacy-first events and existing-D1 migration0004 are implemented. Existing approved commerce/operator/BRS private package is preserved. Contact names corrected to hello@holbery.id and support@holbery.id; routing not active verified, full web apex suffix requires confirmation, no DNS mutations.
+
+Canonical utility strategy, nine social text drafts + publication calendar, blank weekly review CSV/Markdown, operator review CLI, productization/vertical/scale frameworks and tested scorecard are prepared. Social content is NOT PUBLISHED. Real usage period, transaction and outcome are not claimed. Legacy document checker now checks artifacts rather than falsely promoting roadmap-v2 maturity; recorder refuses legacy mutation on v2.
+
+Verification before release: strict typecheck;113 unit tests,75 isolated commerce integration checks,10 utility Worker/D1 checks;30 legacy document deliverables; archive/secret/whitespace audit; npm audit0 vulnerabilities. Local HTTP21 pages/34 targets (one public-product dependency verified read-only in production because local D1 intentionally has no catalog seed); two Chromium suites pass. Initial production utility-only baseline contains zero measured step sessions at this read, not evidence of no customers/sales or a completed observation window. Test traffic excluded; empty rates null.
+
+Source release/push/BYOK and final public checks are recorded separately in evidence/utility-release.json after actual deployment. Earlier report sections below are dated historical evidence, not current customer/payment counts or the newest deployed SHA.
+
+---
+
 ## HOLBERY EXECUTION REPORT — owner-approved activation, 2026-10-06
 
 ### REPOSITORY / DEPLOYMENT

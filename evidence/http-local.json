@@ -53,6 +53,31 @@
       "securityHeaders": true
     },
     {
+      "path": "/tools",
+      "status": 200,
+      "securityHeaders": true
+    },
+    {
+      "path": "/tools/templates",
+      "status": 200,
+      "securityHeaders": true
+    },
+    {
+      "path": "/tools/barber/daily-close",
+      "status": 200,
+      "securityHeaders": true
+    },
+    {
+      "path": "/tools/barber/target-omzet",
+      "status": 200,
+      "securityHeaders": true
+    },
+    {
+      "path": "/tools/barber/break-even",
+      "status": 200,
+      "securityHeaders": true
+    },
+    {
       "path": "/legal",
       "status": 200,
       "securityHeaders": true
@@ -83,7 +108,16 @@
       "securityHeaders": true
     }
   ],
-  "internalLinksChecked": 26,
+  "internalLinksChecked": 34,
+  "externalCatalogDependencies": [
+    {
+      "path": "/store/direct/products/barber-revenue-starter-system",
+      "local": 404,
+      "production": 200,
+      "scope": "Public existing-product read only; local catalog not seeded"
+    }
+  ],
+  "canonicalBarberRedirect": 301,
   "notFound": 404,
   "health": "ok"
 }
