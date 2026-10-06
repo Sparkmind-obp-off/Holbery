@@ -2,5 +2,19 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "webapp-4",
   "compatibility_date": "2026-10-01",
-  "pages_build_output_dir": "./dist"
+  "pages_build_output_dir": "./dist",
+  "d1_databases": [{
+    "binding": "DB",
+    "database_name": "holbery-commerce-production",
+    "database_id": "c50800e0-b298-4063-a9c6-5c0ba80fb13e",
+    "migrations_dir": "migrations"
+  }],
+  "vars": {
+    "ENVIRONMENT": "production",
+    "PUBLIC_ORIGIN": "https://webapp-4.pages.dev",
+    "DUITKU_ENV": "production",
+    "ADMIN_STOREFRONT_ID": "holbery-direct",
+    "COMMERCE_ENABLED": "false",
+    "COMMERCIAL_POLICY_APPROVED": "false"
+  }
 }

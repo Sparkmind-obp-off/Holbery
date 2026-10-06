@@ -41,11 +41,11 @@ BASE_URL=https://webapp-4.pages.dev node scripts/check-http.mjs
 BASE_URL=https://webapp-4.pages.dev node scripts/browser-check.mjs
 ```
 
-Never run wrangler login. Credentials live in sandbox environment/Cloudflare secrets, not frontend or git. Application currently needs no runtime secrets, database or bindings. npm run deploy uses wrangler.jsonc name; check it against saved metadata before execution. Worker build emits _worker.js/_routes.json; static files are public/static. _headers secures static responses; Hono secureHeaders secures dynamic pages. Explicit catch-all produces real 404s and avoids adapter reliance on private notFoundHandler.
+Never run wrangler login. Credentials live in sandbox environment/Cloudflare secrets, not frontend or git. Commerce now requires the dedicated DB binding holbery-commerce-production and applied migrations. Disabled foundation deployment requires no merchant secrets and MUST keep COMMERCE_ENABLED=false. Enabling checkout requires DUITKU_MERCHANT_CODE, DUITKU_API_KEY and COMMERCE_ADMIN_TOKEN in Pages production secrets, correct environment/origin, and approved commercial policy/product. /api/commerce/readiness returns503 with explicit blockers until the gate is satisfied. npm run deploy uses wrangler.jsonc name; check it against saved metadata before execution. Worker build emits _worker.js/_routes.json; static files are public/static. _headers secures static responses; Hono secureHeaders secures dynamic pages. Explicit catch-all produces real 404s and avoids adapter reliance on private notFoundHandler.
 
 ## Rollback / release
 
-Tag or record source commit and deployment URL; rerun tests before release. Roll back to a known successful Pages deployment via dashboard or rebuild a known commit; do not reset/delete current source history. No database migrations needed. Monitor health, render errors, 404s, asset delivery, and certificate status. Browser/HTTP tests do not certify legal readiness, performance SLA or full accessibility conformance.
+Tag or record source commit and deployment URL; rerun tests before release. Roll back to a known successful Pages deployment via dashboard or rebuild a known commit; do not reset/delete current source history. Apply forward migrations with `npx wrangler d1 migrations apply holbery-commerce-production --remote` only after local validation. Never drop production tables; rolling back a Worker does not undo data migrations. Monitor health, render errors, 404s, asset delivery, and certificate status. Browser/HTTP tests do not certify legal readiness, performance SLA or full accessibility conformance.
 
 ## Verified final research-toolkit rollout
 

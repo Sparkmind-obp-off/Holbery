@@ -74,7 +74,7 @@ GET /orders/:orderId
 
 ## Signature and callback rule
 
-Use the current Duitku callback/signature requirements from the official documentation. Do not implement the obsolete SHA256-only scheme from older examples.
+Official documentation checked 2026-10-06: Create Invoice headers use HMAC-SHA256(merchantCode + timestamp, apiKey). HTTP callback uses HMAC-SHA256(merchantCode + amount + merchantOrderId, apiKey). Plain SHA256 and MD5 are not enabled. The callback HMAC does NOT cover resultCode or reference, so the runtime also checks the persisted reference and corroborates status/amount/order through authenticated server-to-server transactionStatus before applying the notification. Production inquiry: https://passport.duitku.com/webapi/api/merchant/transactionStatus; signature HMAC-SHA256(merchantCode + merchantOrderId, apiKey). Inquiry maps 00=PAID, 01=PENDING, 02=FAILED; HTTP callback maps 00=success and 01=failed. Browser 01=pending is a separate UX mapping. Source: https://docs.duitku.com/api/id/.
 
 A valid callback must be authenticated before mutating payment or order state.
 

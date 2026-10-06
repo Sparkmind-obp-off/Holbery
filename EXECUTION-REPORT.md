@@ -1,5 +1,35 @@
 # HOLBERY MASTER EXECUTION
 
+## Current commerce execution — 2026-10-06
+
+### STATUS
+IMPLEMENTED / VERIFIED locally. Production sale: BLOCKED — HUMAN CONFIGURATION REQUIRED. No real invoice, payment or sale has been asserted.
+
+### CHANGED
+- src/commerce.ts: scoped runtime/catalog/cart/checkout/payment/operational APIs and canonical DB pages.
+- src/payments.ts: provider abstraction, current HMAC-SHA256 invoice/callback/inquiry contract, safe provider errors and strict environment selection.
+- src/index.ts, public/static/commerce.js: preserved parent UI, direct-store discovery, private session checkout and Pop JS UX; narrowly scoped payment CSP/privacy update.
+- migrations/0001_commerce_runtime.sql and 0002_integrity_guards.sql: executable D1 schema, composite tenancy, atomic checkout/snapshots/reservation, payment guards/events and rate counters. Historical commerce/schema.sql preserved, not applied.
+- wrangler.jsonc, vite.config.ts, package.json/lockfile: actual dedicated D1 binding, disabled commercial gate, source SHA at build time, repeatable integration checks.
+- tests/payments.test.mjs and tests/commerce.integration.mjs: local-only provider/unit/Worker+D1 scenarios. Production has no synthetic fixtures.
+- README, DEPLOYMENT, commerce/DUITKU-PRODUCTION: current status, security boundaries and exact owner handoff.
+
+### TESTS
+53 unit tests and66 integration checks passed; actual workerd and D1 used locally. Outbound payment calls are intercepted. Strict typecheck and build passed. Concurrency, overselling, idempotency, tenant access, forged/duplicate/mismatched callbacks, unsigned status tampering, failed provider, fulfillment and fail-closed production configuration are covered. Full final regression/security/HTTP/browser checks and deployment references are recorded in evidence/release.json after release.
+
+### DEPLOYMENT
+Selected Cloudflare BYOK, existing Pages webapp-4/main. Dedicated actual D1 holbery-commerce-production created with authorized account. Only a disabled foundation release is allowed without merchant/operator secrets. Deployment is not payment verification; exact result belongs to evidence/release.json.
+
+### REMAINING
+Actual production Duitku merchant code/API key, scoped operator token, one commercially approved digital/service product with price/available stock/fulfillment owner, verified support/privacy/refund terms, controlled real payment and fulfillment evidence. Shipping, automatic expiry/refunds, account recovery and operator console UI are not claimed implemented. Child/marketplace work is not started.
+
+### NEXT ACTION
+Owner configures real production secrets and approves the first deliverable product; then enable the commercial gate only after readiness/tests and verify one genuine production transaction.
+
+---
+
+## Historical brand/research execution (superseded for commerce status)
+
 2026-10-05 | Wrap-up sesuai instruksi terakhir; tidak memulai Phase 8–10.
 
 ## Phase status

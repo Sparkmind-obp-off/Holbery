@@ -1,107 +1,100 @@
 # HOLBERY
 
-**Master Parent Brand System — v1.2**
+Build. Operate. Grow. HOLBERY is the parent commerce infrastructure for SYSTEMS, PRODUCTS, VENTURES and COMMERCE—not a single store or barber application.
 
-Build. Operate. Grow.
-Practical systems, products, and ventures.
+## Current execution status — 2026-10-06
 
-## Actual status
+- **IMPLEMENTED / VERIFIED locally:** M0 D1 runtime, tenant resolution, request IDs, readiness/errors; M1 canonical catalog; M2 persistent cart and atomic checkout; M3 Duitku adapter, Pop JS integration and verified HTTP callback handler.
+- **BLOCKED — HUMAN CONFIGURATION REQUIRED:** production merchant secrets, scoped operator secret, approved first product, commercial/support/privacy/refund terms, and actual payment action.
+- **NOT PRODUCTION VERIFIED:** invoice/payment/first sale. Mocked tests are engineering evidence, not revenue or provider acceptance evidence.
+- Production checkout is deliberately disabled: `COMMERCE_ENABLED=false`, `COMMERCIAL_POLICY_APPROVED=false`. A disabled foundation release is safe without merchant credentials; an enabled payment release is not.
+- Existing informational website, barber calculator and canonical architecture remain intact. Earlier brand Phase0–7 deliverables are historical; they do not prove commerce readiness or customer validation. Phase8–10 branding/scale deliverables are not claimed complete.
 
-**Phase 0–7 COMPLETE at deliverable scope; Phase 8–10 PENDING.** Execution paused for wrap-up at the user's latest instruction, not because a later phase was silently completed. HOLBERY remains the master parent, not a single barber/AI/SaaS/agency product. Full operational/commercial Definition of Done has NOT been achieved.
+## URLs and source
 
-- Production BYOK website: **https://webapp-4.pages.dev**.
-- Functional research MVP: **https://webapp-4.pages.dev/systems/barber**.
-- Existing GitHub repository: **https://github.com/Sparkmind-obp-off/Holbery**, branch main. Source02202ca pushed and remote SHA matched; release/push verification recorded in EXECUTION-REPORT and evidence/release.json.
-- Strategic primary domain: **holberry.biz**. No accessible CF zone, RDAP404 and DNS NXDOMAIN on 2026-10-05. Ownership/control NOT VERIFIED; custom-domain setup BLOCKED pending owner action. No DNS changes or registration purchase performed.
-- Legal/trademark clearance NOT COMPLETE. Near-spelling screening lead recorded; authoritative review requires qualified counsel.
-- Barber system lifecycle EXPERIMENT, actual operators0, interviews0, paid commitments0. Unit/browser tests are engineering evidence only.
-- Bozq One System remains private/internal Bosku Cukur; no private code, assets, customers, credentials or IP imported.
+- Production: https://webapp-4.pages.dev
+- Direct storefront: https://webapp-4.pages.dev/store/direct
+- Readiness: https://webapp-4.pages.dev/api/commerce/readiness
+- GitHub: https://github.com/Sparkmind-obp-off/Holbery — existing repository, `main`.
+- Actual deploy/source references: [evidence/release.json](evidence/release.json).
+- Strategic domain holberry.biz remains unverified. No registration, DNS purchase or canonical-host substitution was performed.
 
-## Commerce OS v0
+## Canonical references
 
-HOLBERY is now specified as a reusable commerce platform with a D1 schema and explicit C0–C6 commerce roadmap. The fastest path is direct commerce first, then portfolio marketplace, child storefronts, and distribution channels. Duitku is treated as a provider adapter; production payment status must come from verified server-side callback/reconciliation, not browser redirects.
+[HOLBERY-MASTER.md](HOLBERY-MASTER.md), [HOLBERY-LIBRARY.md](HOLBERY-LIBRARY.md), [MASTER-ARCHITECTURE.md](MASTER-ARCHITECTURE.md), [HOLBERY-COMMERCE-ARCHITECTURE.md](HOLBERY-COMMERCE-ARCHITECTURE.md), [commerce/MASTER-COMMERCE-IMPLEMENTATION.md](commerce/MASTER-COMMERCE-IMPLEMENTATION.md), [commerce/FIRST-SALE-SPEC.md](commerce/FIRST-SALE-SPEC.md), [commerce/DUITKU-PRODUCTION.md](commerce/DUITKU-PRODUCTION.md), [commerce/PRODUCTION-EVIDENCE.md](commerce/PRODUCTION-EVIDENCE.md), [DEPLOYMENT.md](DEPLOYMENT.md), [EXECUTION-REPORT.md](EXECUTION-REPORT.md).
 
-Canonical implementation references: [commerce/PLATFORM-V0.md](commerce/PLATFORM-V0.md), [commerce/schema.sql](commerce/schema.sql), [commerce/DUITKU-PRODUCTION.md](commerce/DUITKU-PRODUCTION.md), [commerce/ROADMAP.md](commerce/ROADMAP.md).
+Historical archive files remain byte-identical to baseline9babed0. Bozq/Bosku private source, assets, customers and IP have not been imported. No legal clearance or proven commercial demand is asserted.
 
-## Canonical documentation
+## Data architecture and integrity
 
-Start with [HOLBERY-MASTER.md](HOLBERY-MASTER.md). The canonical parent library is [HOLBERY-LIBRARY.md](HOLBERY-LIBRARY.md). Status tracker: [ROADMAP.md](ROADMAP.md). Decisions: [DECISIONS.md](DECISIONS.md). Current report: [EXECUTION-REPORT.md](EXECUTION-REPORT.md).
+Hono + TypeScript + Cloudflare Pages + dedicated Cloudflare D1 `holbery-commerce-production`, binding `DB`. The real database was created through the authorized BYOK account; its identifier is in wrangler.jsonc, not fabricated. Executable migrations in `migrations/` are authoritative; `commerce/schema.sql` is retained as a historical design, NOT applied to production.
 
-| Phase | Deliverables |
-|---|---|
-| 1 | [Brand foundation](BRAND-FOUNDATION.md): vision/mission/purpose/positioning/promise/personality/audience/territory/value/differentiation/IS/IS NOT |
-| 2 | [Master architecture](MASTER-ARCHITECTURE.md), [project lifecycle](PROJECT-LIFECYCLE.md) |
-| 3 | [Brand governance](BRAND-GOVERNANCE.md), [naming system](NAMING-SYSTEM.md), [brand rules](BRAND-RULES.md) |
-| 4 | [Technical architecture](ARCHITECTURE.md), [deployment/configuration/rollback](DEPLOYMENT.md), public website |
-| 5 | [Legal/IP register](LEGAL-IP-REGISTER.md), [asset register](ASSET-REGISTER.md), [clearance tracker](CLEARANCE-TRACKER.md) |
-| 6 | [Operating system](OPERATING-SYSTEM.md), [opportunity/discovery](OPPORTUNITY-TEMPLATE.md), [project/product definition](PROJECT-TEMPLATE.md), [experiment/validation](VALIDATION-TEMPLATE.md), [launch/operations](LAUNCH-TEMPLATE.md), [KPI](KPI-FRAMEWORK.md) |
-| 7 | [Barber system](BARBER-BUSINESS-SYSTEM.md), [MVP spec](MVP-SPEC.md), [customer problem](CUSTOMER-PROBLEM.md), [pricing hypothesis](PRICING-HYPOTHESIS.md), [validation plan](VALIDATION-PLAN.md); functional calculator/CSV/checklist |
+Entities: organizations, brands, storefronts, products, variants, offers, carts/items, customers, orders/items, payments/events, fulfillments, commerce events and short-lived rate counters. Composite foreign keys enforce ownership. Public catalog queries, capabilities and operator queries are storefront-scoped.
 
-Hierarchy: HOLBERY → LIBRARY → SYSTEMS / PRODUCTS / VENTURES / COMMERCE / KNOWLEDGE / CAPABILITIES / ASSETS. The Library is the canonical parent layer; category and lifecycle are separate. Products and capabilities do not automatically need a child brand or venture entity. Child brands are a later graduation decision based on evidence and strategic separation.
+Checkout uses a serialized SQLite trigger transaction: validate open cart, publication, variant/offer, price freshness, stock and server total; create immutable item snapshots; reserve stock; close cart; create payment identity and audit event. Customer and order insertion is one D1 batch; failures roll everything back. Duplicate keys return the same order; keys reused for another cart fail. Client totals/prices are rejected.
 
-[Historical archive](archive/legacy-parent-house/README.md) is NON-CANONICAL. Its 19 original files remain byte-identical to baseline9babed0. Historical domain/hierarchy/status statements do not apply to current roadmap. Archive paths changed; external old links may need updates.
+Cart and order access uses random bearer capabilities. D1 stores only their SHA256 hashes; the browser stores the private capability in session storage, never in URLs. Customer names/email remain in D1, not Git. The scoped operator API requires `COMMERCE_ADMIN_TOKEN` and `ADMIN_STOREFRONT_ID`; no admin token is embedded in frontend code. Cart/checkout creation is rate-limited using hashed requester identifiers in D1; stale windows are removed lazily.
+
+Payments use a provider interface and a separate Duitku adapter. Current official documentation checked 2026-10-06 specifies HMAC-SHA256 for invoice headers, callback and inquiry. The callback HMAC does not cover resultCode, so server inquiry corroborates status, identity, reference and amount before applying a notification. Duplicate events are harmless; PAID never downgrades. Browser success/pending/error/close and redirect queries are UX only. Unknown invoice outcomes are quarantined rather than retried blindly. Reconciliation can recover a reference; it does NOT mark PAID without a verified notification.
+
+Orders progress PENDING_PAYMENT → PAID → PROCESSING → FULFILLED → COMPLETED. Manual cancellation of an unissued or provider-confirmed failed payment releases stock once. Physical-product publication is blocked until shipping/address policy is implemented. Automatic expiry/refunds are not implemented; the schema lists those states but does not offer arbitrary state mutation.
 
 ## Functional entry URIs
 
-| Path | Purpose / parameters |
+| URI | Purpose / inputs |
 |---|---|
-| / | Public parent headquarters |
-| /about | What HOLBERY is |
-| /systems, /products, /ventures, /commerce | Four pillars with truthful development/framework status |
-| /contact | Real public GitHub Issues enquiry; GitHub account required; no confidential data |
-| /docs | Curated public method, not internal document mount |
-| /privacy | Actual site data boundaries; no contact form/customer database/marketing trackers |
-| /systems/barber | Browser-only daily-close calculator; required inputs services, price, openingCash, cashReceipts, digitalReceipts, cashExpenses, actualCash |
-| /downloads/daily-close.csv | Blank daily aggregate close template |
-| /downloads/weekly-review.csv | Blank aggregate weekly review template |
-| /downloads/barber-onboarding.html | Printable workflow/checklist |
-| /downloads/third-party-notices.txt | Preserved MIT runtime notice |
-| /api/health | GET JSON health, no parameters or secrets |
-| /robots.txt, /sitemap.xml | SEO discovery; canonical host stays verified Pages host until domain control/TLS |
+| `/`, `/about`, `/systems`, `/products`, `/ventures`, `/commerce` | Existing parent/pillars; Commerce links to the direct store |
+| `/contact`, `/docs`, `/privacy` | Public enquiry/method/data boundaries; never send credentials to GitHub Issues |
+| `/systems/barber`, `/downloads/*` | Existing browser-only calculator and blank research templates |
+| `/api/health`, `/robots.txt`, `/sitemap.xml` | Existing hosting health/SEO |
+| `GET /api/commerce/readiness` | DB/migration/config/product readiness;503 is expected while gated |
+| `GET /store/:slug`, `/store/:slug/products/:productSlug` | Canonical database-backed catalog; `slug=direct` initially |
+| `GET /api/commerce/stores/:slug/products[/:productSlug]` | Published catalog/variants/offers |
+| `POST .../stores/:slug/admin/products` | Create draft product+variant+offer; name, slug, description, type, sku, variantName, stock, priceIdr |
+| `GET .../stores/:slug/admin/products` | Operator catalog including drafts |
+| `PATCH .../stores/:slug/admin/products/:id` | Name/description and draft/published state |
+| `PATCH .../stores/:slug/admin/offers/:id` | Price and active/inactive |
+| `PATCH .../stores/:slug/admin/variants/:id` | Name, available stock and active/inactive |
+| `POST .../stores/:slug/carts` | Create private persistent cart; returns capability once |
+| `GET .../stores/:slug/carts/:cartId` | Private cart; Authorization bearer required |
+| `PUT .../stores/:slug/carts/:cartId/items` | offerId, quantity; server owns price |
+| `DELETE .../stores/:slug/carts/:cartId/items/:offerId` | Remove item from open cart |
+| `POST .../stores/:slug/checkouts` | cartId, name, email, consent; private bearer + Idempotency-Key required |
+| `GET .../stores/:slug/orders/:orderId` | Private snapshot/server status |
+| `POST .../stores/:slug/orders/:orderId/payments` | Server-only invoice creation; scoped alternative to the conceptual unscoped create endpoint |
+| `POST /api/commerce/payments/duitku/callback` | Form-encoded server notification, verified signature plus provider inquiry |
+| `/checkout/:orderId`, `/orders/:orderId` | Private session-backed customer UX/Pop JS; URL alone reveals no customer data |
+| `GET .../stores/:slug/admin/orders` | Scoped operational order/payment list |
+| `GET .../stores/:slug/admin/orders/:orderId/evidence` | Controlled non-PII order/payment/fulfillment/timeline evidence |
+| `POST .../stores/:slug/admin/orders/:orderId/reconcile` | Authenticated provider inquiry/reference recovery; no unverified paid mutation |
+| `POST .../stores/:slug/admin/orders/:orderId/cancel` | Safe unpaid cancellation; unknown/pending invoices require reconciliation |
+| `POST .../stores/:slug/admin/orders/:orderId/fulfillment` | Validated PROCESSING/FULFILLED/COMPLETED; fulfilled requires deliveryReference |
 
-Unknown routes/methods return404. Current runtime has no accounts, transactional checkout, payment processing, order management, inventory, CRM/loyalty/reminder services, or database. These are intentionally future platform capabilities; the target architecture is defined in HOLBERY-COMMERCE-ARCHITECTURE.md and HOLBERY-CHILD-ECOSYSTEM.md.
+In the table, `...` means `/api/commerce`. Operator routes use a separately configured bearer token scoped to HOLBERY Direct, not a customer capability. Database IDs and product IDs are server-generated, never client identities.
 
-## Data architecture / security
-
-Hono + TypeScript + Vite Cloudflare Pages; original SVG/CSS, no external frontend CDN. Browser calculator is pure computation: inputs are neither transmitted nor saved by application code. Downloads are blank sanitized templates stored on operator device. Cloudflare may process request metadata under hosting policies.
-
-Structural process records in registries/ are versioned JSON/CSV, not runtime application data. Nine metadata fields mandatory; duplicate IDs/private projects/unsupported graduation rejected by CLI. Revenue/metrics/feedback trackers contain no fabricated customer rows. Private customer evidence must never be committed to this public repo. For future app persistence use D1/R2 only when necessary; no memory/file runtime storage.
-
-CSP, nosniff, frame/referrer/permissions controls protect worker/static responses. Credentials remain outside code. 161 lockfile dependency license metadata entries inventoried; runtime Hono MIT notice preserved. No own-source open license or legal IP assignment inferred from public repo.
-
-## Development / repeatable tests
+## Reproducible tests and preview
 
 ```sh
 cd /home/user/webapp
 npm ci
 npm run check
-# Preview after build, using PM2:
+npx wrangler d1 migrations apply holbery-commerce-production --local
+fuser -k 3000/tcp 2>/dev/null || true
 pm2 start ecosystem.config.cjs
-node scripts/check-http.mjs
+npm run test:http
 node scripts/browser-check.mjs
-# If Chromium missing: npx playwright install --with-deps chromium
-BASE_URL=https://webapp-4.pages.dev node scripts/check-http.mjs
-BASE_URL=https://webapp-4.pages.dev node scripts/browser-check.mjs
 ```
 
-npm run check = typecheck + unit tests + implemented-phase/document integration audit + production build. 36 unit tests, HTTP route/asset checks and browser tests cover widths320/390/768/1440, navigation, calculator submit/errors. Tests do not certify full legal/a11y/security compliance. Full Phase1–10 document readiness check is `node scripts/check-phase.mjs`; it intentionally fails until pending deliverables exist. Implemented scope check is `--implemented`.
+`check` runs strict TypeScript,53 unit tests, a fresh build,66 integration checks in actual local workerd/D1, then document/archive/secret/whitespace checks. Integration keys/fixtures are generated locally and ALL provider network calls are intercepted. No synthetic product/customer is seeded into production. Checkout concurrency, overselling, duplicate callbacks, signature/amount mismatches, tenant isolation, provider failure, fulfillment and disabled-production gates are covered. Pop's real production iframe/provider acceptance is still NOT PRODUCTION VERIFIED.
 
-Project onboarding CLI example (DRY RUN ONLY, no real project/PII):
+## Deployment and human configuration
 
-```sh
-node scripts/new-project.mjs --dry-run --id EXAMPLE-ONLY --project-name "Example only" --category SYSTEMS --owner UNASSIGNED --repository "NOT REQUIRED YET" --domain "NOT REQUIRED YET" --customer-type Operator --revenue-model Hypothesis
-```
+Only the selected **Cloudflare BYOK** path is used, existing Pages project `webapp-4`, branch `main`. Do not use hosted deployment or unrelated databases. Build embeds the actual release Git SHA; release evidence maps that SHA to the returned Pages deployment identifier. Apply validated migrations remotely before deploying; do not drop/reset production tables. Never run wrangler login or commit `.dev.vars`/credentials.
 
-## Deployment
+Owner action required:
+1. In Cloudflare dashboard → Workers & Pages → webapp-4 → Settings → Variables and Secrets → Production, set encrypted `DUITKU_MERCHANT_CODE`, `DUITKU_API_KEY` from the actual production Duitku project; set `COMMERCE_ADMIN_TOKEN` to a fresh32-byte random hex value. Do not paste values into chat, GitHub or source.
+2. Confirm one deliverable digital/service product, price, available units, fulfillment owner, private support and commercial/privacy/refund terms. Create draft through the protected API, then publish only after approval. No fake first product is selected by the agent.
+3. Keep `DUITKU_ENV=production`, `ENVIRONMENT=production`, `PUBLIC_ORIGIN=https://webapp-4.pages.dev`, `ADMIN_STOREFRONT_ID=holbery-direct`. Only after commercial approval set `COMMERCIAL_POLICY_APPROVED=true` and `COMMERCE_ENABLED=true` in the authoritative deployment configuration and redeploy after tests. Missing required secrets forbid an enabled deployment.
+4. Verify readiness returns200 with no missing fields; verify provider supports the documented HMAC contract using real merchant credentials. Run one controlled real customer payment, verify the HTTP callback/inquiry, then manual fulfillment and evidence. Never treat browser success as payment truth.
 
-User-selected **Cloudflare BYOK**, project webapp-4, production branch main; saved metadata and wrangler.jsonc agree. No unrelated existing project overwritten. After authorized token setup: `npx wrangler whoami`, build/tests, then `npx wrangler pages deploy dist --project-name webapp-4 --branch main`. Never wrangler login. No runtime secrets/bindings required. Full exact custom-domain/email/social/analytics/rollback steps in DEPLOYMENT.
-
-## Master Library
-
-[HOLBERY-LIBRARY.md](HOLBERY-LIBRARY.md) is now canonical. It defines the Library as HOLBERY's reusable knowledge/capability/asset/portfolio layer and establishes the promotion path from IDEA → RESEARCH → EXPERIMENT → PROTOTYPE → VALIDATED → PRODUCTIZED → COMMERCIAL → SCALE → optional CHILD BRAND / independent venture. No forced child-brand proliferation is intended.
-
-## Remaining / next steps
-
-User actions: confirm/register/control holberry.biz; verify legal owner and trademark/IP rights; provide private business email/support/approved commercial terms; nominate accountable pilot owner and two real operators. No actual pilot or revenue has been fabricated.
-
-Phase8 (product catalog/offer/revenue framework), Phase9 (vertical engine/scorecard), Phase10 (ecosystem graduation/scale framework) remain NOT STARTED in this run due the latest wrap-up instruction. Pricing anchor in Phase7 is a hypothesis, not proof of Phase8 completion. Resume at Phase8 when execution is resumed; do not repeat Phase0 or start naming exploration.
+Next priority: configure the real production merchant and approved first product, then verify the first sale. Child storefront/portfolio/distribution/marketplace expansion waits for this proof. Automatic expiry/refunds, operator dashboard UI, shipping and customer recovery workflow remain explicit future work; existing protected APIs are operational primitives, not a complete admin console.
