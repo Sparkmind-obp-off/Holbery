@@ -1,10 +1,10 @@
 {
   "date": "2026-10-06",
-  "sourceReleaseCommit": "7ab2c1d8665c7bc802aecd5cc680c52c288eab6e",
+  "sourceReleaseCommit": "93ef3175008ab5f49602733946d7d2e5cc5074bf",
   "githubSourcePush": "VERIFIED",
   "deploymentProject": "webapp-4",
-  "deploymentId": "7947ee56-b9e4-4549-b096-75c40d970fa3",
-  "deploymentUrl": "https://7947ee56.webapp-4.pages.dev",
+  "deploymentId": "13e89b59-e1f5-4a9e-a54f-75c38493058f",
+  "deploymentUrl": "https://13e89b59.webapp-4.pages.dev",
   "stableUrl": "https://webapp-4.pages.dev",
   "hosting": "Cloudflare BYOK Pages",
   "productionBranch": "main",
@@ -18,7 +18,7 @@
     "variantId": "4c817ecd08c44d1084ca2c8b04ac4859",
     "offerId": "87241d54b36b4cbe880e0184ab493b10",
     "url": "https://webapp-4.pages.dev/store/direct/products/barber-revenue-starter-system",
-    "publication": "Published for discovery through canonical commerce API; checkout remains gated",
+    "publication": "Published and commercial checkout enabled, subject to all real readiness gates",
     "archiveEntries": 12,
     "workbookTabs": 9,
     "pdfDocuments": 9,
@@ -32,46 +32,183 @@
     "validation": "Engineering checks only, no real barbershop outcome or market-validation claim"
   },
   "secrets": {
-    "installedNames": ["DUITKU_MERCHANT_CODE", "DUITKU_API_KEY", "COMMERCE_ADMIN_TOKEN"],
+    "installedNames": [
+      "DUITKU_MERCHANT_CODE",
+      "DUITKU_API_KEY",
+      "COMMERCE_ADMIN_TOKEN"
+    ],
     "storage": "Encrypted Pages production secrets; no values recorded",
     "operatorAuth": "Fresh random scoped operator token, distinct from customer capabilities",
     "additionalR2Secrets": "None; native private R2 binding",
     "rotationAdvice": "Rotate originally chat-exposed API key directly in provider and Cloudflare; never paste replacement"
   },
   "duitkuAuthenticationCheck": {
-    "status": "VERIFIED",
-    "environment": "production",
-    "operation": "Read-only paymentmethod/getpaymentmethod",
-    "authentication": "HMAC-SHA256",
+    "endpoint": "production paymentmethod/getpaymentmethod",
     "http": 200,
     "responseCode": "00",
     "availableMethods": 18,
+    "authenticated": true,
+    "wrongSignatureRejected": true,
+    "modifiedSignedAmountRejected": true,
+    "negativeHttp": [
+      403,
+      403
+    ],
+    "ownerSpendIdr": 0,
     "invoiceCreated": false,
+    "scope": "Read-only production authentication/method discovery; no invoice, customer, order or payment created",
+    "environment": "production",
+    "authentication": "HMAC-SHA256",
     "paymentVerified": false,
     "sandboxFallback": false
   },
   "unitTests": "VERIFIED: 53 passed",
-  "integrationChecks": "VERIFIED: 73 passed, including suite parents; all provider calls intercepted",
+  "integrationChecks": "VERIFIED: 75 passed including suite parents; ephemeral local regression only, all provider calls intercepted",
   "typecheck": "VERIFIED",
-  "build": "VERIFIED",
+  "build": "VERIFIED: 47 modules / Worker96.21KB",
   "dependencyAudit": "0 reported vulnerabilities",
-  "actualSecretValueScan": "VERIFIED: tracked/unignored files contain none of the configured credential values",
-  "productionHttpBrowser": "VERIFIED: existing10 pages/19 internal targets, responsive/calculator, new product at390px, no JavaScript errors",
-  "productionNegativeChecks": "VERIFIED: cart503 fails closed, admin401, private unknown download404, forged callback401",
+  "actualSecretValueScan": {
+    "status": "VERIFIED: no configured credential values found",
+    "reachableHistoryBlobs": 240,
+    "buffersScanned": 549,
+    "scope": "tracked/unignored source, public build, evidence, Wrangler and PM2 logs, all reachable Git blobs, ZIP/XLSX members and extracted PDF text",
+    "excluded": "Intentional ignored private credential storage, mode0600; not a universal forensic certification"
+  },
+  "productionHttpBrowser": "PRODUCTION VERIFIED: 16 policy/parent pages, 26 targets, four responsive widths, calculator; actual product cart Rp99000, blank customer form; real production Pop JS process loaded without payment reference",
+  "productionNegativeChecks": "PRODUCTION VERIFIED: 14 rejected unauthenticated/malformed/private/price-overwrite requests; see activationNegativeChecks",
   "database": "holbery-commerce-production",
-  "migrationsApplied": ["0001_commerce_runtime.sql", "0002_integrity_guards.sql", "0003_digital_delivery_support.sql"],
+  "migrationsApplied": [
+    "0001_commerce_runtime.sql",
+    "0002_integrity_guards.sql",
+    "0003_digital_delivery_support.sql"
+  ],
   "privateAssetStorage": "holbery-commerce-products / PRODUCT_BUCKET",
   "remoteForeignKeyCheck": "VERIFIED: no violations",
-  "remoteDataCounts": {"products": 1, "deliveryAssets": 1, "orders": 0, "customers": 0, "paymentEvents": 0},
-  "readinessHttp": 503,
-  "readinessStatus": "BLOCKED — HUMAN CONFIGURATION REQUIRED",
-  "readinessMissing": ["COMMERCIAL_POLICY_APPROVED", "COMMERCE_ENABLED"],
-  "commerceEnabled": false,
+  "remoteDataCounts": {
+    "products": 1,
+    "deliveryAssets": 1,
+    "orders": 0,
+    "customers": 0,
+    "payments": 0,
+    "paymentEvents": 0,
+    "fulfillments": 0,
+    "cartItems": 0
+  },
+  "readinessHttp": 200,
+  "readinessStatus": "READY",
+  "readinessMissing": [],
+  "commerceEnabled": true,
   "productionInvoice": "NOT STARTED",
   "realPayment": "NOT STARTED",
   "realVerifiedCallback": "NOT STARTED",
   "realFulfillment": "NOT STARTED",
-  "firstProductionSale": "NOT STARTED",
-  "nextHumanAction": "Review proposed terms/refund/privacy and accountable support arrangements; approve before enabling checkout, then have an actual customer complete payment and acknowledge the downloaded package.",
-  "scope": "Product and encrypted real production integration deployed. Authentication/negative tests are not paid-sale evidence. Subsequent documentation-only commit does not change deployed runtime. No secret values, customer capabilities, unredacted provider payload or fabricated orders are recorded."
+  "firstProductionSale": "NOT ACHIEVED",
+  "nextHumanAction": "No repeat approval or funded test. Owner may configure/verify planned email routing; WhatsApp and private tickets are published.",
+  "scope": "Production-approved legal/configuration/cart/security/authentication checks, not financial evidence. No customer/order/invoice/payment/fulfillment created. Final paid-state verification awaits a genuine customer. Subsequent evidence-only commit does not alter deployed runtime.",
+  "activationNegativeChecks": [
+    {
+      "name": "unauthorized operator",
+      "http": 401
+    },
+    {
+      "name": "unknown private order",
+      "http": 404
+    },
+    {
+      "name": "unknown private asset",
+      "http": 404
+    },
+    {
+      "name": "unauthorized payment request cannot issue invoice",
+      "http": 404
+    },
+    {
+      "name": "unauthorized receipt cannot fulfill",
+      "http": 404
+    },
+    {
+      "name": "static product ZIP unavailable",
+      "http": 404
+    },
+    {
+      "name": "public download path does not expose product",
+      "http": 404
+    },
+    {
+      "name": "unsigned notification rejected",
+      "http": 401
+    },
+    {
+      "name": "same invalid notification remains rejected",
+      "http": 401
+    },
+    {
+      "name": "nonpositive callback amount rejected",
+      "http": 400
+    },
+    {
+      "name": "duplicate callback fields rejected",
+      "http": 400
+    },
+    {
+      "name": "cart private access denied without capability",
+      "http": 404
+    },
+    {
+      "name": "unknown storefront cannot access cart",
+      "http": 404
+    },
+    {
+      "name": "frontend price override rejected",
+      "http": 400
+    }
+  ],
+  "anonymousCartChecks": "Two empty anonymous technical carts (browser/API); no customer details or order created",
+  "verifiedAt": "2026-10-06T09:32:10.039Z",
+  "commercialPolicyApproved": true,
+  "authoritativeDeploymentVariables": {
+    "COMMERCE_ENABLED": "true",
+    "COMMERCIAL_POLICY_APPROVED": "true",
+    "DUITKU_ENV": "production"
+  },
+  "ownerTestSpendIdr": 0,
+  "legal": {
+    "operator": "PT Waskita Cakrawarti Digital — Perseroan Perorangan",
+    "pages": [
+      "/legal",
+      "/terms/commerce",
+      "/refund/commerce",
+      "/privacy",
+      "/support/commerce",
+      "/contact",
+      "/delivery/commerce",
+      "/license/commerce"
+    ],
+    "policyVersions": [
+      "BRS-TERMS-2026-1",
+      "BRS-REFUND-2026-1",
+      "BRS-PRIVACY-2026-1"
+    ],
+    "approval": "OWNER APPROVED",
+    "publication": "PRODUCTION VERIFIED",
+    "reference": "Existing HOLBERY policy/runtime documents and owner-supplied facts. sparkmind.web.id homepage accessible but unrelated; /terms and /privacy unavailable with plain and JS-rendered fetch. No contents invented or unrelated claims copied.",
+    "emailRouting": "NOT ACTIVE; explicitly disclosed",
+    "whatsapp": "0856 4338 3832 / 6285643383832"
+  },
+  "r2Privacy": {
+    "devUrl": "Disabled",
+    "customDomains": 0,
+    "unsignedS3GetHttp": 400,
+    "unauthorizedSiteDownloadHttp": 404,
+    "authenticatedBackendRead": "VERIFIED: remote object read-back matches pinned SHA and all 11 constituent hashes"
+  },
+  "verificationBoundary": {
+    "invoiceIssuance": "NOT STARTED",
+    "genuinePaidCallback": "NOT STARTED",
+    "genuineStatusInquiry": "NOT STARTED",
+    "genuinePaidFulfillment": "NOT STARTED",
+    "productionPopJs": "VERIFIED module loading, not a paid iframe transaction",
+    "duplicatesAndTimeouts": "Existing isolated regression tests only; no signed fictitious production notification or invoice created",
+    "statement": "ZERO-COST PRODUCTION VERIFICATION COMPLETE. FINAL PAID-STATE VERIFICATION REQUIRES A GENUINE CUSTOMER PAYMENT."
+  }
 }

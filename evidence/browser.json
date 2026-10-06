@@ -1,6 +1,6 @@
 {
   "date": "2026-10-06",
-  "base": "http://localhost:3000",
+  "base": "https://webapp-4.pages.dev",
   "checks": [
     {
       "viewport": 1440,
@@ -24,6 +24,11 @@
     },
     {
       "calculator": "valid outcome, cash reconciliation, empty input rejected"
+    },
+    {
+      "productionCommerce": "READY; enabled product; authoritative Rp99000 cart and empty customer form; item removed; no order/invoice/customer created",
+      "duitkuPop": "Real production module loaded; process function available; no payment reference passed",
+      "ownerSpendIdr": 0
     }
   ],
   "javascriptErrors": []

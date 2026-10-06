@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-05",
+  "date": "2026-10-06",
   "base": "https://webapp-4.pages.dev",
   "routes": [
     {
@@ -51,9 +51,39 @@
       "path": "/systems/barber",
       "status": 200,
       "securityHeaders": true
+    },
+    {
+      "path": "/legal",
+      "status": 200,
+      "securityHeaders": true
+    },
+    {
+      "path": "/terms/commerce",
+      "status": 200,
+      "securityHeaders": true
+    },
+    {
+      "path": "/refund/commerce",
+      "status": 200,
+      "securityHeaders": true
+    },
+    {
+      "path": "/support/commerce",
+      "status": 200,
+      "securityHeaders": true
+    },
+    {
+      "path": "/delivery/commerce",
+      "status": 200,
+      "securityHeaders": true
+    },
+    {
+      "path": "/license/commerce",
+      "status": 200,
+      "securityHeaders": true
     }
   ],
-  "internalLinksChecked": 19,
+  "internalLinksChecked": 26,
   "notFound": 404,
   "health": "ok"
 }

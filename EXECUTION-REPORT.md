@@ -1,6 +1,34 @@
 # HOLBERY MASTER EXECUTION
 
-## HOLBERY EXECUTION REPORT — first product, 2026-10-06
+## HOLBERY EXECUTION REPORT — owner-approved activation, 2026-10-06
+
+### REPOSITORY / DEPLOYMENT
+Sparkmind-obp-off/Holbery, main. Runtime93ef3175008ab5f49602733946d7d2e5cc5074bf pushed and deployed BYOK. Deployment13e89b59-e1f5-4a9e-a54f-75c38493058f, https://13e89b59.webapp-4.pages.dev; stable https://webapp-4.pages.dev. Evidence is in evidence/release.json and the subsequent evidence-only commit containing this report. No runtime source differs from the deployed runtime.
+
+### PRODUCT / LEGAL
+Barber Revenue Starter System COMPLETE, BRS-2026-V1, Rp99.000. Private package hash/ZIP CRC/all11 file hashes match production R2;9 workbook tabs and9 PDFs checked, blank customer/ledger rows,18 independently recalculated scenarios pass. Original package/version was not overwritten. Operator: PT Waskita Cakrawarti Digital — Perseroan Perorangan. Owner approval is final. /legal, /terms/commerce, /refund/commerce, /privacy, /support/commerce, /contact, /delivery/commerce and /license/commerce are published. WhatsApp0856 4338 3832; supplied email addresses explicitly await routing. Existing HOLBERY policies and owner facts were used. Sparkmind homepage inspected; /terms and /privacy unavailable with both fetch modes, so no legal contents or unrelated claims were copied.
+
+### COMMERCE / PRODUCTION READINESS
+Both actual deployed variables are true: COMMERCIAL_POLICY_APPROVED and COMMERCE_ENABLED. DUITKU_ENV remains production. Stable and deployment-specific readiness return HTTP200 / READY / missing[]. All secret/catalog/tenant/R2/policy checks are enforced. Genuine D1 product count1, delivery asset1; orders/customers/payments/payment events/fulfillments0; cart items0 and stock100 after technical cart checks. No financial obligation was created.
+
+### DUITKU / SECURITY / TESTS
+Real production read-only authentication: HTTP200 / responseCode00 /18 methods. HMAC wrong signature and modified signed amount return403. Actual production Pop JS module loaded in Chromium with checkout.process available; no invented reference used. Unit53 / integration75 / strict typecheck / build / docs / migration integrity pass. Existing isolated fixture regressions are not production payment evidence. Production HTTP16 pages/26 targets, responsive widths and calculator pass. Browser checked enabled real product→server-priced anonymous cart→blank customer form without order submission. Fourteen malformed/unauthorized/private/price-overwrite requests rejected. Invalid notification replay remains rejected; this is not a duplicate genuine callback. R2 public dev URL disabled/custom domains0, unsigned S3 GET400, unauthorized site download404; authorized remote bytes/hash verified. Configured credential scans cover source/current files, public bundle, evidence, logs, reachable Git blobs and package; no configured credential match found outside intentional private storage.
+
+### REAL PAYMENT
+NOT STARTED
+
+### REAL SALE
+NOT ACHIEVED
+
+### CURRENT BLOCKER
+No activation gate remains. Genuine invoice issuance, paid callback/inquiry and paid fulfillment are not production verified because no genuine customer transaction exists. ZERO-COST PRODUCTION VERIFICATION COMPLETE. FINAL PAID-STATE VERIFICATION REQUIRES A GENUINE CUSTOMER PAYMENT.
+
+### OWNER ACTION
+No repeat approval or funded test. Configure/verify planned email routing if email support is to become active; WhatsApp and private tickets are published. Outbound email replies require a mail service beyond Cloudflare routing. Credential rotation should happen privately through provider/Cloudflare, never through chat. Automatic refunds/email delivery/self-service recovery/admin console are not claimed implemented.
+
+---
+
+## Historical first-product execution — 2026-10-06 (superseded for current status)
 
 REPOSITORY: Sparkmind-obp-off/Holbery
 
