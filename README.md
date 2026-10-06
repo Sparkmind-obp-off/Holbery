@@ -17,6 +17,12 @@ Practical systems, products, and ventures.
 - Barber system lifecycle EXPERIMENT, actual operators0, interviews0, paid commitments0. Unit/browser tests are engineering evidence only.
 - Bozq One System remains private/internal Bosku Cukur; no private code, assets, customers, credentials or IP imported.
 
+## Commerce OS v0
+
+HOLBERY is now specified as a reusable commerce platform with a D1 schema and explicit C0–C6 commerce roadmap. The fastest path is direct commerce first, then portfolio marketplace, child storefronts, and distribution channels. Duitku is treated as a provider adapter; production payment status must come from verified server-side callback/reconciliation, not browser redirects.
+
+Canonical implementation references: [commerce/PLATFORM-V0.md](commerce/PLATFORM-V0.md), [commerce/schema.sql](commerce/schema.sql), [commerce/DUITKU-PRODUCTION.md](commerce/DUITKU-PRODUCTION.md), [commerce/ROADMAP.md](commerce/ROADMAP.md).
+
 ## Canonical documentation
 
 Start with [HOLBERY-MASTER.md](HOLBERY-MASTER.md). The canonical parent library is [HOLBERY-LIBRARY.md](HOLBERY-LIBRARY.md). Status tracker: [ROADMAP.md](ROADMAP.md). Decisions: [DECISIONS.md](DECISIONS.md). Current report: [EXECUTION-REPORT.md](EXECUTION-REPORT.md).
