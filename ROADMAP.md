@@ -472,3 +472,40 @@ HOLBERY becomes meaningfully real as a master parent ecosystem when it can demon
 
 **The destination is not the number of brands.  
 The destination is the ability to repeatedly create and operate valuable businesses with clarity and proof.**
+
+
+## ARCHITECTURAL TARGET — PLATFORM + COMMERCE + CHILDREN
+
+HOLBERY is now treated as a parent platform that must be capable of becoming a transactional commerce system and serving multiple legitimate children. This is an architectural requirement, not a claim that those capabilities are already live.
+
+### Required evolution
+
+```text
+Parent HQ
+   ↓
+Reusable Platform
+   ├── Systems
+   ├── Products
+   ├── Ventures
+   └── Commerce
+        ├── Catalog
+        ├── Storefront
+        ├── Cart
+        ├── Checkout
+        ├── Payment adapters
+        ├── Orders
+        ├── Fulfillment
+        └── Reconciliation
+   ↓
+Multiple isolated child businesses / brands
+```
+
+The implementation must preserve three separations:
+
+1. **Brand separation** — HOLBERY and children can have different customer-facing identities.
+2. **Data separation** — customer, order, payment, inventory, and analytics records are scoped to the correct owner/brand/storefront.
+3. **Legal/rights separation** — technical hosting does not imply ownership of a child's company, IP, domain, or customer relationship.
+
+Phase 8 therefore includes the first productization/commercial slice plus the reusable commerce foundation. Phase 9 validates the commercial engine. Phase 10 governs multi-child expansion and graduation.
+
+This replaces any interpretation of COMMERCE as merely a distribution page. The existing informational page remains valid as the current implementation state, but it is not the destination architecture.
