@@ -1,6 +1,40 @@
 # HOLBERY MASTER EXECUTION
 
-## Current commerce execution — 2026-10-06
+## HOLBERY EXECUTION REPORT — first product, 2026-10-06
+
+REPOSITORY: Sparkmind-obp-off/Holbery
+
+BRANCH: main
+
+PRODUCT: Barber Revenue Starter System — COMPLETE Rp99.000, BRS-2026-V1 (launch hypothesis).
+
+PRODUCT STATUS: VERIFIED. Actual ZIP contains one9-tab integrated workbook,9 PDFs, editable SOP/WhatsApp text and file manifest. LibreOffice independently verified18 formula/segment results, no errors/dummy histories. R2 read-back matches SHA13719f241ba001a33162b85c830ebdf43e9f51582a92e55cf6406c92fad4c1c2. All11 constituent file hashes and ZIP CRC verified. Product created and published for discovery through real canonical D1 API.
+
+COMMERCE STATUS: VERIFIED. Scoped D1/R2 entitlement, immutable delivery/policy snapshot, secure paid download, explicit customer receipt and private support routes deployed.53 unit tests and73 local Worker/D1 integration checks passed. Real financial transactions are not implied by mocked tests.
+
+DUITKU STATUS: VERIFIED for real production authentication only: HTTP200, responseCode00,18 payment methods from authenticated read-only production endpoint. Real merchant secrets are encrypted in Pages. New COMMERCE_ADMIN_TOKEN is operator auth; no values committed/logged. No sandbox fallback, fake invoice/customer or payment created.
+
+PRODUCTION STATUS: BLOCKED — HUMAN CONFIGURATION REQUIRED for accepting paid transactions. Runtime release7ab2c1d8665c7bc802aecd5cc680c52c288eab6e pushed and deployed BYOK as7947ee56-b9e4-4549-b096-75c40d970fa3, https://7947ee56.webapp-4.pages.dev. Stable production product/policies/browser/security checks passed. All three migrations applied, private R2 verified, foreign-key check clean.
+
+READINESS: BLOCKED — HUMAN CONFIGURATION REQUIRED. HTTP503 lists exactly COMMERCIAL_POLICY_APPROVED and COMMERCE_ENABLED. Merchant/operator secrets, first product and asset no longer missing.
+
+CHECKOUT: IMPLEMENTED / VERIFIED locally, deliberately blocked in production until commercial policy approval. Invalid/forged/unauthorized production requests were rejected safely.
+
+REAL PAYMENT: NOT STARTED. Production orders/customers/payment events remain0. No PAID mutation or revenue fabricated.
+
+CALLBACK: VERIFIED for local positive/duplicate/amount/signature tests and production forged-callback rejection. Actual verified production payment notification: NOT STARTED.
+
+FULFILLMENT: VERIFIED engineering flow. Paid download validates package bytes/hash and advances legitimate paid order to FULFILLED; explicit matched customer receipt completes it. Actual paid production delivery: NOT STARTED.
+
+EVIDENCE: evidence/release.json contains sanitized release/product/provider/negative-test facts. No credentials, capabilities or unredacted customer/payment data. Product binaries and build sources remain private, not public repository/static assets.
+
+BLOCKER: BLOCKED — HUMAN CONFIGURATION REQUIRED. Owner must approve proposed commercial/refund/privacy terms and accountable support arrangements, then an actual customer must pay and confirm delivery. Automatic refunds/email delivery/lost-session recovery/operator-console UI are not claimed implemented.
+
+NEXT HUMAN ACTION: Review /terms/commerce, /refund/commerce, /privacy and /support/commerce; explicitly approve and identify the accountable operator/response arrangements. Only then enable both authoritative flags, rerun tests and redeploy; a real buyer enters their own name/email and completes payment. Rotate the originally chat-exposed API key directly in Duitku/Cloudflare. For owner operator access, replace COMMERCE_ADMIN_TOKEN with a privately retained random value in Cloudflare; never paste it into chat.
+
+---
+
+## Historical commerce foundation execution — 2026-10-06 (superseded for current status)
 
 ### STATUS
 IMPLEMENTED / VERIFIED locally. Production sale: BLOCKED — HUMAN CONFIGURATION REQUIRED. No real invoice, payment or sale has been asserted.

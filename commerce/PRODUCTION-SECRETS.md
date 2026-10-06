@@ -1,5 +1,15 @@
 # HOLBERY Production Secrets & Operator Access
 
+## Actual configuration — 2026-10-06
+
+VERIFIED: supplied Duitku credentials were installed into the existing Pages project's encrypted production DUITKU_MERCHANT_CODE and DUITKU_API_KEY secrets. A fresh cryptographically random COMMERCE_ADMIN_TOKEN was also installed for scoped operator API authorization. No secret value is recorded here, embedded in frontend code, or committed to Git. The local credential file is ignored and mode0600. Tests scanned actual secret values against tracked/unignored source files.
+
+VERIFIED: read-only production payment-method discovery used the current HMAC-SHA256 contract and returned HTTP200, responseCode00,18 available methods. This is authentication evidence, NOT invoice, paid order or sale evidence. No sandbox fallback was used for this call.
+
+Because the operator posted the original API key in chat, rotate it directly in Duitku and update the Cloudflare production secret; do not paste its replacement. COMMERCE_ADMIN_TOKEN is an additional auth secret. If you need direct operator access, set a new privately retained random token in Cloudflare; the encrypted existing value cannot be read back from the dashboard. Customer access remains a separate per-cart/order capability. R2 uses a native private binding, not exposed access keys.
+
+Required non-secret delivery configuration is in wrangler.jsonc: PRODUCT_BUCKET binding, SUPPORT_CHANNEL=/support/commerce, TERMS_VERSION=BRS-TERMS-2026-1, REFUND_POLICY_VERSION=BRS-REFUND-2026-1, PRIVACY_POLICY_VERSION=BRS-PRIVACY-2026-1, FULFILLMENT_MODE=secure-download. Only COMMERCIAL_POLICY_APPROVED and COMMERCE_ENABLED remain false. Owner approval must cover the proposed policies, responsible support operator and actual customer payment action.
+
 ## Never send production secrets in chat
 
 Never paste these into ChatGPT, GitHub, commits, source files, screenshots, or public documents:
