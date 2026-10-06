@@ -1,14 +1,15 @@
 # HOLBERY DISTRIBUTION ENGINE — MASTER EXECUTION PLAN
 
-**Status:** ACTIVE  
-**Version:** V1.0  
+**Status:** SECONDARY / OPTIONAL CAPABILITY  
+**Strategic owner:** HOLBERY Brand-First Master Strategy  
+**Version:** V1.1  
 **Date:** 2026-10-06  
 **Repository:** `Sparkmind-obp-off/Holbery`  
-**Primary objective:** product sales, revenue, and repeatable distribution — not website traffic for its own sake.
+**Strategic role:** extend reach and acquisition after product/brand direction is clear. Distribution is not the primary identity of HOLBERY.
 
 ---
 
-## 1. NORTH STAR
+## 1. STRATEGIC POSITION\n\nHOLBERY is **brand-first, proof-driven, commerce-backed**. This distribution engine remains valuable, but it is a capability beneath the brand strategy—not the strategy itself.\n\nUse distribution when it helps HOLBERY acquire customers, gather evidence, and grow without weakening product ownership, positioning, trust, or economics.\n\n## 2. NORTH STAR
 
 HOLBERY is a product and commerce factory.
 
@@ -44,7 +45,7 @@ Marketplaces, social commerce, link-in-bio storefronts, search, affiliates, and 
 
 ---
 
-## 2. BUSINESS OBJECTIVE
+## 3. BUSINESS OBJECTIVE
 
 Primary:
 - Sell real HOLBERY products.
@@ -69,7 +70,7 @@ Not a success metric:
 
 ---
 
-## 3. CANONICAL PRODUCT RULE
+## 4. CANONICAL PRODUCT RULE
 
 Every distributed product must originate from one canonical HOLBERY product record.
 
@@ -99,7 +100,7 @@ Do not fork the product into independently maintained channel versions.
 
 ---
 
-## 4. INITIAL PRODUCT
+## 5. INITIAL PRODUCT
 
 ### Product
 
