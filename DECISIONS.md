@@ -92,3 +92,11 @@ Status keputusan berbeda dari status implementasi. Perubahan identitas harus mem
 ## H-015 — Verified source release, existing GitHub and BYOK
 
 2026-10-05 / VERIFIED. Source commit 02202ca6617ea139ef2db6bd810676e58188efac pushed non-destructively to Sparkmind-obp-off/Holbery main; remote SHA matched. Same built app deployed Cloudflare BYOK project webapp-4: https://e0e8c8b2.webapp-4.pages.dev, stable https://webapp-4.pages.dev. Production HTTP/browser/calculator tests passed. release.json records proof; final documentation-only evidence commit is pushed separately, with no source/runtime change. Phase8–10 remain pending per H-014.
+
+
+## H-016 — HOLBERY must be platform-capable for commerce and children
+
+2026-10-06 / ACCEPTED. HOLBERY is not limited to a parent marketing website. The canonical architecture must support future transactional commerce and multiple isolated child businesses/brands without replacing the core. Commerce is a first-class platform capability; marketplace functionality is optional. Shared infrastructure must not imply shared customer, financial, inventory, payment, IP, or legal ownership. Current runtime remains non-transactional until the relevant implementation and evidence gates are completed.
+
+- Canonical documents: [ARCHITECTURE.md](ARCHITECTURE.md), [HOLBERY-COMMERCE-ARCHITECTURE.md](HOLBERY-COMMERCE-ARCHITECTURE.md), [HOLBERY-CHILD-ECOSYSTEM.md](HOLBERY-CHILD-ECOSYSTEM.md).
+- Consequence: Phase 8–10 implementation must preserve commerce readiness and multi-child isolation. Do not build a throwaway single-store architecture that requires replacement when a second child appears.
