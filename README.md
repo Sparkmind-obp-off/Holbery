@@ -21,7 +21,7 @@ Build. Operate. Grow. HOLBERY is the parent commerce infrastructure for SYSTEMS,
 
 ## Canonical references
 
-[HOLBERY-MASTER.md](HOLBERY-MASTER.md), [HOLBERY-LIBRARY.md](HOLBERY-LIBRARY.md), [MASTER-ARCHITECTURE.md](MASTER-ARCHITECTURE.md), [HOLBERY-COMMERCE-ARCHITECTURE.md](HOLBERY-COMMERCE-ARCHITECTURE.md), [commerce/MASTER-COMMERCE-IMPLEMENTATION.md](commerce/MASTER-COMMERCE-IMPLEMENTATION.md), [commerce/FIRST-SALE-SPEC.md](commerce/FIRST-SALE-SPEC.md), [commerce/DUITKU-PRODUCTION.md](commerce/DUITKU-PRODUCTION.md), [commerce/PRODUCTION-EVIDENCE.md](commerce/PRODUCTION-EVIDENCE.md), [DEPLOYMENT.md](DEPLOYMENT.md), [EXECUTION-REPORT.md](EXECUTION-REPORT.md).
+[HOLBERY-MASTER.md](HOLBERY-MASTER.md), [HOLBERY-LIBRARY.md](HOLBERY-LIBRARY.md), [MASTER-ARCHITECTURE.md](MASTER-ARCHITECTURE.md), [HOLBERY-COMMERCE-ARCHITECTURE.md](HOLBERY-COMMERCE-ARCHITECTURE.md), [commerce/MASTER-COMMERCE-IMPLEMENTATION.md](commerce/MASTER-COMMERCE-IMPLEMENTATION.md), [commerce/FIRST-SALE-SPEC.md](commerce/FIRST-SALE-SPEC.md), [commerce/DUITKU-PRODUCTION.md](commerce/DUITKU-PRODUCTION.md), [commerce/PRODUCTION-EVIDENCE.md](commerce/PRODUCTION-EVIDENCE.md), [commerce/FIRST-PRODUCT.md](commerce/FIRST-PRODUCT.md), [commerce/PRODUCTION-SECRETS.md](commerce/PRODUCTION-SECRETS.md), [DEPLOYMENT.md](DEPLOYMENT.md), [EXECUTION-REPORT.md](EXECUTION-REPORT.md).
 
 Historical archive files remain byte-identical to baseline9babed0. Bozq/Bosku private source, assets, customers and IP have not been imported. No legal clearance or proven commercial demand is asserted.
 
