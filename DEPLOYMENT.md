@@ -1,6 +1,6 @@
 # HOLBERY — Deployment and Digital Foundation
 
-Phase 4 | IMPLEMENTED + VERIFIED on Cloudflare BYOK, 2026-10-05.
+Latest commerce foundation release | VERIFIED on Cloudflare BYOK, 2026-10-06. Source13982a9e06ab9058b61af6cf65fe9daa361b20e9; deployment ecc2e40f-1c9b-4a82-b097-6d6bd32b812b at https://ecc2e40f.webapp-4.pages.dev. Both validated D1 migrations are applied. Checkout/payment remains BLOCKED pending human configuration, with COMMERCE_ENABLED=false. The research-toolkit deployment references below are historical.
 Primary strategic domain: holberry.biz. Live host: **https://webapp-4.pages.dev**.
 
 ## Evidence and actual scope
