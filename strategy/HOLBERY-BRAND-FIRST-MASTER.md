@@ -163,3 +163,16 @@ Every major initiative follows:
 ## Latest utility-first execution lock — 2026-10-06
 
 [Free utility & organic growth](HOLBERY-FREE-UTILITY-ORGANIC-GROWTH.md) extends this primary strategy. UTILITY → USAGE → TRUST → AUDIENCE → POSITIONING → PRODUCT DEMAND → TRANSACTION. Daily Close preserved; only Target Omzet and Break-even added. Organic content drafts, explicit opt-in events and weekly review; no forced signup/paid traffic/new speculative paid offer. Existing approved commerce/package remains available and private. Client counts are signals, not payment/outcome/market proof.
+
+
+## Strategic execution lock — Internal Intelligence First (2026-10-10)
+
+The parent-brand doctrine remains brand-first, proof-driven, and commerce-backed. The operating sequence is now internal intelligence before broad external distribution:
+
+**DIGITAL OBSERVATION → EVIDENCE DOSSIER → OPPORTUNITY DECISION → CONTROLLED MARKET TEST → MEASURED LEARNING → PRODUCT / BRAND PROOF.**
+
+HOLBERY will build a private Intelligence OS to capture authorized digital demand signals, trace claims to sources, identify repeated problems, map alternatives, score opportunities, and decide which offer merits a bounded market test. This is a shared internal capability for SYSTEMS, PRODUCTS, VENTURES, and COMMERCE—not a set of unrelated products.
+
+Digital evidence is the default alternative to routine offline interviews. However, observed posts, search activity, and repeated complaints are evidence of signals or patterns, not automatic proof of willingness to pay. Only actual external behavior and verified transactions support stronger commercial claims.
+
+Distribution remains important, but it is activated deliberately after an evidence gate. No indiscriminate mass posting, unauthorized scraping, or unsolicited automated outreach. Existing products and utilities remain available as assets; their existence or deployment does not establish demand.
