@@ -21,18 +21,19 @@ Build. Operate. Grow. HOLBERY is the parent commerce infrastructure for SYSTEMS,
 - Actual deploy/source references: [evidence/release.json](evidence/release.json).
 - Ejaan domain: holbery (satu r). Email: hello@holbery.id / support@holbery.id, routing belum aktif. Full website apex requires suffix confirmation; keep the verified Pages host. Exact domain facts: [CONTACT-DOMAINS.md](CONTACT-DOMAINS.md).
 
-## Current strategic direction — BRAND-FIRST
+## Current strategic direction — BRAND-FIRST + INTERNAL INTELLIGENCE FIRST
 
-HOLBERY is now governed by a **brand-first, proof-driven, commerce-backed** strategy. The brand is the primary long-term asset; products create value and evidence; commerce converts value into real economics; distribution is a secondary acquisition capability.
+HOLBERY remains a **brand-first, proof-driven, commerce-backed** parent company. Its products, systems, ventures, and commerce must compound under one identity.
+
+The execution order is now **INTERNAL INTELLIGENCE → EVIDENCE GATE → CONTROLLED EXTERNAL MARKET TEST → MEASURED LEARNING**. HOLBERY will build a private Intelligence OS for authorized digital demand discovery, source-backed evidence, opportunity scoring, decision records, offer preparation, and experiment learning. External distribution is activated only after a documented opportunity gate; it is not blind mass posting. Digital evidence can justify a test, but does not alone prove willingness to pay.
 
 Primary strategy documents:
-- [strategy/HOLBERY-BRAND-FIRST-MASTER.md](strategy/HOLBERY-BRAND-FIRST-MASTER.md)
-- [strategy/HOLBERY-PRODUCT-DIRECTION.md](strategy/HOLBERY-PRODUCT-DIRECTION.md)
-- [strategy/HOLBERY-EVIDENCE-FRAMEWORK.md](strategy/HOLBERY-EVIDENCE-FRAMEWORK.md)
-- [strategy/HOLBERY-OPERATING-ROADMAP.md](strategy/HOLBERY-OPERATING-ROADMAP.md)
-- [strategy/HOLBERY-PRODUCT-EVIDENCE-LEDGER.md](strategy/HOLBERY-PRODUCT-EVIDENCE-LEDGER.md)
-
-The distribution engine remains available as a **secondary / optional capability**, not the primary strategic direction.
+- [HOLBERY-BRAND-FIRST-MASTER.md](strategy/HOLBERY-BRAND-FIRST-MASTER.md)
+- [HOLBERY-PRODUCT-DIRECTION.md](strategy/HOLBERY-PRODUCT-DIRECTION.md)
+- [HOLBERY-EVIDENCE-FRAMEWORK.md](strategy/HOLBERY-EVIDENCE-FRAMEWORK.md)
+- [HOLBERY-OPERATING-ROADMAP.md](strategy/HOLBERY-OPERATING-ROADMAP.md)
+- [HOLBERY-PRODUCT-EVIDENCE-LEDGER.md](strategy/HOLBERY-PRODUCT-EVIDENCE-LEDGER.md)
+- [HOLBERY-INTELLIGENCE-OS-ARCHITECTURE.md](strategy/HOLBERY-INTELLIGENCE-OS-ARCHITECTURE.md)
 
 ## Canonical references
 
