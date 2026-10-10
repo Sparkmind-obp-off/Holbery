@@ -180,3 +180,33 @@ The roadmap is complete only when HOLBERY has:
 - real economics;
 - repeatable systems;
 - a portfolio that compounds.
+
+
+## Strategic execution addendum — Internal Intelligence First (2026-10-10)
+
+This addendum supersedes the sequencing of the earlier roadmap where it conflicts with the internal-first decision. Earlier product and utility work remains existing assets; it is not proof of demand or a requirement to expand external promotion immediately.
+
+### New sequence
+
+1. **I0 — Repository and capability audit:** inspect the current repository tree, D1 migrations, event instrumentation, deployment and source/connector access. Reuse verified assets; do not duplicate runtime or database.
+2. **I1 — Intelligence contracts:** define source registry, collection runs, source records, evidence, problem clusters, opportunities, decisions, offers, experiments and outcomes.
+3. **I2 — Authorized digital collection:** begin with two or three permitted source classes, bounded quotas and cost tracking. Do not attempt every platform at once.
+4. **I3 — Evidence and discovery:** preserve provenance, deduplicate, cluster repeated problems, map alternatives, and record counter-evidence and uncertainty.
+5. **I4 — Opportunity decision gate:** implement transparent scoring and REJECT / MONITOR / RESEARCH MORE / READY FOR MARKET TEST states.
+6. **I5 — Private operator review:** provide authenticated search, evidence dossiers, source health, run costs, gate blockers and pause controls.
+7. **I6 — One controlled external market test:** only after a documented dossier passes the gate. Reuse existing HOLBERY pages, product assets and commerce; do not build a duplicate checkout.
+8. **I7 — Outcome feedback:** connect first-party behavior and authoritative payment state; distinguish traffic, qualified interest, checkout, verified payment, delivery, outcome and repeatability.
+
+### External activation gate
+
+No broad external presence merely because a page or product exists. Before a market test, record source evidence, target buyer/payer, alternatives, commercial-intent signals, offer, price hypothesis, delivery/support readiness, authorized channels, measurement plan, budget cap and stop conditions.
+
+A passed gate permits a bounded test; it does not mean demand is proven. Only observed market behavior and verified transactions advance the evidence level.
+
+### Governance
+
+- Digital research is the default discovery method; offline interviews are not a required gate.
+- Automated collection and publication must respect source/platform access rules, privacy, rate limits and community policies.
+- Agents may research, score and draft. Public publishing or spending is automated only where authorized and within approved controls.
+- The Intelligence OS is an internal HOLBERY capability, not a separate public SaaS at this stage.
+- Existing products remain candidates for controlled tests when the evidence dossier and delivery readiness justify them.
